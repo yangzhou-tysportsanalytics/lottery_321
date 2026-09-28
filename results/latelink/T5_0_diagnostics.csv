@@ -1,0 +1,2 @@
+states,games,stopped_2000,stopped_8000,stopped_32000,missed_target,n_worlds_match,max_halfwidth_linear,max_halfwidth_linear_rules_only,max_halfwidth_delta_linear,p95_halfwidth_linear,max_q_total_dev,max_per_slot_dev,per_slot_noise_scale,max_own_slot_dev,max_zero_sum_dev
+81,626,1,4,38,38,2000,0.00635607469297109,0.00635607469297109,0.006124055343901431,0.004608618900492039,7.283063041541027e-13,0.00603513253550414,0.011180339887498949,4.470348358154297e-08,0.003683196563589145

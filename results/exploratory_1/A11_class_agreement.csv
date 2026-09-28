@@ -1,0 +1,5 @@
+rule,portfolio,n,differ
+new,actual,4896,2
+new,own,4896,0
+old,actual,4896,0
+old,own,4896,0

@@ -1,0 +1,654 @@
+{
+ "draft_year": 2022,
+ "season": "2021-22",
+ "state_as_of": "after the 2022-02-10 trade deadline (the late-season window is after the deadline); conditions per HR_mar22 (2022-03-18)",
+ "sources": [
+  {
+   "id": "HR_mar22",
+   "title": "Checking In On Traded 2022 First-Round Picks (Hoops Rumors)",
+   "url": "https://www.hoopsrumors.com/2022/03/checking-in-on-traded-2022-first-round-picks-2.html",
+   "date": "2022-03-18",
+   "role": "conditions (post-deadline state; 2022 deadline was 2022-02-10)"
+  },
+  {
+   "id": "HR_sep21",
+   "title": "Traded First-Round Picks For 2022 NBA Draft (Hoops Rumors)",
+   "url": "https://www.hoopsrumors.com/2021/09/traded-first-round-picks-for-2022-nba-draft.html",
+   "date": "2021-09-13",
+   "role": "original terms (page evidently updated after publication: it already lists the Feb 2022 BOS->SAS and TOR->SAS deals)"
+  },
+  {
+   "id": "NBA_2022",
+   "title": "2022 NBA Draft results / order (NBA.com)",
+   "url": "https://www.nba.com/news/2022-nba-draft-order",
+   "date": "2022-11-30",
+   "role": "realized holders"
+  },
+  {
+   "id": "WIKI_2022",
+   "title": "2022 NBA draft (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/2022_NBA_draft",
+   "role": "realized holders with 'from' annotations (second source)"
+  },
+  {
+   "id": "PST_search_20210325",
+   "title": "ProSportsTransactions transaction records, 2021-03-25 (Oladipo trade)",
+   "url": "https://www.prosportstransactions.com/basketball/Search/SearchResults.php?BeginDate=2020-10-11&EndDate=&Player=&PlayerMovementChkBx=yes&Submit=Search&Team=&start=1375",
+   "accessed": "2026-09-22",
+   "role": "conditions"
+  }
+ ],
+ "natives": {
+  "ATL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "BKN": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "MIA"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "MIA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Houston holds Brooklyn's pick outright (2021 Harden trade) and a right to swap with Miami (2021 Oladipo trade); HR_sep21: HOU receives the two most favorable of the BKN/MIA/HOU picks, MIA the least favorable.",
+     "Miami's pick is top-14 protected for the swap: if MIA's pick lands 1-14, MIA keeps its own pick and HOU keeps the BKN and HOU picks.",
+     "HR_mar22 frames it only as HOU getting the better of the BKN and MIA picks (MIA the worse); identical to the ranks above unless HOU's own pick is the least favorable of the three."
+    ]
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21",
+    "PST_search_20210325"
+   ],
+   "text": "Houston holds BKN's pick and may swap with Miami (MIA top-14 protected): HOU ends up with the two best of BKN/HOU/MIA, MIA the worst. (ProSportsTransactions record: 'Rockets option to swap Nets or Rockets 2022 first round pick for Heat (Heat pick protected top 14 ...)'; the value-maximizing single swap equals the encoded two-best/least rule.)",
+   "confidence": "high"
+  },
+  "BOS": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      4
+     ]
+    ],
+    "else": "SAS"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-4 protected to San Antonio (Derrick White trade, Feb 2022).",
+   "confidence": "high"
+  },
+  "CHA": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      18
+     ]
+    ],
+    "else": "ATL"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-18 protected to Atlanta (if kept, 2023 top-16 protected).",
+   "confidence": "high"
+  },
+  "CHI": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "CLE": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "IND"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-14 protected to Indiana (if kept, 2023 top-14 protected).",
+   "confidence": "high"
+  },
+  "DAL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "DEN": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "DET": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      16
+     ]
+    ],
+    "else": "OKC"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-16 protected to Oklahoma City (if kept, 2023 top-18 protected).",
+   "confidence": "high"
+  },
+  "GSW": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "HOU": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "MIA"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "MIA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Houston holds Brooklyn's pick outright (2021 Harden trade) and a right to swap with Miami (2021 Oladipo trade); HR_sep21: HOU receives the two most favorable of the BKN/MIA/HOU picks, MIA the least favorable.",
+     "Miami's pick is top-14 protected for the swap: if MIA's pick lands 1-14, MIA keeps its own pick and HOU keeps the BKN and HOU picks.",
+     "HR_mar22 frames it only as HOU getting the better of the BKN and MIA picks (MIA the worse); identical to the ranks above unless HOU's own pick is the least favorable of the three."
+    ]
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21",
+    "PST_search_20210325"
+   ],
+   "text": "Houston holds BKN's pick and may swap with Miami (MIA top-14 protected): HOU ends up with the two best of BKN/HOU/MIA, MIA the worst. (ProSportsTransactions record: 'Rockets option to swap Nets or Rockets 2022 first round pick for Heat (Heat pick protected top 14 ...)'; the value-maximizing single swap equals the encoded two-best/least rule.)",
+   "confidence": "high"
+  },
+  "IND": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "LAC": {
+   "rule": {
+    "type": "to",
+    "holder": "OKC"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Unprotected to Oklahoma City (Paul George trade).",
+   "confidence": "high"
+  },
+  "LAL": {
+   "rule": {
+    "type": "to",
+    "holder": "NOP"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Lakers never keep it: New Orleans gets it if 1-10, Memphis if 11-30. Two outside holders not expressible; coded 'to NOP' (see open_issues).",
+   "confidence": "low"
+  },
+  "MEM": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "MIA": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "MIA"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "MIA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Houston holds Brooklyn's pick outright (2021 Harden trade) and a right to swap with Miami (2021 Oladipo trade); HR_sep21: HOU receives the two most favorable of the BKN/MIA/HOU picks, MIA the least favorable.",
+     "Miami's pick is top-14 protected for the swap: if MIA's pick lands 1-14, MIA keeps its own pick and HOU keeps the BKN and HOU picks.",
+     "HR_mar22 frames it only as HOU getting the better of the BKN and MIA picks (MIA the worse); identical to the ranks above unless HOU's own pick is the least favorable of the three."
+    ]
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21",
+    "PST_search_20210325"
+   ],
+   "text": "Houston holds BKN's pick and may swap with Miami (MIA top-14 protected): HOU ends up with the two best of BKN/HOU/MIA, MIA the worst. (ProSportsTransactions record: 'Rockets option to swap Nets or Rockets 2022 first round pick for Heat (Heat pick protected top 14 ...)'; the value-maximizing single swap equals the encoded two-best/least rule.)",
+   "confidence": "high"
+  },
+  "MIL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "MIN": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "NOP": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      4
+     ]
+    ],
+    "else": "CHA"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "NOP keeps if 1-4; Portland gets it if 5-14; Charlotte gets it if 15-30. Three-way split not expressible; coded as keep 1-4 else CHA (see open_issues).",
+   "confidence": "low"
+  },
+  "NYK": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "OKC": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "ATL"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-14 protected to Atlanta (if kept, obligation extinguished for two OKC second-rounders).",
+   "confidence": "high"
+  },
+  "ORL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "PHI": {
+   "rule": {
+    "type": "to",
+    "holder": "BKN"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Unprotected to Brooklyn (Harden-Simmons trade), but Brooklyn held the option to defer it to 2023 (it deferred; PHI used the 2022 pick). See open_issues.",
+   "confidence": "low"
+  },
+  "PHX": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      12
+     ]
+    ],
+    "else": "OKC"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-12 protected to Oklahoma City (if kept, 2023 top-10 protected).",
+   "confidence": "high"
+  },
+  "POR": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "CHI"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-14 protected to Chicago (if kept, 2023 top-14 protected).",
+   "confidence": "high"
+  },
+  "SAC": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "SAS": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "TOR": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "SAS"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-14 protected to San Antonio (Thad Young trade, Feb 2022).",
+   "confidence": "high"
+  },
+  "UTA": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      6
+     ]
+    ],
+    "else": "MEM"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Top-6 protected to Memphis (if kept, 2023 top-3 protected).",
+   "confidence": "high"
+  },
+  "WAS": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar22",
+    "HR_sep21"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  }
+ },
+ "realized": {
+  "1": {
+   "native": "ORL",
+   "holder": "ORL"
+  },
+  "2": {
+   "native": "OKC",
+   "holder": "OKC"
+  },
+  "3": {
+   "native": "HOU",
+   "holder": "HOU"
+  },
+  "4": {
+   "native": "SAC",
+   "holder": "SAC"
+  },
+  "5": {
+   "native": "DET",
+   "holder": "DET"
+  },
+  "6": {
+   "native": "IND",
+   "holder": "IND"
+  },
+  "7": {
+   "native": "POR",
+   "holder": "POR"
+  },
+  "8": {
+   "native": "LAL",
+   "holder": "NOP"
+  },
+  "9": {
+   "native": "SAS",
+   "holder": "SAS"
+  },
+  "10": {
+   "native": "WAS",
+   "holder": "WAS"
+  },
+  "11": {
+   "native": "NYK",
+   "holder": "NYK"
+  },
+  "12": {
+   "native": "LAC",
+   "holder": "OKC"
+  },
+  "13": {
+   "native": "CHA",
+   "holder": "CHA"
+  },
+  "14": {
+   "native": "CLE",
+   "holder": "CLE"
+  },
+  "15": {
+   "native": "NOP",
+   "holder": "CHA"
+  },
+  "16": {
+   "native": "ATL",
+   "holder": "ATL"
+  },
+  "17": {
+   "native": "BKN",
+   "holder": "HOU"
+  },
+  "18": {
+   "native": "CHI",
+   "holder": "CHI"
+  },
+  "19": {
+   "native": "MIN",
+   "holder": "MIN"
+  },
+  "20": {
+   "native": "TOR",
+   "holder": "SAS"
+  },
+  "21": {
+   "native": "DEN",
+   "holder": "DEN"
+  },
+  "22": {
+   "native": "UTA",
+   "holder": "MEM"
+  },
+  "23": {
+   "native": "PHI",
+   "holder": "PHI"
+  },
+  "24": {
+   "native": "MIL",
+   "holder": "MIL"
+  },
+  "25": {
+   "native": "BOS",
+   "holder": "SAS"
+  },
+  "26": {
+   "native": "DAL",
+   "holder": "DAL"
+  },
+  "27": {
+   "native": "MIA",
+   "holder": "MIA"
+  },
+  "28": {
+   "native": "GSW",
+   "holder": "GSW"
+  },
+  "29": {
+   "native": "MEM",
+   "holder": "MEM"
+  },
+  "30": {
+   "native": "PHX",
+   "holder": "OKC"
+  }
+ },
+ "forfeited": [],
+ "open_issues": [
+  "PHI: Brooklyn held an unprotected 2022 PHI first with an option to defer it to 2023. The option is not expressible; coded 'to BKN' (low). Brooklyn deferred (reported 2022-06-01), so PHI selected at #23 itself -> realized holder PHI differs from rule holder BKN. Explained by the deferral, not a data error; the pick became PHI's 2023 first (see 2023 ledger pool BKN/HOU/PHI).",
+  "NOP: three-way split (NOP 1-4, POR 5-14, CHA 15-30) is not expressible. Coded protected keep 1-4 else CHA (low): exact for NOP's own incentive and for slots 15-30 (the realized #15 is consistent), wrong holder (should be POR) if the pick lands 5-14. At HR_mar22 NOP was 9th in the lottery standings and projected into the play-in, so both branches were live. Side consideration per HR_sep21: if the pick lands 1-4 or 15-30, NOP instead owes POR the MIL 2025 first (top-4 protected); if it lands 1-14, NOP instead sends CHA two second-rounders.",
+  "LAL: pick goes to NOP if 1-10, to MEM if 11-30; the Lakers never keep it. Coded 'to NOP' (low): exact for LAL's incentive, wrong holder (should be MEM) for slots 11-30. At HR_mar22 LAL was tied with NYK for the 10th-worst record, so both branches were live. Realized #8 -> NOP (consistent). HR_sep21 adds that NOP sends MEM two second-rounders if NOP gets the pick.",
+  "BKN/HOU/MIA pool: HR_sep21 (three-pick framing, MIA swap top-14 protected) vs HR_mar22 (two-pick framing: HOU gets better of BKN/MIA). Encoded the three-pick framing; the two coincide whenever HOU's own pick is not the least favorable of the three (it was #3 in reality). The MIA top-14 protection is stated only in HR_sep21 -> medium.",
+  "Consistency check: applying each native's rule to its realized slot reproduces the realized pre-draft holder for 29 of 30 natives; the single mismatch is PHI #23 (deferral, above).",
+  "Realized holders from NBA_2022 plus native slots derived from WIKI_2022 'from' annotations and 2021-22 records (UTA 49-33 -> #22, MEM 56-26 -> #29). Some Wikipedia 'from' annotations are ambiguous (e.g., 'from Utah' notes attached to #22/#29 and a chain to MIL #24); resolved using final records and HR_mar22 projections.",
+  "Draft-night trades (not mismatches; pre-draft holder recorded): #11 NYK->OKC, #13 CHA->NYK->DET, #19 MIN->MEM, #22 MEM->MIN (later UTA), #23 PHI->MEM, #26 DAL->HOU->MIN, #29 MEM->MIN->HOU, #30 OKC->DEN.",
+  "No 2022 first-round picks were forfeited; the 2022 forfeitures (MIL; MIA's, originally PHI's via DEN, per WIKI_2022) were second-rounders."
+ ]
+}

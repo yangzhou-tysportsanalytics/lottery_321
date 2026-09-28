@@ -1,0 +1,680 @@
+{
+  "draft_year": 2025,
+  "season": "2024-25",
+  "state_as_of": "after the trade deadline (Feb 6, 2025); conditions per Hoops Rumors post-deadline check-in (Mar 9, 2025)",
+  "sources": [
+    {
+      "id": "HR_mar25",
+      "title": "Checking In On Traded 2025 First-Round Picks (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2025/03/checking-in-on-traded-2025-first-round-picks.html",
+      "date": "2025-03-09",
+      "role": "conditions"
+    },
+    {
+      "id": "HR_aug24",
+      "title": "Traded First-Round Picks For 2025 NBA Draft (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2024/08/traded-first-round-picks-for-2025-nba-draft.html",
+      "date": "2024-08-13",
+      "role": "original terms (page appears updated through June 2025; not a clean Aug 2024 snapshot)"
+    },
+    {
+      "id": "NBA_2025",
+      "title": "2025 NBA Draft order / results (NBA.com)",
+      "url": "https://www.nba.com/news/2025-nba-draft-order",
+      "date": "2025-06-27",
+      "role": "realized holders"
+    },
+    {
+      "id": "HR_order25",
+      "title": "Full 2025 NBA Draft Order (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2025/05/full-2025-nba-draft-order.html",
+      "date": "2025-05-12",
+      "role": "realized natives (from annotations)"
+    },
+    {
+      "id": "WIKI_2025",
+      "title": "2025 NBA draft (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/2025_NBA_draft",
+      "role": "realized holders (second source)"
+    },
+    {
+      "id": "NBA_IND_NOP",
+      "title": "Pacers-Pelicans trade (NBA.com)",
+      "url": "https://www.nba.com/news/pacers-pelicans-trade-2025-draft-pick",
+      "date": "2025-06-17",
+      "role": "post-deadline trade"
+    },
+    {
+      "id": "NBA_BANE",
+      "title": "Magic-Grizzlies trade: Bane (NBA.com)",
+      "url": "https://www.nba.com/news/magic-grizzlies-trade-bane-caldwell-pope",
+      "date": "2025-06-15",
+      "role": "post-deadline trade"
+    }
+  ],
+  "natives": {
+    "ATL": {
+      "rule": {
+        "type": "to",
+        "holder": "SAS"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Unprotected to San Antonio (Murray trade).",
+      "confidence": "high"
+    },
+    "BKN": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "BOS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "CHA": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "SAC"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-14 protected; held by Sacramento at deadline (moved from SAS in the Fox trade).",
+      "confidence": "high"
+    },
+    "CHI": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "CLE": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "CLE",
+          "MIN"
+        ],
+        "allocation": [
+          {
+            "holder": "UTA",
+            "rank": 1
+          },
+          {
+            "holder": "PHX",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "Both picks unprotected."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Utah gets the more favorable of the CLE/MIN picks, Phoenix the less favorable.",
+      "confidence": "high"
+    },
+    "DAL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "DEN": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            5
+          ]
+        ],
+        "else": "ORL"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-5 protected to Orlando.",
+      "confidence": "high"
+    },
+    "DET": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            13
+          ]
+        ],
+        "else": "MIN"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-13 protected; acquired by Minnesota from New York (Towns/Randle trade) before the deadline.",
+      "confidence": "high"
+    },
+    "GSW": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            10
+          ]
+        ],
+        "else": "MIA"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-10 protected to Miami (Butler trade).",
+      "confidence": "high"
+    },
+    "HOU": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "HOU",
+          "PHX"
+        ],
+        "allocation": [
+          {
+            "holder": "HOU",
+            "rank": 1
+          },
+          {
+            "holder": "BKN",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "BKN holds the unprotected PHX pick; HOU may swap its own pick (or the OKC pick if OKC swapped with HOU) for it.",
+          "HOU's own pick is also subject to OKC's swap right (top-10 protected) - see pool LAC/OKC; encoded assuming OKC swaps with LAC."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Brooklyn holds Phoenix's pick; Houston may swap its pick for it, so HOU gets the better of HOU/PHX and BKN the worse.",
+      "confidence": "low"
+    },
+    "IND": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "LAC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "LAC",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "LAC",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "OKC may swap its own pick for EITHER the LAC pick or the HOU pick (HOU top-10 protected for this swap); the team whose pick OKC takes receives OKC's pick. Encoded as the LAC branch (HR Mar 2025: HOU 4.5 games ahead of LAC, so LAC branch expected).",
+          "If OKC instead takes HOU's pick, HOU may then swap the OKC pick it received to BKN for the PHX pick. Linked to pool HOU/PHX."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Thunder swap right: OKC gets the better of OKC/LAC (alternatively could target HOU's pick); LAC gets the other.",
+      "confidence": "low"
+    },
+    "LAL": {
+      "rule": {
+        "type": "to",
+        "holder": "ATL"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Unprotected to Atlanta (deferred 2024 LAL pick; NOP->ATL in Murray trade).",
+      "confidence": "high"
+    },
+    "MEM": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "WAS"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-14 protected to Washington.",
+      "confidence": "high"
+    },
+    "MIA": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-14 protected to Oklahoma City (else unprotected 2026 first).",
+      "confidence": "high"
+    },
+    "MIL": {
+      "rule": {
+        "type": "to",
+        "holder": "BKN"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Goes to Brooklyn if 5-30, to New Orleans if 1-4; Milwaukee cannot keep it. Grammar cannot express two outside holders (see open_issues).",
+      "confidence": "low"
+    },
+    "MIN": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "CLE",
+          "MIN"
+        ],
+        "allocation": [
+          {
+            "holder": "UTA",
+            "rank": 1
+          },
+          {
+            "holder": "PHX",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "Both picks unprotected."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Utah gets the more favorable of the CLE/MIN picks, Phoenix the less favorable.",
+      "confidence": "high"
+    },
+    "NOP": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "NYK": {
+      "rule": {
+        "type": "to",
+        "holder": "BKN"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Unprotected to Brooklyn (Bridges trade).",
+      "confidence": "high"
+    },
+    "OKC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "LAC",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "LAC",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "OKC may swap its own pick for EITHER the LAC pick or the HOU pick (HOU top-10 protected for this swap); the team whose pick OKC takes receives OKC's pick. Encoded as the LAC branch (HR Mar 2025: HOU 4.5 games ahead of LAC, so LAC branch expected).",
+          "If OKC instead takes HOU's pick, HOU may then swap the OKC pick it received to BKN for the PHX pick. Linked to pool HOU/PHX."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Thunder swap right: OKC gets the better of OKC/LAC (alternatively could target HOU's pick); LAC gets the other.",
+      "confidence": "low"
+    },
+    "ORL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "PHI": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            6
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-6 protected to Oklahoma City (rolls to 2026 top-4 if kept).",
+      "confidence": "high"
+    },
+    "PHX": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "HOU",
+          "PHX"
+        ],
+        "allocation": [
+          {
+            "holder": "HOU",
+            "rank": 1
+          },
+          {
+            "holder": "BKN",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "BKN holds the unprotected PHX pick; HOU may swap its own pick (or the OKC pick if OKC swapped with HOU) for it.",
+          "HOU's own pick is also subject to OKC's swap right (top-10 protected) - see pool LAC/OKC; encoded assuming OKC swaps with LAC."
+        ]
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Brooklyn holds Phoenix's pick; Houston may swap its pick for it, so HOU gets the better of HOU/PHX and BKN the worse.",
+      "confidence": "low"
+    },
+    "POR": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "CHI"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-14 protected to Chicago.",
+      "confidence": "high"
+    },
+    "SAC": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            12
+          ]
+        ],
+        "else": "ATL"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-12 protected to Atlanta.",
+      "confidence": "high"
+    },
+    "SAS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "TOR": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "Not listed as traded in the post-deadline Hoops Rumors article; native keeps its pick.",
+      "confidence": "high"
+    },
+    "UTA": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            10
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-10 protected to Oklahoma City.",
+      "confidence": "high"
+    },
+    "WAS": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            10
+          ]
+        ],
+        "else": "NYK"
+      },
+      "sources": [
+        "HR_mar25",
+        "HR_aug24"
+      ],
+      "text": "Top-10 protected to New York.",
+      "confidence": "high"
+    }
+  },
+  "realized": {
+    "1": {
+      "native": "DAL",
+      "holder": "DAL"
+    },
+    "2": {
+      "native": "SAS",
+      "holder": "SAS"
+    },
+    "3": {
+      "native": "PHI",
+      "holder": "PHI"
+    },
+    "4": {
+      "native": "CHA",
+      "holder": "CHA"
+    },
+    "5": {
+      "native": "UTA",
+      "holder": "UTA"
+    },
+    "6": {
+      "native": "WAS",
+      "holder": "WAS"
+    },
+    "7": {
+      "native": "NOP",
+      "holder": "NOP"
+    },
+    "8": {
+      "native": "BKN",
+      "holder": "BKN"
+    },
+    "9": {
+      "native": "TOR",
+      "holder": "TOR"
+    },
+    "10": {
+      "native": "PHX",
+      "holder": "HOU"
+    },
+    "11": {
+      "native": "POR",
+      "holder": "POR"
+    },
+    "12": {
+      "native": "CHI",
+      "holder": "CHI"
+    },
+    "13": {
+      "native": "SAC",
+      "holder": "ATL"
+    },
+    "14": {
+      "native": "ATL",
+      "holder": "SAS"
+    },
+    "15": {
+      "native": "MIA",
+      "holder": "OKC"
+    },
+    "16": {
+      "native": "ORL",
+      "holder": "MEM"
+    },
+    "17": {
+      "native": "DET",
+      "holder": "MIN"
+    },
+    "18": {
+      "native": "MEM",
+      "holder": "WAS"
+    },
+    "19": {
+      "native": "MIL",
+      "holder": "BKN"
+    },
+    "20": {
+      "native": "GSW",
+      "holder": "MIA"
+    },
+    "21": {
+      "native": "MIN",
+      "holder": "UTA"
+    },
+    "22": {
+      "native": "LAL",
+      "holder": "ATL"
+    },
+    "23": {
+      "native": "IND",
+      "holder": "NOP"
+    },
+    "24": {
+      "native": "LAC",
+      "holder": "OKC"
+    },
+    "25": {
+      "native": "DEN",
+      "holder": "ORL"
+    },
+    "26": {
+      "native": "NYK",
+      "holder": "BKN"
+    },
+    "27": {
+      "native": "HOU",
+      "holder": "BKN"
+    },
+    "28": {
+      "native": "BOS",
+      "holder": "BOS"
+    },
+    "29": {
+      "native": "CLE",
+      "holder": "PHX"
+    },
+    "30": {
+      "native": "OKC",
+      "holder": "LAC"
+    }
+  },
+  "forfeited": [],
+  "open_issues": [
+    "Post-deadline, pre-draft trades (in router_2025.POST_DEADLINE_CHANGES): #23 IND at the deadline, traded to NOP on 2025-06-17 (NBA_IND_NOP); #16 ORL at the deadline, traded to MEM in the Bane trade on 2025-06-15 (NBA_BANE). Rules give the deadline holder.",
+    "OKC/LAC/HOU/PHX/BKN network: the JSON's two rank pools are exact only when OKC's best target is the LAC pick. The full logic, with all branches, is in router_2025.py: OKC takes the more favorable of LAC's and HOU's picks (HOU not eligible if 1-10) if it beats its own, and the team it swapped with gets OKC's pick; HOU then swaps whichever pick it holds (its own, or OKC's) with BKN for the PHX pick if that is better. The ordering, eligibility and choice rules are marked ASSUMPTION in the module.",
+    "MIL: JSON rule 'to BKN' is approximate; router_2025.py routes it exactly (NOP if 1-4, BKN if 5-30).",
+    "Realized holders follow NBA.com's selecting team. Several trades were agreed before the draft but completed afterward: #10 HOU->PHX (Durant trade), #22 ATL->BKN (Porzingis three-team trade), #29 PHX->CHA; HR's updated order lists PHX at #10 and BKN at #22. Recorded holders HOU and ATL, which match the deadline rules.",
+    "Draft-night trades (not mismatches): #11 POR<->#16 MEM, #13 ATL<->#23 NOP, #18 WAS<->#21 UTA, #24 OKC->SAC.",
+    "HR_aug24 appears to have been updated after publication (it lists IND->NOP and ORL->MEM, which only happened in June 2025, and CHA->SAC from the Feb 2025 Fox trade); used only for original protection wording, which agrees with HR_mar25.",
+    "No 2025 first-round picks forfeited per sources checked (NYK/PHI forfeitures in this period were second-rounders).",
+    "The executable router router_2025.py is authoritative where the rank grammar can't express the terms; see its ASSUMPTIONS list."
+  ]
+}

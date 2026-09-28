@@ -1,0 +1,12 @@
+item,value
+old-rule actual reversals,171
+  with j* in 16-30,134
+  ... holding a pick under a conditional clause,133
+  ... holding a pick routed through a pool,86
+  ... holding the opponent's pick,45
+  with j* in 1-15,37
+own-pick 3-2-1 reversals,506
+  with the H1 crossing pattern (band < 0 at some j <= 11 and > 0 at some j in 12-15),505
+old-rule actual team-games without a conditional holding,2796
+  of which reversals,1
+days on which primary and norestr stopped at different looks,2

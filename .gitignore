@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+figures_out/
+theory_numbers.md

@@ -1,0 +1,771 @@
+{
+ "draft_year": 2023,
+ "season": "2022-23",
+ "state_as_of": "after the 2023-02-09 trade deadline (the late-season window is after the deadline); conditions per HR_mar23 (2023-03-07)",
+ "sources": [
+  {
+   "id": "HR_mar23",
+   "title": "Checking In On Traded 2023 First-Round Picks (Hoops Rumors)",
+   "url": "https://www.hoopsrumors.com/2023/03/checking-in-on-traded-2023-first-round-picks.html",
+   "date": "2023-03-07",
+   "role": "conditions (post-deadline state; 2023 deadline was 2023-02-09)"
+  },
+  {
+   "id": "HR_aug22",
+   "title": "Traded First Round Picks For 2023 NBA Draft (Hoops Rumors)",
+   "url": "https://www.hoopsrumors.com/2022/08/traded-first-round-picks-for-2023-nba-draft.html",
+   "date": "2022-08-04",
+   "role": "original terms (page evidently updated after publication: lists the Feb 2023 PHX->BKN deal)"
+  },
+  {
+   "id": "HR_oct22",
+   "title": "2023 NBA Draft Pick Swaps To Monitor (Hoops Rumors)",
+   "url": "https://www.hoopsrumors.com/2022/10/2023-nba-draft-pick-swaps-to-monitor.html",
+   "date": "2022-10-28",
+   "role": "swap terms"
+  },
+  {
+   "id": "CBS_tucker",
+   "title": "P.J. Tucker trade grades (CBS Sports)",
+   "url": "https://www.cbssports.com/nba/news/p-j-tucker-trade-grades-bucks-add-rockets-forward-in-four-player-deal-that-also-involves-picks-per-report/",
+   "date": "2021-03-17",
+   "role": "origin of HOU's MIL 2023 first (unprotected)"
+  },
+  {
+   "id": "NBA_2023",
+   "title": "2023 NBA Draft results: picks 1-58 (NBA.com)",
+   "url": "https://www.nba.com/news/2023-nba-draft-order",
+   "date": "2023-06-30",
+   "role": "realized holders"
+  },
+  {
+   "id": "WIKI_2023",
+   "title": "2023 NBA draft (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/2023_NBA_draft",
+   "role": "realized holders with 'from' annotations (second source)"
+  }
+ ],
+ "natives": {
+  "ATL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "BKN": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "PHI"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "BKN",
+      "rank": 2
+     },
+     {
+      "holder": "UTA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Utah always gets the least favorable of the three picks.",
+     "If PHI's pick is the most favorable of the three, BKN gets it (rank 1) and HOU gets rank 2; otherwise HOU gets rank 1 and BKN rank 2.",
+     "Mechanics: HOU holds an unprotected swap of its own pick with BKN's (2021 Harden trade); BKN holds PHI's deferred 2023 first and owes UTA the less favorable of PHI's pick and the pick BKN is left with (2022 O'Neale trade)."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22"
+   ],
+   "text": "Houston may swap its pick for Brooklyn's; Brooklyn gets the better of its remaining pick and Philadelphia's; Utah gets the worst of the three.",
+   "confidence": "high"
+  },
+  "BOS": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      12
+     ]
+    ],
+    "else": "IND"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-12 protected to Indiana (Brogdon trade).",
+   "confidence": "high"
+  },
+  "CHA": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      16
+     ]
+    ],
+    "else": "SAS"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-16 protected to San Antonio (if kept, 2024 top-14 protected).",
+   "confidence": "high"
+  },
+  "CHI": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      4
+     ]
+    ],
+    "else": "ORL"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-4 protected to Orlando (Vucevic trade; if kept, 2024 top-3 protected).",
+   "confidence": "high"
+  },
+  "CLE": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "IND"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-14 protected to Indiana (rolled over from 2022).",
+   "confidence": "high"
+  },
+  "DAL": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      10
+     ]
+    ],
+    "else": "NYK"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-10 protected to New York (if kept, 2024 top-10 protected).",
+   "confidence": "high"
+  },
+  "DEN": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "CHA"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-14 protected to Charlotte (chain DEN->OKC->NYK->CHA; if kept, 2024 top-14 protected).",
+   "confidence": "high"
+  },
+  "DET": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      18
+     ]
+    ],
+    "else": "NYK"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-18 protected to New York (if kept, 2024 top-18 protected).",
+   "confidence": "high"
+  },
+  "GSW": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "HOU": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "PHI"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "BKN",
+      "rank": 2
+     },
+     {
+      "holder": "UTA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Utah always gets the least favorable of the three picks.",
+     "If PHI's pick is the most favorable of the three, BKN gets it (rank 1) and HOU gets rank 2; otherwise HOU gets rank 1 and BKN rank 2.",
+     "Mechanics: HOU holds an unprotected swap of its own pick with BKN's (2021 Harden trade); BKN holds PHI's deferred 2023 first and owes UTA the less favorable of PHI's pick and the pick BKN is left with (2022 O'Neale trade)."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22"
+   ],
+   "text": "Houston may swap its pick for Brooklyn's; Brooklyn gets the better of its remaining pick and Philadelphia's; Utah gets the worst of the three.",
+   "confidence": "high"
+  },
+  "IND": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "LAC": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "LAC",
+     "MIL",
+     "OKC"
+    ],
+    "allocation": [
+     {
+      "holder": "OKC",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "LAC",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Sequential swaps: OKC first takes the better of the OKC and LAC picks (unprotected, Paul George trade); LAC is left with the other. HOU (which holds MIL's unprotected pick) may then swap MIL's pick for the pick LAC is left with; LAC gets the least favorable.",
+     "If MIL's pick is the most favorable of the three, HOU keeps MIL's pick (rank 1) and OKC gets rank 2.",
+     "HOU's swap is top-6 protected: if the pick LAC is left with (worse of OKC/LAC) lands 1-6, HOU cannot swap; HOU keeps MIL's pick and LAC keeps that pick."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22",
+    "CBS_tucker"
+   ],
+   "text": "OKC gets the better of OKC/LAC; Houston may swap MIL's pick for the pick LAC is left with (top-6 protected); LAC ends up with the least favorable.",
+   "confidence": "medium"
+  },
+  "LAL": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "LAL",
+     "NOP"
+    ],
+    "allocation": [
+     {
+      "holder": "NOP",
+      "rank": 1
+     },
+     {
+      "holder": "LAL",
+      "rank": 2
+     }
+    ],
+    "conditions": [
+     "Unprotected swap right held by New Orleans (Anthony Davis trade)."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22"
+   ],
+   "text": "New Orleans may swap its pick for the Lakers'; NOP gets the better, LAL the worse.",
+   "confidence": "high"
+  },
+  "MEM": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "MIA": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "MIL": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "LAC",
+     "MIL",
+     "OKC"
+    ],
+    "allocation": [
+     {
+      "holder": "OKC",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "LAC",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Sequential swaps: OKC first takes the better of the OKC and LAC picks (unprotected, Paul George trade); LAC is left with the other. HOU (which holds MIL's unprotected pick) may then swap MIL's pick for the pick LAC is left with; LAC gets the least favorable.",
+     "If MIL's pick is the most favorable of the three, HOU keeps MIL's pick (rank 1) and OKC gets rank 2.",
+     "HOU's swap is top-6 protected: if the pick LAC is left with (worse of OKC/LAC) lands 1-6, HOU cannot swap; HOU keeps MIL's pick and LAC keeps that pick."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22",
+    "CBS_tucker"
+   ],
+   "text": "OKC gets the better of OKC/LAC; Houston may swap MIL's pick for the pick LAC is left with (top-6 protected); LAC ends up with the least favorable.",
+   "confidence": "medium"
+  },
+  "MIN": {
+   "rule": {
+    "type": "to",
+    "holder": "UTA"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Unprotected to Utah (Gobert trade).",
+   "confidence": "high"
+  },
+  "NOP": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "LAL",
+     "NOP"
+    ],
+    "allocation": [
+     {
+      "holder": "NOP",
+      "rank": 1
+     },
+     {
+      "holder": "LAL",
+      "rank": 2
+     }
+    ],
+    "conditions": [
+     "Unprotected swap right held by New Orleans (Anthony Davis trade)."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22"
+   ],
+   "text": "New Orleans may swap its pick for the Lakers'; NOP gets the better, LAL the worse.",
+   "confidence": "high"
+  },
+  "NYK": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "POR"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-14 protected to Portland (Josh Hart trade, deadline 2023).",
+   "confidence": "high"
+  },
+  "OKC": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "LAC",
+     "MIL",
+     "OKC"
+    ],
+    "allocation": [
+     {
+      "holder": "OKC",
+      "rank": 1
+     },
+     {
+      "holder": "HOU",
+      "rank": 2
+     },
+     {
+      "holder": "LAC",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Sequential swaps: OKC first takes the better of the OKC and LAC picks (unprotected, Paul George trade); LAC is left with the other. HOU (which holds MIL's unprotected pick) may then swap MIL's pick for the pick LAC is left with; LAC gets the least favorable.",
+     "If MIL's pick is the most favorable of the three, HOU keeps MIL's pick (rank 1) and OKC gets rank 2.",
+     "HOU's swap is top-6 protected: if the pick LAC is left with (worse of OKC/LAC) lands 1-6, HOU cannot swap; HOU keeps MIL's pick and LAC keeps that pick."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22",
+    "CBS_tucker"
+   ],
+   "text": "OKC gets the better of OKC/LAC; Houston may swap MIL's pick for the pick LAC is left with (top-6 protected); LAC ends up with the least favorable.",
+   "confidence": "medium"
+  },
+  "ORL": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "PHI": {
+   "rule": {
+    "type": "pool",
+    "members": [
+     "BKN",
+     "HOU",
+     "PHI"
+    ],
+    "allocation": [
+     {
+      "holder": "HOU",
+      "rank": 1
+     },
+     {
+      "holder": "BKN",
+      "rank": 2
+     },
+     {
+      "holder": "UTA",
+      "rank": 3
+     }
+    ],
+    "conditions": [
+     "Utah always gets the least favorable of the three picks.",
+     "If PHI's pick is the most favorable of the three, BKN gets it (rank 1) and HOU gets rank 2; otherwise HOU gets rank 1 and BKN rank 2.",
+     "Mechanics: HOU holds an unprotected swap of its own pick with BKN's (2021 Harden trade); BKN holds PHI's deferred 2023 first and owes UTA the less favorable of PHI's pick and the pick BKN is left with (2022 O'Neale trade)."
+    ]
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22",
+    "HR_oct22"
+   ],
+   "text": "Houston may swap its pick for Brooklyn's; Brooklyn gets the better of its remaining pick and Philadelphia's; Utah gets the worst of the three.",
+   "confidence": "high"
+  },
+  "PHX": {
+   "rule": {
+    "type": "to",
+    "holder": "BKN"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Unprotected to Brooklyn (Durant trade, deadline 2023).",
+   "confidence": "high"
+  },
+  "POR": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "CHI"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-14 protected to Chicago (lottery-protected through 2028).",
+   "confidence": "high"
+  },
+  "SAC": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "SAS": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "TOR": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "UTA": {
+   "rule": {
+    "type": "own"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Own pick (not listed as traded).",
+   "confidence": "high"
+  },
+  "WAS": {
+   "rule": {
+    "type": "protected",
+    "keep": [
+     [
+      1,
+      14
+     ]
+    ],
+    "else": "NYK"
+   },
+   "sources": [
+    "HR_mar23",
+    "HR_aug22"
+   ],
+   "text": "Top-14 protected to New York (if kept, 2024 top-12 protected).",
+   "confidence": "high"
+  }
+ },
+ "realized": {
+  "1": {
+   "native": "SAS",
+   "holder": "SAS"
+  },
+  "2": {
+   "native": "CHA",
+   "holder": "CHA"
+  },
+  "3": {
+   "native": "POR",
+   "holder": "POR"
+  },
+  "4": {
+   "native": "HOU",
+   "holder": "HOU"
+  },
+  "5": {
+   "native": "DET",
+   "holder": "DET"
+  },
+  "6": {
+   "native": "ORL",
+   "holder": "ORL"
+  },
+  "7": {
+   "native": "IND",
+   "holder": "IND"
+  },
+  "8": {
+   "native": "WAS",
+   "holder": "WAS"
+  },
+  "9": {
+   "native": "UTA",
+   "holder": "UTA"
+  },
+  "10": {
+   "native": "DAL",
+   "holder": "DAL"
+  },
+  "11": {
+   "native": "CHI",
+   "holder": "ORL"
+  },
+  "12": {
+   "native": "OKC",
+   "holder": "OKC"
+  },
+  "13": {
+   "native": "TOR",
+   "holder": "TOR"
+  },
+  "14": {
+   "native": "NOP",
+   "holder": "NOP"
+  },
+  "15": {
+   "native": "ATL",
+   "holder": "ATL"
+  },
+  "16": {
+   "native": "MIN",
+   "holder": "UTA"
+  },
+  "17": {
+   "native": "LAL",
+   "holder": "LAL"
+  },
+  "18": {
+   "native": "MIA",
+   "holder": "MIA"
+  },
+  "19": {
+   "native": "GSW",
+   "holder": "GSW"
+  },
+  "20": {
+   "native": "LAC",
+   "holder": "HOU"
+  },
+  "21": {
+   "native": "PHX",
+   "holder": "BKN"
+  },
+  "22": {
+   "native": "BKN",
+   "holder": "BKN"
+  },
+  "23": {
+   "native": "NYK",
+   "holder": "POR"
+  },
+  "24": {
+   "native": "SAC",
+   "holder": "SAC"
+  },
+  "25": {
+   "native": "MEM",
+   "holder": "MEM"
+  },
+  "26": {
+   "native": "CLE",
+   "holder": "IND"
+  },
+  "27": {
+   "native": "DEN",
+   "holder": "CHA"
+  },
+  "28": {
+   "native": "PHI",
+   "holder": "UTA"
+  },
+  "29": {
+   "native": "BOS",
+   "holder": "IND"
+  },
+  "30": {
+   "native": "MIL",
+   "holder": "LAC"
+  }
+ },
+ "forfeited": [],
+ "open_issues": [
+  "Pool BKN/HOU/PHI: the allocation depends on whether PHI's pick is the best of the three (HOU rank 1/BKN rank 2 normally, swapped if PHI is best); ranks alone cannot express this, so the switch is in conditions. Terms agree across HR_aug22, HR_oct22 and HR_mar23.",
+  "Pool LAC/MIL/OKC: sequential OKC then HOU swaps; ranks shown are the typical case, with the MIL-best switch and the top-6 protection on HOU's swap in conditions. The top-6 protection is stated only in HR_aug22 (Bucks entry: HOU may swap MIL's pick with LAC's 'top-six protected'); HR_mar23 confirms the sequence (OKC swap first, then HOU) but not the protection -> medium. The trade that gave HOU the MIL/LAC swap right was not identified in the sources checked.",
+  "Consistency check: applying each native's rule (including pool conditions) to its realized slot reproduces the realized pre-draft holder for all 30 natives. No mismatches.",
+  "Draft-night trades (not mismatches; pre-draft holder recorded): #7 IND<->#8 WAS, #10 DAL<->#12 OKC, #24 SAC->DAL, #25 MEM->BOS->DET, #29 IND->DEN.",
+  "No 2023 first-round picks were forfeited; the 2023 forfeitures (CHI, PHI tampering) were second-rounders."
+ ]
+}

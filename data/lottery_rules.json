@@ -1,0 +1,85 @@
+{
+ "version": "rule_contract_v2",
+ "date": "2026-09-21",
+ "status": "research implementation; official joint procedure not certified",
+ "systems": {
+  "three_two_one": {
+   "applies": "2027-2029 drafts (sunset after 2029; vote required)",
+   "lottery_membership": "fixed by seeding position, not by playoff outcome: 10 non-play-in teams (conference seeds 11-15), 4 teams seeded 9th/10th, and the 2 losers of the 7-vs-8 play-in games",
+   "balls": {
+    "three_worst_records (relegated)": 2,
+    "remaining_non_play_in (7)": 3,
+    "play_in_seeds_9_10 (4)": 2,
+    "losers_7v8 (2)": 1
+   },
+   "total_balls": 37,
+   "drawing": "all 16 lottery picks drawn",
+   "floor": "relegated (three worst records) cannot receive a pick lower than #12",
+   "repeat_restrictions": {
+    "rule": "no team's pick may be #1 in two consecutive drafts or top-5 in three consecutive drafts",
+    "identity": "native (original) team pick; the restriction follows the pick after a trade"
+   },
+   "protection_ban": "newly traded picks cannot carry top-12 through top-15 protections (the release does not state whether it applies to protections agreed earlier)",
+   "picks_17_30": "non-lottery teams in inverse order of regular-season record (first round; second round analog per attachment)",
+   "second_round": "first 16 picks inverse of first-round lottery order; non-lottery teams inverse of record",
+   "discipline": "league may reduce odds, modify draft position, fine (not modeled)",
+   "joint_procedure": {
+    "primary": "sequential_feasible (draw only among teams whose selection keeps a feasible completion, weighted by balls)",
+    "sensitivity": "draw_then_adjust (unconstrained weighted order, then floor/min repair)",
+    "validation": "sequential_feasible reproduces all 64 printed marginals of the official attachment after rounding (tests/lottery321/test_lottery_rules.py); draw_then_adjust matches within rounding plus Monte Carlo error (tests/lottery321/test_league_sim_dta.py); printed marginals cannot discriminate between procedures"
+   },
+   "open": [
+    "boundary ties at the 3rd/4th-worst record: ball and floor allocation",
+    "ties among 9/10 seeds and play-in order effects",
+    "whether the protection ban applies to protections agreed before 2026-05-28",
+    "exact joint operational procedure"
+   ]
+  },
+  "flattened_2019": {
+   "applies": "2019-2026 drafts",
+   "lottery_membership": "14 non-playoff teams (after play-in from 2020-21 on)",
+   "combinations_per_1000_worst_first": [
+    140,
+    140,
+    140,
+    125,
+    105,
+    90,
+    75,
+    60,
+    45,
+    30,
+    20,
+    15,
+    10,
+    5
+   ],
+   "drawing": "top 4 picks drawn by combination weight without replacement; picks 5-14 in inverse record order",
+   "ties": "tied teams split their combined combinations (odd remainder by random draw); applied per simulated state (league_sim.py)",
+   "implementation": "src/lottery321/lottery_rules.py flattened_2019() exact",
+   "validation": "reproduces official odds rows for worst, 5th-worst and 14th teams exactly to 0.1 pp (tests/lottery321/test_lottery_rules.py::Flattened2019)"
+  }
+ },
+ "sources": [
+  {
+   "url": "https://pr.nba.com/nba-board-of-governors-approves-new-draft-lottery-system-to-address-tanking/",
+   "role": "official release 2026-05-28"
+  },
+  {
+   "url": "https://ak-static.cms.nba.com/wp-content/uploads/sites/46/2026/05/NBA-3-2-1-Draft-Lottery.pdf",
+   "role": "official two-page attachment (not redistributed)"
+  },
+  {
+   "url": "https://pr.nba.com/2025-nba-draft-lottery-results/",
+   "role": "2025 native top-14"
+  },
+  {
+   "url": "https://pr.nba.com/2026-nba-draft-lottery-results/",
+   "role": "2026 native top-14"
+  }
+ ],
+ "code": {
+  "engine": "src/lottery321/lottery_rules.py",
+  "tests": "tests/lottery321/test_lottery_rules.py"
+ }
+}

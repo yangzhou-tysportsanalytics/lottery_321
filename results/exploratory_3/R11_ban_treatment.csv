@@ -1,0 +1,29 @@
+item,value
+protections with P in 12..15 rewritten by the ban (six ledgers),24
+  of which inside a pool,3
+team-games in the C3 sample,1252
+  holding another team's pick conditionally (H3 sample),529
+top-11: team-games whose linear tau changes at all,239
+top-11:   of which in the H3 sample,148
+top-11: team-games whose tau changes by at least delta,102
+top-11:   of which in the H3 sample,39
+"top-11: class-B verdict changes, all",7
+top-11:   in the H3 sample,5
+"top-11:   reversals in the H3 sample, base / with ban",97 / 97
+top-11:     SAS 2022-02-14: reversal -> unresolved,
+top-11:     CHI 2022-03-24: dominance_positive -> unresolved,
+top-11:     POR 2024-03-13: dominance_positive -> negligible,
+top-11:     WAS 2024-03-25: unresolved -> reversal,
+top-11:     WAS 2024-04-02: dominance_positive -> unresolved,
+top-16: team-games whose linear tau changes at all,238
+top-16:   of which in the H3 sample,147
+top-16: team-games whose tau changes by at least delta,113
+top-16:   of which in the H3 sample,40
+"top-16: class-B verdict changes, all",2
+top-16:   in the H3 sample,2
+"top-16:   reversals in the H3 sample, base / with ban",97 / 97
+top-16:     CHI 2022-02-14: reversal -> dominance_positive,
+top-16:     WAS 2024-03-25: unresolved -> reversal,
+"days on which the per-day reversal count among conditional holders differs, top-11 vs base",2
+"days on which it differs, top-16 vs base",2
+"days on which it differs, top-11 vs top-16",0

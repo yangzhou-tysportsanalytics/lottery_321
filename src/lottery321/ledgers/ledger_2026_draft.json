@@ -1,0 +1,890 @@
+{
+  "draft_year": 2026,
+  "season": "2025-26",
+  "state_as_of": "after the 2025-26 trade deadline (Feb 5, 2026); rules reflect Feb 2026 deadline deals (IND->LAC Zubac trade, OKC->PHI rank-2 pool right, WAS->DAL rank-3 pool right, DET-MIN protected swap). 2019-2026 lottery rules apply.",
+  "sources": [
+    {
+      "id": "HR_traded26",
+      "title": "Traded First-Round Picks For 2026 NBA Draft (Hoops Rumors; page first posted 2025-08-27 and maintained; the version consulted already reflects the Feb 2026 deadline deals: IND->LAC, PHI's 2nd-most-favorable OKC-pool pick, DET-MIN swap)",
+      "url": "https://www.hoopsrumors.com/2025/08/traded-first-round-picks-for-2026-nba-draft.html",
+      "date": "2025-08-27",
+      "role": "conditions (post-deadline state)"
+    },
+    {
+      "id": "HR_deadline",
+      "title": "2026 NBA Trade Deadline Recap (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/02/2026-nba-trade-deadline-recap.html",
+      "date": "2026-02",
+      "role": "conditions (deadline trades touching 2026 firsts)"
+    },
+    {
+      "id": "HR_AD",
+      "title": "Mavericks Send Anthony Davis To Wizards In Three-Team Deal (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/02/mavericks-to-trade-anthony-davis-to-wizards.html",
+      "date": "2026-02-05",
+      "role": "conditions (least favorable OKC/HOU/LAC pick WAS->DAL)"
+    },
+    {
+      "id": "NBA_ivey",
+      "title": "Kevin Huerter / Jaden Ivey three-team trade (NBA.com)",
+      "url": "https://www.nba.com/news/kevin-huerter-jaden-ivey-trade-2026",
+      "date": "2026-02-04",
+      "role": "conditions (DET-MIN 2026 protected swap)"
+    },
+    {
+      "id": "YH_detswap",
+      "title": "Pistons' 2026 NBA Draft pick moves up thanks to Jaden Ivey trade (Yahoo Sports)",
+      "url": "https://sports.yahoo.com/articles/pistons-2026-nba-draft-pick-172906186.html",
+      "date": "2026-04-11",
+      "role": "conditions (DET-MIN swap protection 1-19) and outcome"
+    },
+    {
+      "id": "SI_okc",
+      "title": "How many picks do the OKC Thunder have in the 2026 NBA Draft (SI, pre-deadline)",
+      "url": "https://www.si.com/nba/thunder/draft-coverage/how-many-picks-okc-thunder-have-2026-nba-draft",
+      "date": "2025-08-09",
+      "role": "conditions corroboration (PHI top-4, UTA top-8, OKC/HOU/LAC pool; pre-deadline holders)"
+    },
+    {
+      "id": "TA_owed",
+      "title": "Five Owed 2026 First-Round Picks Worth Monitoring (Third Apron)",
+      "url": "https://www.thirdapron.com/p/five-owed-2026-first-round-picks",
+      "role": "conditions corroboration (WAS top-8 to NYK)"
+    },
+    {
+      "id": "HR_primer",
+      "title": "2026 NBA Draft Lottery Primer (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/05/2026-nba-draft-lottery-primer.html",
+      "date": "2026-05-08",
+      "role": "conditions corroboration (IND, NOP/MIL, LAC) and pre-lottery order"
+    },
+    {
+      "id": "HR_postplayin",
+      "title": "Post-Play-In Update On 2026 Draft Order, Lottery Standings (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/04/post-play-in-update-on-2026-draft-order-lottery-standings.html",
+      "date": "2026-04-18",
+      "role": "projected holders 15-30 before tiebreak drawings"
+    },
+    {
+      "id": "HR_order",
+      "title": "Full 2026 NBA Draft Order (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/05/full-2026-nba-draft-order.html",
+      "date": "2026-05-10",
+      "role": "realized order with from-annotations (page later updated for June trades)"
+    },
+    {
+      "id": "HR_results",
+      "title": "2026 NBA Draft Results (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/06/2026-nba-draft-results.html",
+      "date": "2026-06-25",
+      "role": "realized holders (from/via annotations)"
+    },
+    {
+      "id": "NBA_results",
+      "title": "2026 NBA Draft Results: Picks 1-60 (NBA.com)",
+      "url": "https://www.nba.com/news/2026-nba-draft-order",
+      "date": "2026-07-10",
+      "role": "realized holders (selecting team, draft-night trades)"
+    },
+    {
+      "id": "WIKI_2026",
+      "title": "2026 NBA draft (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/2026_NBA_draft",
+      "role": "realized holders and natives (from/via annotations)"
+    },
+    {
+      "id": "CBS_giannis",
+      "title": "Giannis Antetokounmpo trade live updates (CBS Sports)",
+      "url": "https://www.cbssports.com/nba/news/giannis-antetokounmpo-trade-rumors-updates-celtics-heat/live/",
+      "date": "2026-06-23",
+      "role": "timing of MIA No. 13 pick trade (draft eve)"
+    },
+    {
+      "id": "NBA_giannis",
+      "title": "Heat acquire Giannis Antetokounmpo in blockbuster deal (NBA.com)",
+      "url": "https://www.nba.com/news/reports-heat-acquire-giannis-antetokounmpo-in-blockbuster-deal",
+      "date": "2026-07-06",
+      "role": "MIA No. 13 pick conveyed to MIL (post-draft completion)"
+    },
+    {
+      "id": "HR_mccain",
+      "title": "Sixers Trade Jared McCain To Thunder For Draft Compensation (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/02/sixers-to-trade-jared-mccain-to-thunder-for-draft-compensation.html",
+      "date": "2026-02",
+      "role": "conditions (PHI's OKC-pool right; wording conflict)"
+    },
+    {
+      "id": "HR_offseason",
+      "title": "2026 NBA Offseason Trades (Hoops Rumors)",
+      "url": "https://www.hoopsrumors.com/2026/06/2026-nba-offseason-trades.html",
+      "role": "check for post-deadline pre-draft trades (none)"
+    }
+  ],
+  "natives": {
+    "ATL": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "ATL",
+          "CLE",
+          "SAS"
+        ],
+        "allocation": [
+          {
+            "holder": "SAS",
+            "rank": 1
+          },
+          {
+            "holder": "ATL",
+            "rank": 2
+          },
+          {
+            "holder": "CLE",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "Exact mechanics: SAS takes the more favorable of the SAS and ATL picks; ATL takes the more favorable of the remaining ATL/SAS pick and CLE's pick; CLE gets whatever is left (always the least favorable of the three). Exception to the ranks: if CLE's native pick is the most favorable of the three, ATL gets rank 1 and SAS rank 2.",
+          "CLE's pick enters only after UTA's swap rights: if UTA's slot is 1-8, UTA takes the most favorable of the UTA, MIN and CLE picks, so the item facing ATL is the less favorable of CLE's pick and UTA's pick. This UTA linkage is not encoded; it only matters if CLE's pick beats UTA's top-8 pick."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Chained swaps: SAS takes the better of SAS/ATL; ATL then takes the better of the leftover and CLE's pick; CLE gets the remaining pick (worst of the three). CLE's pick is first exposed to UTA's swap right.",
+      "confidence": "low"
+    },
+    "BKN": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "BOS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "CHA": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "CHI": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "CLE": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "ATL",
+          "CLE",
+          "SAS"
+        ],
+        "allocation": [
+          {
+            "holder": "SAS",
+            "rank": 1
+          },
+          {
+            "holder": "ATL",
+            "rank": 2
+          },
+          {
+            "holder": "CLE",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "Exact mechanics: SAS takes the more favorable of the SAS and ATL picks; ATL takes the more favorable of the remaining ATL/SAS pick and CLE's pick; CLE gets whatever is left (always the least favorable of the three). Exception to the ranks: if CLE's native pick is the most favorable of the three, ATL gets rank 1 and SAS rank 2.",
+          "CLE's pick enters only after UTA's swap rights: if UTA's slot is 1-8, UTA takes the most favorable of the UTA, MIN and CLE picks, so the item facing ATL is the less favorable of CLE's pick and UTA's pick. This UTA linkage is not encoded; it only matters if CLE's pick beats UTA's top-8 pick."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Chained swaps: SAS takes the better of SAS/ATL; ATL then takes the better of the leftover and CLE's pick; CLE gets the remaining pick (worst of the three). CLE's pick is first exposed to UTA's swap right.",
+      "confidence": "low"
+    },
+    "DAL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "DEN": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "DET": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "DET",
+          "MIN"
+        ],
+        "allocation": [
+          {
+            "holder": "DET",
+            "rank": 1
+          },
+          {
+            "holder": "MIN",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "DET's swap applies only if MIN's slot is 20-30 (the swap is protected 1-19); if MIN's slot is 1-19, each team keeps its own pick.",
+          "MIN's pick is also subject to UTA's swap right (UTA takes the most favorable of UTA/MIN/CLE if UTA's slot is 1-8); not encoded here, only matters if MIN's pick beats UTA's top-8 pick."
+        ]
+      },
+      "sources": [
+        "HR_traded26",
+        "NBA_ivey",
+        "YH_detswap",
+        "HR_deadline"
+      ],
+      "text": "DET holds a right (from the Feb 4, 2026 Ivey trade) to swap its pick for MIN's, protected 1-19: DET gets the better of the two only if MIN's slot is 20-30. MIN's pick is also exposed to UTA's swap right.",
+      "confidence": "low"
+    },
+    "GSW": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "HOU": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "HOU",
+          "LAC",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "PHI",
+            "rank": 2
+          },
+          {
+            "holder": "DAL",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "HOU's pick is top-4 protected before entering the pool: if HOU's slot is 1-4, HOU keeps it (HOU then owes OKC a 2026 second-rounder instead) and only OKC's and LAC's picks are pooled; how those two are then split among OKC/PHI/DAL was not stated in the sources (see open_issues).",
+          "PHI's rank-2 right was acquired from OKC in the Jared McCain trade, and DAL's rank-3 right from WAS in the Anthony Davis trade; both before the Feb 2026 deadline."
+        ]
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_deadline",
+        "HR_AD",
+        "HR_primer"
+      ],
+      "text": "Three-pick pool of OKC, HOU (top-4 protected) and LAC firsts: OKC gets the most favorable, PHI the second, DAL the least favorable.",
+      "confidence": "high"
+    },
+    "IND": {
+      "rule": {
+        "type": "reverse",
+        "to_if": [
+          [
+            5,
+            9
+          ]
+        ],
+        "holder": "LAC"
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_deadline",
+        "HR_primer"
+      ],
+      "text": "Sent to LAC in the Feb 5, 2026 Zubac trade, protected 1-4 and 10-30 (LAC gets it only at slots 5-9); if protected, IND owes LAC its unprotected 2031 first instead.",
+      "confidence": "high"
+    },
+    "LAC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "HOU",
+          "LAC",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "PHI",
+            "rank": 2
+          },
+          {
+            "holder": "DAL",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "HOU's pick is top-4 protected before entering the pool: if HOU's slot is 1-4, HOU keeps it (HOU then owes OKC a 2026 second-rounder instead) and only OKC's and LAC's picks are pooled; how those two are then split among OKC/PHI/DAL was not stated in the sources (see open_issues).",
+          "PHI's rank-2 right was acquired from OKC in the Jared McCain trade, and DAL's rank-3 right from WAS in the Anthony Davis trade; both before the Feb 2026 deadline."
+        ]
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_deadline",
+        "HR_AD",
+        "HR_primer"
+      ],
+      "text": "Three-pick pool of OKC, HOU (top-4 protected) and LAC firsts: OKC gets the most favorable, PHI the second, DAL the least favorable.",
+      "confidence": "high"
+    },
+    "LAL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "MEM": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "MEM",
+          "ORL",
+          "PHX"
+        ],
+        "allocation": [
+          {
+            "holder": "MEM",
+            "rank": 1
+          },
+          {
+            "holder": "MEM",
+            "rank": 2
+          },
+          {
+            "holder": "CHA",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "PHX's pick enters this pool only after WAS's swap right: if WAS's slot is 1-8, WAS takes the more favorable of the WAS and PHX picks, and the less favorable of the two (not necessarily PHX's) is the third pool item; if WAS's slot is 9-30, WAS's pick goes to NYK and PHX's pick is the third item. With WAS finishing worst this branch reduces to PHX's pick, as encoded here."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "MEM gets the two most favorable of the MEM, ORL and PHX picks (PHX's pick after WAS's swap right), CHA the least favorable.",
+      "confidence": "low"
+    },
+    "MIA": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "MIL": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "MIL",
+          "NOP"
+        ],
+        "allocation": [
+          {
+            "holder": "ATL",
+            "rank": 1
+          },
+          {
+            "holder": "MIL",
+            "rank": 2
+          }
+        ],
+        "conditions": []
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_primer"
+      ],
+      "text": "ATL receives the more favorable of the MIL and NOP firsts; MIL receives the less favorable.",
+      "confidence": "high"
+    },
+    "MIN": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "DET",
+          "MIN"
+        ],
+        "allocation": [
+          {
+            "holder": "DET",
+            "rank": 1
+          },
+          {
+            "holder": "MIN",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "DET's swap applies only if MIN's slot is 20-30 (the swap is protected 1-19); if MIN's slot is 1-19, each team keeps its own pick.",
+          "MIN's pick is also subject to UTA's swap right (UTA takes the most favorable of UTA/MIN/CLE if UTA's slot is 1-8); not encoded here, only matters if MIN's pick beats UTA's top-8 pick."
+        ]
+      },
+      "sources": [
+        "HR_traded26",
+        "NBA_ivey",
+        "YH_detswap",
+        "HR_deadline"
+      ],
+      "text": "DET holds a right (from the Feb 4, 2026 Ivey trade) to swap its pick for MIN's, protected 1-19: DET gets the better of the two only if MIN's slot is 20-30. MIN's pick is also exposed to UTA's swap right.",
+      "confidence": "low"
+    },
+    "NOP": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "MIL",
+          "NOP"
+        ],
+        "allocation": [
+          {
+            "holder": "ATL",
+            "rank": 1
+          },
+          {
+            "holder": "MIL",
+            "rank": 2
+          }
+        ],
+        "conditions": []
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_primer"
+      ],
+      "text": "ATL receives the more favorable of the MIL and NOP firsts; MIL receives the less favorable.",
+      "confidence": "high"
+    },
+    "NYK": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "OKC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "HOU",
+          "LAC",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "PHI",
+            "rank": 2
+          },
+          {
+            "holder": "DAL",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "HOU's pick is top-4 protected before entering the pool: if HOU's slot is 1-4, HOU keeps it (HOU then owes OKC a 2026 second-rounder instead) and only OKC's and LAC's picks are pooled; how those two are then split among OKC/PHI/DAL was not stated in the sources (see open_issues).",
+          "PHI's rank-2 right was acquired from OKC in the Jared McCain trade, and DAL's rank-3 right from WAS in the Anthony Davis trade; both before the Feb 2026 deadline."
+        ]
+      },
+      "sources": [
+        "HR_traded26",
+        "HR_deadline",
+        "HR_AD",
+        "HR_primer"
+      ],
+      "text": "Three-pick pool of OKC, HOU (top-4 protected) and LAC firsts: OKC gets the most favorable, PHI the second, DAL the least favorable.",
+      "confidence": "high"
+    },
+    "ORL": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "MEM",
+          "ORL",
+          "PHX"
+        ],
+        "allocation": [
+          {
+            "holder": "MEM",
+            "rank": 1
+          },
+          {
+            "holder": "MEM",
+            "rank": 2
+          },
+          {
+            "holder": "CHA",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "PHX's pick enters this pool only after WAS's swap right: if WAS's slot is 1-8, WAS takes the more favorable of the WAS and PHX picks, and the less favorable of the two (not necessarily PHX's) is the third pool item; if WAS's slot is 9-30, WAS's pick goes to NYK and PHX's pick is the third item. With WAS finishing worst this branch reduces to PHX's pick, as encoded here."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "MEM gets the two most favorable of the MEM, ORL and PHX picks (PHX's pick after WAS's swap right), CHA the least favorable.",
+      "confidence": "low"
+    },
+    "PHI": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            4
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_traded26",
+        "SI_okc"
+      ],
+      "text": "Owed to OKC with top-4 protection; if protected, obligation becomes PHI's top-4-protected 2027 first.",
+      "confidence": "high"
+    },
+    "PHX": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "MEM",
+          "ORL",
+          "PHX"
+        ],
+        "allocation": [
+          {
+            "holder": "MEM",
+            "rank": 1
+          },
+          {
+            "holder": "MEM",
+            "rank": 2
+          },
+          {
+            "holder": "CHA",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "PHX's pick enters this pool only after WAS's swap right: if WAS's slot is 1-8, WAS takes the more favorable of the WAS and PHX picks, and the less favorable of the two (not necessarily PHX's) is the third pool item; if WAS's slot is 9-30, WAS's pick goes to NYK and PHX's pick is the third item. With WAS finishing worst this branch reduces to PHX's pick, as encoded here."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "MEM gets the two most favorable of the MEM, ORL and PHX picks (PHX's pick after WAS's swap right), CHA the least favorable.",
+      "confidence": "low"
+    },
+    "POR": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "CHI"
+      },
+      "sources": [
+        "HR_traded26",
+        "WIKI_2026"
+      ],
+      "text": "Owed to CHI with top-14 protection (lottery protected); if protected, becomes POR's top-14-protected 2027 first.",
+      "confidence": "high"
+    },
+    "SAC": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "SAS": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "ATL",
+          "CLE",
+          "SAS"
+        ],
+        "allocation": [
+          {
+            "holder": "SAS",
+            "rank": 1
+          },
+          {
+            "holder": "ATL",
+            "rank": 2
+          },
+          {
+            "holder": "CLE",
+            "rank": 3
+          }
+        ],
+        "conditions": [
+          "Exact mechanics: SAS takes the more favorable of the SAS and ATL picks; ATL takes the more favorable of the remaining ATL/SAS pick and CLE's pick; CLE gets whatever is left (always the least favorable of the three). Exception to the ranks: if CLE's native pick is the most favorable of the three, ATL gets rank 1 and SAS rank 2.",
+          "CLE's pick enters only after UTA's swap rights: if UTA's slot is 1-8, UTA takes the most favorable of the UTA, MIN and CLE picks, so the item facing ATL is the less favorable of CLE's pick and UTA's pick. This UTA linkage is not encoded; it only matters if CLE's pick beats UTA's top-8 pick."
+        ]
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Chained swaps: SAS takes the better of SAS/ATL; ATL then takes the better of the leftover and CLE's pick; CLE gets the remaining pick (worst of the three). CLE's pick is first exposed to UTA's swap right.",
+      "confidence": "low"
+    },
+    "TOR": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [
+        "HR_traded26"
+      ],
+      "text": "Keeps own first-round pick; no traded obligation or swap listed.",
+      "confidence": "high"
+    },
+    "UTA": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            8
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_traded26",
+        "SI_okc"
+      ],
+      "text": "Owed to OKC with top-8 protection; if protected, the OKC obligation is extinguished and UTA additionally takes the most favorable of the UTA, MIN and CLE picks (swap rights) - swap not encoded. If UTA's pick lands 9-30 it goes to OKC and UTA's swap rights are not in play (HR bottom section).",
+      "confidence": "low"
+    },
+    "WAS": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            8
+          ]
+        ],
+        "else": "NYK"
+      },
+      "sources": [
+        "HR_traded26",
+        "TA_owed"
+      ],
+      "text": "Owed to NYK with top-8 protection; if protected, WAS instead sends NYK 2026 and 2027 second-rounders and WAS also holds a right to swap its pick for PHX's (takes the better) - swap not encoded.",
+      "confidence": "low"
+    }
+  },
+  "realized": {
+    "1": {
+      "native": "WAS",
+      "holder": "WAS"
+    },
+    "2": {
+      "native": "UTA",
+      "holder": "UTA"
+    },
+    "3": {
+      "native": "MEM",
+      "holder": "MEM"
+    },
+    "4": {
+      "native": "CHI",
+      "holder": "CHI"
+    },
+    "5": {
+      "native": "IND",
+      "holder": "LAC"
+    },
+    "6": {
+      "native": "BKN",
+      "holder": "BKN"
+    },
+    "7": {
+      "native": "SAC",
+      "holder": "SAC"
+    },
+    "8": {
+      "native": "NOP",
+      "holder": "ATL"
+    },
+    "9": {
+      "native": "DAL",
+      "holder": "DAL"
+    },
+    "10": {
+      "native": "MIL",
+      "holder": "MIL"
+    },
+    "11": {
+      "native": "GSW",
+      "holder": "GSW"
+    },
+    "12": {
+      "native": "LAC",
+      "holder": "OKC"
+    },
+    "13": {
+      "native": "MIA",
+      "holder": "MIA"
+    },
+    "14": {
+      "native": "CHA",
+      "holder": "CHA"
+    },
+    "15": {
+      "native": "POR",
+      "holder": "CHI"
+    },
+    "16": {
+      "native": "PHX",
+      "holder": "MEM"
+    },
+    "17": {
+      "native": "PHI",
+      "holder": "OKC"
+    },
+    "18": {
+      "native": "ORL",
+      "holder": "CHA"
+    },
+    "19": {
+      "native": "TOR",
+      "holder": "TOR"
+    },
+    "20": {
+      "native": "ATL",
+      "holder": "SAS"
+    },
+    "21": {
+      "native": "MIN",
+      "holder": "DET"
+    },
+    "22": {
+      "native": "HOU",
+      "holder": "PHI"
+    },
+    "23": {
+      "native": "CLE",
+      "holder": "ATL"
+    },
+    "24": {
+      "native": "NYK",
+      "holder": "NYK"
+    },
+    "25": {
+      "native": "LAL",
+      "holder": "LAL"
+    },
+    "26": {
+      "native": "DEN",
+      "holder": "DEN"
+    },
+    "27": {
+      "native": "BOS",
+      "holder": "BOS"
+    },
+    "28": {
+      "native": "DET",
+      "holder": "MIN"
+    },
+    "29": {
+      "native": "SAS",
+      "holder": "CLE"
+    },
+    "30": {
+      "native": "OKC",
+      "holder": "DAL"
+    }
+  },
+  "forfeited": [],
+  "open_issues": [
+    "Source availability: no post-deadline 'Checking In On Traded 2026 First-Round Picks' article (published in earlier years) was found; the Hoops Rumors 'What Teams Got In Return For Their Traded 2026 Draft Picks' (2026-03-21) is paywalled. Conditions come from the 'Traded First-Round Picks For 2026 NBA Draft' page (dated 2025-08-27 but already reflecting the Feb 2026 deadline deals), cross-checked against the deadline recap and individual trade reports.",
+    "UTA/MIN/CLE/DET/ATL/SAS six-team chain: the full rule (UTA swap rights over MIN and CLE if UTA is top 8; DET-MIN protected swap; CLE-ATL swap; ATL-SAS swap) cannot be written as one rank-based pool. It is encoded as UTA protected [1-8]->OKC plus two pools (DET/MIN and ATL/CLE/SAS), which is exact only when UTA's pick is in 1-8 AND more favorable than both MIN's and CLE's. That held with near-certainty after the deadline (UTA bottom-5; MIN, CLE playoff teams) and in the realized draft (UTA #2). Confidence set to low for these six natives for that reason. The exact rule (all branches) is implemented in router_2026.py (route/Router2026); use that module, not these pool objects, for simulation.",
+    "UTA 9-30 branch: the bottom section of the Hoops Rumors 2026 page states that if UTA's pick lands outside the top 8 it goes to OKC, DET gets the better of its own and MIN's pick (MIN keeps its own if in the top 19), and the UTA/MIN picks are not in play for ATL/CLE (ATL-CLE swap uses CLE's own pick); UTA then has no first. Encoded in router_2026.py.",
+    "Remaining interpretation choices in the six-team chain (flagged as ASSUMPTIONS in router_2026.py): UTA's best-of right is resolved as a swap with MIN then CLE (the order that reproduces Hoops Rumors' closed form for the pick facing ATL); DET's 1-19 protection applies only to MIN's own pick, so DET can swap for UTA's pick if MIN received it. Hoops Rumors' closed forms for DET/MIN are internally inconsistent when MIN's own pick is in 1-19 (both formulas would assign DET's pick), so a sequential reading is used. None of these branches occurred.",
+    "WAS/PHX: WAS's top-8-protected pick also carries a swap right with PHX (WAS takes the better) if WAS is 1-8; not encoded in WAS's rule. Exact only when WAS's pick beats PHX's, which held (WAS worst record, #1 pick; PHX pick #16). Confidence low for WAS, MEM, ORL, PHX; MEM/ORL/PHX pool rests on one source (Hoops Rumors) for its terms, though the realized outcome matches. The WAS 9-30 branch (pick to NYK, PHX's pick enters the MEM/CHA group, WAS has no first) is stated explicitly by Hoops Rumors and encoded in router_2026.py.",
+    "OKC/HOU/LAC pool, HOU 1-4 branch (not stated in sources): HOU keeps its pick; CBS Philadelphia's report on the McCain trade states that PHI gets the more favorable of OKC/LAC, which router_2026.py follows, and DAL getting the other is an assumption. Source conflict: Hoops Rumors' McCain-trade report (2026-02) calls PHI's asset 'Houston's 2026 first-round pick (which the Thunder control)', whereas the Hoops Rumors 2026 pick page and deadline recap describe it as the second-most favorable of OKC/HOU/LAC; under the former, PHI would get nothing in this branch. Realized outcome (HOU #22 to PHI) is consistent with both; the branch did not occur.",
+    "Pick 13 (MIA): Miami made the selection; the pick was part of the Giannis Antetokounmpo trade reported on the eve of the draft (June 23, 2026) and completed July 6. Recorded holder = MIA (holder before the draft-period trade); Hoops Rumors' order/results pages list it as 'Bucks (from Heat)'. Not a deadline-state mismatch; native rule is own.",
+    "Draft-period trades (not mismatches): 16 MEM->OKC, 17 OKC->DET (via MEM), 21 DET->MEM, 24 NYK->LAL, 25 LAL->DAL (via NYK), 26 DEN->SAS, 28 MIN->BKN, 29 CLE->SAC, 30 DAL->PHX (via NYK). Realized holders are recorded before these trades.",
+    "Hoops Rumors' post-play-in projection (2026-04-18) had MEM at 16 via ORL and CHA at 17 via PHX with PHI's pick at 18; after tiebreak drawings the final order was PHX 16 (to MEM), PHI 17 (to OKC), ORL 18 (to CHA), confirmed by Wikipedia, Hoops Rumors results and NBA.com. Final order used.",
+    "Wikipedia labels pick 30 as 'Dallas (from Oklahoma City, Washington and Philadelphia)'; the post-deadline chain per Hoops Rumors is OKC pool rank 3 -> WAS (pre-deadline) -> DAL (Anthony Davis trade, Feb 2026). The PHI mention is not explained by the sources but does not change the deadline holder (DAL).",
+    "No 2026 first-round picks were forfeited (Wikipedia: first draft since 2021 with 60 picks).",
+    "POST_DEADLINE_CHANGES is empty: Hoops Rumors' 2026 offseason trade list shows no 2026 first moved between the deadline and the draft; the earliest such trade is the draft-day (June 23) MEM-OKC #16/#17 deal. The MIA #13 / Giannis deal was agreed the night before round 1 but completed July 6 with Miami selecting, so it is treated like the 2025 module's agreed-but-completed-later trades (holder = MIA)."
+  ]
+}

@@ -1,0 +1,8 @@
+item,value
+days,312
+run flag reproduced from stored s.e. at z=2.807034,299
+met at z=2.807034 (run),163
+met at z=2.935199 (stored s.e.),141
+tercile 1: days / flagged (run) / flagged (z3),106 / 43 / 53
+tercile 2: days / flagged (run) / flagged (z3),104 / 44 / 52
+tercile 3: days / flagged (run) / flagged (z3),102 / 62 / 66

@@ -1,0 +1,5 @@
+rule,portfolio,n,M_band_below_minus_delta,M_band_above_delta
+new,actual,4896,150,731
+new,own,4896,0,0
+old,actual,4896,48,684
+old,own,4896,0,0

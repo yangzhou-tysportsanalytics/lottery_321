@@ -1,0 +1,9 @@
+rule,portfolio,rho,n,flips_all,flips_material,flips_both_material
+new,actual,rho50,4896,132,18,3
+new,actual,rho80,4896,178,30,15
+new,own,rho50,4896,0,0,0
+new,own,rho80,4896,0,0,0
+old,actual,rho50,4896,9,2,0
+old,actual,rho80,4896,19,6,2
+old,own,rho50,4896,0,0,0
+old,own,rho80,4896,0,0,0

@@ -1,0 +1,13 @@
+row,row_value,col,col_value,days
+run_met,True,stored_met_z2,True,154
+run_met,True,stored_met_z2,False,9
+run_met,False,stored_met_z2,True,4
+run_met,False,stored_met_z2,False,145
+run_met,True,stored_met_z3,True,138
+run_met,True,stored_met_z3,False,25
+run_met,False,stored_met_z3,True,3
+run_met,False,stored_met_z3,False,146
+stored_met_z2,True,stored_met_z3,True,141
+stored_met_z2,True,stored_met_z3,False,17
+stored_met_z2,False,stored_met_z3,True,0
+stored_met_z2,False,stored_met_z3,False,154

@@ -1,0 +1,13 @@
+portfolio,measure,group,team_games,reversals,reversal_share
+actual,registered (seeds 1-6 separate),0.01-0.05,326,10,0.03067484662576687
+actual,registered (seeds 1-6 separate),<0.01,1382,504,0.36468885672937773
+actual,registered (seeds 1-6 separate),>=0.05,3188,123,0.038582183186951065
+actual,seeds 1-6 merged,0.01-0.05,479,9,0.018789144050104383
+actual,seeds 1-6 merged,<0.01,2307,521,0.2258344169917642
+actual,seeds 1-6 merged,>=0.05,2110,107,0.05071090047393365
+own,registered (seeds 1-6 separate),0.01-0.05,326,2,0.006134969325153374
+own,registered (seeds 1-6 separate),<0.01,1382,504,0.36468885672937773
+own,registered (seeds 1-6 separate),>=0.05,3188,0,0.0
+own,seeds 1-6 merged,0.01-0.05,479,2,0.0041753653444676405
+own,seeds 1-6 merged,<0.01,2307,504,0.21846553966189858
+own,seeds 1-6 merged,>=0.05,2110,0,0.0

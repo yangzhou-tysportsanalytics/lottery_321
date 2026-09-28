@@ -1,0 +1,165 @@
+design,portfolio,rule,truth,truth_has_positive_part,verdict,crossing,stopped_at,count
+"a: nonparametric, fixed look",actual,new,dominant,False,negligible,False,,6420
+"a: nonparametric, fixed look",actual,new,dominant,True,dominance_positive,False,,12394
+"a: nonparametric, fixed look",actual,new,dominant,True,dominance_positive,True,,25
+"a: nonparametric, fixed look",actual,new,dominant,True,negligible,False,,1436
+"a: nonparametric, fixed look",actual,new,dominant,True,unresolved,False,,5
+"a: nonparametric, fixed look",actual,new,material failure,False,reversal,False,,729
+"a: nonparametric, fixed look",actual,new,material failure,False,unresolved,False,,51
+"a: nonparametric, fixed look",actual,new,material failure,True,reversal,False,,958
+"a: nonparametric, fixed look",actual,new,material failure,True,reversal,True,,3366
+"a: nonparametric, fixed look",actual,new,material failure,True,unresolved,False,,359
+"a: nonparametric, fixed look",actual,new,material failure,True,unresolved,True,,57
+"a: nonparametric, fixed look",actual,new,weak failure,False,negligible,False,,363
+"a: nonparametric, fixed look",actual,new,weak failure,False,unresolved,False,,57
+"a: nonparametric, fixed look",actual,new,weak failure,True,dominance_positive,False,,8485
+"a: nonparametric, fixed look",actual,new,weak failure,True,dominance_positive,True,,641
+"a: nonparametric, fixed look",actual,new,weak failure,True,negligible,False,,1194
+"a: nonparametric, fixed look",actual,new,weak failure,True,negligible,True,,402
+"a: nonparametric, fixed look",actual,new,weak failure,True,unresolved,False,,456
+"a: nonparametric, fixed look",actual,new,weak failure,True,unresolved,True,,162
+"a: nonparametric, fixed look",actual,old,dominant,False,negligible,False,,5220
+"a: nonparametric, fixed look",actual,old,dominant,True,dominance_positive,False,,15308
+"a: nonparametric, fixed look",actual,old,dominant,True,negligible,False,,1495
+"a: nonparametric, fixed look",actual,old,dominant,True,unresolved,False,,57
+"a: nonparametric, fixed look",actual,old,material failure,False,reversal,False,,300
+"a: nonparametric, fixed look",actual,old,material failure,True,reversal,False,,772
+"a: nonparametric, fixed look",actual,old,material failure,True,reversal,True,,9
+"a: nonparametric, fixed look",actual,old,material failure,True,unresolved,False,,59
+"a: nonparametric, fixed look",actual,old,weak failure,False,negligible,False,,360
+"a: nonparametric, fixed look",actual,old,weak failure,True,dominance_positive,False,,12175
+"a: nonparametric, fixed look",actual,old,weak failure,True,dominance_positive,True,,113
+"a: nonparametric, fixed look",actual,old,weak failure,True,negligible,False,,782
+"a: nonparametric, fixed look",actual,old,weak failure,True,negligible,True,,144
+"a: nonparametric, fixed look",actual,old,weak failure,True,unresolved,False,,704
+"a: nonparametric, fixed look",actual,old,weak failure,True,unresolved,True,,62
+"a: nonparametric, fixed look",own,new,dominant,False,negligible,False,,1500
+"a: nonparametric, fixed look",own,new,dominant,True,dominance_positive,False,,12240
+"a: nonparametric, fixed look",own,new,dominant,True,negligible,False,,1080
+"a: nonparametric, fixed look",own,new,material failure,True,reversal,True,,4352
+"a: nonparametric, fixed look",own,new,material failure,True,unresolved,True,,88
+"a: nonparametric, fixed look",own,new,weak failure,True,dominance_positive,False,,15780
+"a: nonparametric, fixed look",own,new,weak failure,True,dominance_positive,True,,640
+"a: nonparametric, fixed look",own,new,weak failure,True,negligible,False,,559
+"a: nonparametric, fixed look",own,new,weak failure,True,negligible,True,,1193
+"a: nonparametric, fixed look",own,new,weak failure,True,unresolved,True,,128
+"a: nonparametric, fixed look",own,old,dominant,False,negligible,False,,240
+"a: nonparametric, fixed look",own,old,dominant,True,dominance_positive,False,,17641
+"a: nonparametric, fixed look",own,old,dominant,True,negligible,False,,179
+"a: nonparametric, fixed look",own,old,weak failure,False,negligible,False,,120
+"a: nonparametric, fixed look",own,old,weak failure,True,dominance_positive,False,,19283
+"a: nonparametric, fixed look",own,old,weak failure,True,dominance_positive,True,,5
+"a: nonparametric, fixed look",own,old,weak failure,True,unresolved,False,,32
+"a: nonparametric, fixed look",own,old,weak failure,True,unresolved,True,,60
+"b: parametric, three looks with stopping",actual,new,dominant,False,negligible,False,2000,397
+"b: parametric, three looks with stopping",actual,new,dominant,False,negligible,False,32000,5563
+"b: parametric, three looks with stopping",actual,new,dominant,False,negligible,False,8000,460
+"b: parametric, three looks with stopping",actual,new,dominant,True,dominance_positive,False,2000,58
+"b: parametric, three looks with stopping",actual,new,dominant,True,dominance_positive,False,32000,11124
+"b: parametric, three looks with stopping",actual,new,dominant,True,dominance_positive,False,8000,1236
+"b: parametric, three looks with stopping",actual,new,dominant,True,dominance_positive,True,32000,2
+"b: parametric, three looks with stopping",actual,new,dominant,True,negligible,False,32000,1371
+"b: parametric, three looks with stopping",actual,new,dominant,True,negligible,False,8000,66
+"b: parametric, three looks with stopping",actual,new,dominant,True,unresolved,False,32000,3
+"b: parametric, three looks with stopping",actual,new,material failure,False,reversal,False,2000,1
+"b: parametric, three looks with stopping",actual,new,material failure,False,reversal,False,32000,620
+"b: parametric, three looks with stopping",actual,new,material failure,False,reversal,False,8000,103
+"b: parametric, three looks with stopping",actual,new,material failure,False,unresolved,False,32000,56
+"b: parametric, three looks with stopping",actual,new,material failure,True,reversal,False,32000,894
+"b: parametric, three looks with stopping",actual,new,material failure,True,reversal,False,8000,76
+"b: parametric, three looks with stopping",actual,new,material failure,True,reversal,True,2000,60
+"b: parametric, three looks with stopping",actual,new,material failure,True,reversal,True,32000,3002
+"b: parametric, three looks with stopping",actual,new,material failure,True,reversal,True,8000,309
+"b: parametric, three looks with stopping",actual,new,material failure,True,unresolved,False,32000,262
+"b: parametric, three looks with stopping",actual,new,material failure,True,unresolved,False,8000,88
+"b: parametric, three looks with stopping",actual,new,material failure,True,unresolved,True,32000,46
+"b: parametric, three looks with stopping",actual,new,material failure,True,unresolved,True,8000,3
+"b: parametric, three looks with stopping",actual,new,weak failure,False,negligible,False,32000,361
+"b: parametric, three looks with stopping",actual,new,weak failure,False,unresolved,False,32000,59
+"b: parametric, three looks with stopping",actual,new,weak failure,True,dominance_positive,False,2000,56
+"b: parametric, three looks with stopping",actual,new,weak failure,True,dominance_positive,False,32000,7793
+"b: parametric, three looks with stopping",actual,new,weak failure,True,dominance_positive,False,8000,606
+"b: parametric, three looks with stopping",actual,new,weak failure,True,dominance_positive,True,32000,612
+"b: parametric, three looks with stopping",actual,new,weak failure,True,dominance_positive,True,8000,23
+"b: parametric, three looks with stopping",actual,new,weak failure,True,negligible,False,32000,1215
+"b: parametric, three looks with stopping",actual,new,weak failure,True,negligible,True,32000,359
+"b: parametric, three looks with stopping",actual,new,weak failure,True,unresolved,False,32000,451
+"b: parametric, three looks with stopping",actual,new,weak failure,True,unresolved,False,8000,54
+"b: parametric, three looks with stopping",actual,new,weak failure,True,unresolved,True,32000,171
+"b: parametric, three looks with stopping",actual,old,dominant,False,negligible,False,2000,173
+"b: parametric, three looks with stopping",actual,old,dominant,False,negligible,False,32000,4603
+"b: parametric, three looks with stopping",actual,old,dominant,False,negligible,False,8000,444
+"b: parametric, three looks with stopping",actual,old,dominant,True,dominance_positive,False,2000,114
+"b: parametric, three looks with stopping",actual,old,dominant,True,dominance_positive,False,32000,14019
+"b: parametric, three looks with stopping",actual,old,dominant,True,dominance_positive,False,8000,1176
+"b: parametric, three looks with stopping",actual,old,dominant,True,dominance_positive,True,32000,1
+"b: parametric, three looks with stopping",actual,old,dominant,True,negligible,False,32000,1408
+"b: parametric, three looks with stopping",actual,old,dominant,True,negligible,False,8000,83
+"b: parametric, three looks with stopping",actual,old,dominant,True,negligible,True,32000,1
+"b: parametric, three looks with stopping",actual,old,dominant,True,unresolved,False,32000,1
+"b: parametric, three looks with stopping",actual,old,dominant,True,unresolved,False,8000,57
+"b: parametric, three looks with stopping",actual,old,material failure,False,reversal,False,2000,1
+"b: parametric, three looks with stopping",actual,old,material failure,False,reversal,False,32000,240
+"b: parametric, three looks with stopping",actual,old,material failure,False,reversal,False,8000,59
+"b: parametric, three looks with stopping",actual,old,material failure,True,reversal,False,32000,762
+"b: parametric, three looks with stopping",actual,old,material failure,True,reversal,False,8000,17
+"b: parametric, three looks with stopping",actual,old,material failure,True,reversal,True,32000,11
+"b: parametric, three looks with stopping",actual,old,material failure,True,unresolved,False,32000,1
+"b: parametric, three looks with stopping",actual,old,material failure,True,unresolved,False,8000,49
+"b: parametric, three looks with stopping",actual,old,weak failure,False,negligible,False,2000,112
+"b: parametric, three looks with stopping",actual,old,weak failure,False,negligible,False,32000,240
+"b: parametric, three looks with stopping",actual,old,weak failure,False,negligible,False,8000,8
+"b: parametric, three looks with stopping",actual,old,weak failure,True,dominance_positive,False,2000,132
+"b: parametric, three looks with stopping",actual,old,weak failure,True,dominance_positive,False,32000,10930
+"b: parametric, three looks with stopping",actual,old,weak failure,True,dominance_positive,False,8000,1098
+"b: parametric, three looks with stopping",actual,old,weak failure,True,dominance_positive,True,32000,100
+"b: parametric, three looks with stopping",actual,old,weak failure,True,negligible,False,32000,752
+"b: parametric, three looks with stopping",actual,old,weak failure,True,negligible,False,8000,1
+"b: parametric, three looks with stopping",actual,old,weak failure,True,negligible,True,32000,145
+"b: parametric, three looks with stopping",actual,old,weak failure,True,unresolved,False,2000,40
+"b: parametric, three looks with stopping",actual,old,weak failure,True,unresolved,False,32000,685
+"b: parametric, three looks with stopping",actual,old,weak failure,True,unresolved,False,8000,32
+"b: parametric, three looks with stopping",actual,old,weak failure,True,unresolved,True,32000,65
+"b: parametric, three looks with stopping",own,new,dominant,False,negligible,False,2000,336
+"b: parametric, three looks with stopping",own,new,dominant,False,negligible,False,32000,1140
+"b: parametric, three looks with stopping",own,new,dominant,False,negligible,False,8000,24
+"b: parametric, three looks with stopping",own,new,dominant,True,dominance_positive,False,2000,52
+"b: parametric, three looks with stopping",own,new,dominant,True,dominance_positive,False,32000,10823
+"b: parametric, three looks with stopping",own,new,dominant,True,dominance_positive,False,8000,1359
+"b: parametric, three looks with stopping",own,new,dominant,True,dominance_positive,True,32000,1
+"b: parametric, three looks with stopping",own,new,dominant,True,negligible,False,32000,1076
+"b: parametric, three looks with stopping",own,new,dominant,True,negligible,True,32000,2
+"b: parametric, three looks with stopping",own,new,dominant,True,unresolved,False,2000,7
+"b: parametric, three looks with stopping",own,new,material failure,True,reversal,True,2000,60
+"b: parametric, three looks with stopping",own,new,material failure,True,reversal,True,32000,3911
+"b: parametric, three looks with stopping",own,new,material failure,True,reversal,True,8000,356
+"b: parametric, three looks with stopping",own,new,material failure,True,unresolved,True,32000,113
+"b: parametric, three looks with stopping",own,new,weak failure,True,dominance_positive,False,2000,116
+"b: parametric, three looks with stopping",own,new,weak failure,True,dominance_positive,False,32000,14460
+"b: parametric, three looks with stopping",own,new,weak failure,True,dominance_positive,False,8000,1202
+"b: parametric, three looks with stopping",own,new,weak failure,True,dominance_positive,True,32000,630
+"b: parametric, three looks with stopping",own,new,weak failure,True,dominance_positive,True,8000,17
+"b: parametric, three looks with stopping",own,new,weak failure,True,negligible,False,32000,609
+"b: parametric, three looks with stopping",own,new,weak failure,True,negligible,False,8000,52
+"b: parametric, three looks with stopping",own,new,weak failure,True,negligible,True,32000,1063
+"b: parametric, three looks with stopping",own,new,weak failure,True,negligible,True,8000,14
+"b: parametric, three looks with stopping",own,new,weak failure,True,unresolved,False,2000,1
+"b: parametric, three looks with stopping",own,new,weak failure,True,unresolved,True,32000,136
+"b: parametric, three looks with stopping",own,old,dominant,False,negligible,False,2000,56
+"b: parametric, three looks with stopping",own,old,dominant,False,negligible,False,32000,180
+"b: parametric, three looks with stopping",own,old,dominant,False,negligible,False,8000,4
+"b: parametric, three looks with stopping",own,old,dominant,True,dominance_positive,False,2000,102
+"b: parametric, three looks with stopping",own,old,dominant,True,dominance_positive,False,32000,16160
+"b: parametric, three looks with stopping",own,old,dominant,True,dominance_positive,False,8000,1377
+"b: parametric, three looks with stopping",own,old,dominant,True,negligible,False,32000,168
+"b: parametric, three looks with stopping",own,old,dominant,True,unresolved,False,2000,13
+"b: parametric, three looks with stopping",own,old,weak failure,False,negligible,False,2000,56
+"b: parametric, three looks with stopping",own,old,weak failure,False,negligible,False,32000,60
+"b: parametric, three looks with stopping",own,old,weak failure,False,negligible,False,8000,4
+"b: parametric, three looks with stopping",own,old,weak failure,True,dominance_positive,False,2000,231
+"b: parametric, three looks with stopping",own,old,weak failure,True,dominance_positive,False,32000,17335
+"b: parametric, three looks with stopping",own,old,weak failure,True,dominance_positive,False,8000,1638
+"b: parametric, three looks with stopping",own,old,weak failure,True,dominance_positive,True,32000,1
+"b: parametric, three looks with stopping",own,old,weak failure,True,unresolved,False,2000,114
+"b: parametric, three looks with stopping",own,old,weak failure,True,unresolved,False,32000,60
+"b: parametric, three looks with stopping",own,old,weak failure,True,unresolved,False,8000,1

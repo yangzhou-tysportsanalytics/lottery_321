@@ -1,0 +1,25 @@
+item,value
+old-rule actual reversals,171
+  with j* in 16-30,134
+  with j* = 15,6
+  with j* in 1-14,31
+  with j* in 15-30,140
+  ... holding a pick under a conditional clause,139
+  ... holding a pick routed through a pool,88
+  ... holding the opponent's pick,49
+  with argmin C_hat in 15-30,138
+  with argmin C_hat in 16-30,132
+  with argmin C_hat in 1-14,33
+  kept as reversals under 3-2-1 (transition table),134
+  kept AND j* in 16-30,113
+  kept AND j* in 1-15,21
+  removed under 3-2-1 AND j* in 16-30,21
+  removed under 3-2-1 AND j* in 1-15,16
+"own-pick 3-2-1 reversal at ranks 11-16: team, opponent, day","NYK v CLE, 2022-04-02"
+  league rank at the cutoff,12
+  j*,5
+  seeding stake (total variation),0.0
+  opponent carries a repeat restriction,True
+  linear tau,-0.0010840496350879
+  verdict without repeat restrictions,negligible
+  linear tau without repeat restrictions,0.0

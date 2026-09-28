@@ -1,0 +1,5 @@
+comparison,rule,n,verdicts_changed,reversals_primary,reversals_other
+as-run bootstrap-t band,new,4896,900,637,575
+precision-matched verdicts,new,4896,379,637,528
+as-run bootstrap-t band,old,4896,1227,171,133
+precision-matched verdicts,old,4896,371,171,123

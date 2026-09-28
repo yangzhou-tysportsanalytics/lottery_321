@@ -1,0 +1,722 @@
+{
+  "draft_year": 2021,
+  "season": "2020-21",
+  "state_as_of": "after the 2021-03-25 trade deadline (conditions per HR_apr21, 2021-04-14)",
+  "sources": [
+    {
+      "id": "HR_apr21",
+      "title": "Hoops Rumors: Checking In On Traded 2021 First-Round Picks",
+      "url": "https://www.hoopsrumors.com/2021/04/checking-in-on-traded-2021-first-round-picks.html",
+      "date": "2021-04-14",
+      "role": "conditions (post-deadline state; deadline was 2021-03-25)"
+    },
+    {
+      "id": "HR_feb21",
+      "title": "Hoops Rumors: Early Check-In On Traded 2021 First-Round Picks",
+      "url": "https://www.hoopsrumors.com/2021/02/early-check-in-on-traded-2021-first-round-picks.html",
+      "date": "2021-02-17",
+      "role": "conditions (pre-deadline)"
+    },
+    {
+      "id": "HR_jan21",
+      "title": "Hoops Rumors: Traded First-Round Picks For 2021 NBA Draft",
+      "url": "https://www.hoopsrumors.com/2021/01/traded-first-round-picks-for-2021-nba-draft.html",
+      "date": "2021-01-20",
+      "role": "conditions (original terms, carryovers; page appears to have been updated later)"
+    },
+    {
+      "id": "HR_rocokc19",
+      "title": "Hoops Rumors: More Details On Draft Picks Traded From Rockets To Thunder",
+      "url": "https://www.hoopsrumors.com/2019/07/more-details-on-draft-picks-traded-from-rockets-to-thunder.html",
+      "date": "2019-07-17",
+      "role": "conditions (OKC/HOU 2021 swap mechanics)"
+    },
+    {
+      "id": "BR_harden21",
+      "title": "Bleacher Report: Nets', Rockets' Updated Draft Pick List After James Harden Blockbuster Trade",
+      "url": "https://bleacherreport.com/articles/10000147-nets-rockets-updated-draft-pick-list-after-james-harden-blockbuster-trade",
+      "date": "2021-01-13",
+      "role": "conditions (HOU/BKN 2021 swap, unprotected)"
+    },
+    {
+      "id": "HR_morris20",
+      "title": "Hoops Rumors: Clippers Acquire Marcus Morris In Three-Team Trade",
+      "url": "https://www.hoopsrumors.com/2020/02/clippers-knicks-finalizing-marcus-morris-trade.html",
+      "date": "2020-02-06",
+      "role": "conditions (NYK/LAC 2021 swap terms)"
+    },
+    {
+      "id": "LBS_ad19",
+      "title": "Larry Brown Sports: Details of draft picks Lakers traded to Pelicans revealed",
+      "url": "https://larrybrownsports.com/basketball/lakers-pelicans-draft-picks-trade-details/500339",
+      "date": "2019-06-15",
+      "role": "conditions (initial reported LAL 2021 terms)"
+    },
+    {
+      "id": "NBA_kemba21",
+      "title": "NBA.com: Celtics trade Kemba Walker, picks to Thunder",
+      "url": "https://www.nba.com/news/celtics-trade-kemba-walker-picks-to-thunder",
+      "date": "2021-06-18",
+      "role": "post-deadline trade of BOS 2021 first (No. 16) to OKC"
+    },
+    {
+      "id": "NBA_results21",
+      "title": "NBA.com: 2021 NBA Draft results / order, picks 1-30",
+      "url": "https://www.nba.com/news/2021-draft-order",
+      "date": "2021-07-29",
+      "role": "realized holders"
+    },
+    {
+      "id": "WIKI_2021",
+      "title": "Wikipedia: 2021 NBA draft",
+      "url": "https://en.wikipedia.org/wiki/2021_NBA_draft",
+      "role": "realized holders (second source)"
+    }
+  ],
+  "natives": {
+    "ATL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "BKN": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "BKN",
+          "HOU",
+          "MIA",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "OKC",
+            "rank": 2
+          },
+          {
+            "holder": "HOU",
+            "rank": 3
+          },
+          {
+            "holder": "BKN",
+            "rank": 4
+          }
+        ],
+        "conditions": [
+          "Ranks are only an approximation of a two-step sequential swap; apply the steps below instead of the ranks.",
+          "Step 1 (OKC/HOU swap, HOU top-4 protected): if HOU's pick is in slots 1-4, HOU keeps its own pick and OKC keeps its own and MIA's (MIA's pick is owed to OKC unprotected). If HOU's pick is 5-30, OKC takes the two most favorable of {OKC, MIA, HOU} and HOU gets the least favorable of the three.",
+          "Step 2 (HOU/BKN swap, unprotected): after step 1, HOU may exchange any first-rounder it holds (its step-1 pick, plus POR's pick if it conveys past top-14 protection, plus DET's pick if it conveys past top-16 protection) for BKN's pick; HOU therefore swaps its least favorable held pick for BKN's if BKN's is more favorable, and BKN receives the displaced pick.",
+          "The rank allocation above reproduces steps 1-2 only when HOU's pick is outside the top 4, BKN's pick is not better than OKC's two picks, and POR/DET do not enter the swap."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21",
+        "BR_harden21"
+      ],
+      "text": "Unprotected; HOU may swap any of its firsts for BKN's after the OKC/HOU swap resolves (Harden trade).",
+      "confidence": "low"
+    },
+    "BOS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "CHA": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "CHI": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            4
+          ]
+        ],
+        "else": "ORL"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_jan21"
+      ],
+      "text": "Top-4 protected to ORL (Vucevic trade, 2021 deadline); if protected, 2022 first owed.",
+      "confidence": "high"
+    },
+    "CLE": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "DAL": {
+      "rule": {
+        "type": "to",
+        "holder": "NYK"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Unprotected to NYK (Porzingis trade).",
+      "confidence": "high"
+    },
+    "DEN": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "DET": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            16
+          ]
+        ],
+        "else": "HOU"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Top-16 protected to HOU (from the Covington trade); if conveyed it would also be eligible for HOU's swap with BKN. If protected: 2022 top-16, 2023-24 top-18.",
+      "confidence": "high"
+    },
+    "GSW": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            20
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Top-20 protected to OKC; if protected, OKC gets MIN's 2021 second-rounder instead.",
+      "confidence": "high"
+    },
+    "HOU": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "BKN",
+          "HOU",
+          "MIA",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "OKC",
+            "rank": 2
+          },
+          {
+            "holder": "HOU",
+            "rank": 3
+          },
+          {
+            "holder": "BKN",
+            "rank": 4
+          }
+        ],
+        "conditions": [
+          "Ranks are only an approximation of a two-step sequential swap; apply the steps below instead of the ranks.",
+          "Step 1 (OKC/HOU swap, HOU top-4 protected): if HOU's pick is in slots 1-4, HOU keeps its own pick and OKC keeps its own and MIA's (MIA's pick is owed to OKC unprotected). If HOU's pick is 5-30, OKC takes the two most favorable of {OKC, MIA, HOU} and HOU gets the least favorable of the three.",
+          "Step 2 (HOU/BKN swap, unprotected): after step 1, HOU may exchange any first-rounder it holds (its step-1 pick, plus POR's pick if it conveys past top-14 protection, plus DET's pick if it conveys past top-16 protection) for BKN's pick; HOU therefore swaps its least favorable held pick for BKN's if BKN's is more favorable, and BKN receives the displaced pick.",
+          "The rank allocation above reproduces steps 1-2 only when HOU's pick is outside the top 4, BKN's pick is not better than OKC's two picks, and POR/DET do not enter the swap."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21",
+        "HR_rocokc19"
+      ],
+      "text": "OKC holds a top-4-protected swap right with HOU (Westbrook trade), exercisable with OKC's own or MIA's pick; HOU then holds a swap right with BKN.",
+      "confidence": "low"
+    },
+    "IND": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "LAC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "LAC",
+          "NYK"
+        ],
+        "allocation": [
+          {
+            "holder": "NYK",
+            "rank": 1
+          },
+          {
+            "holder": "LAC",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "NYK may swap its OWN first (not DAL's) for LAC's; the swap carries 'top-four protection' per HR_morris20, which does not say which pick it protects - presumably no swap if LAC's pick lands 1-4."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_morris20"
+      ],
+      "text": "Subject to NYK's right to swap its own first for LAC's (top-4 protected).",
+      "confidence": "medium"
+    },
+    "LAL": {
+      "rule": {
+        "type": "reverse",
+        "to_if": [
+          [
+            1,
+            7
+          ]
+        ],
+        "holder": "NOP"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_jan21"
+      ],
+      "text": "Described as '8-30 protected': NOP gets it only if it lands 1-7; otherwise LAL keeps it and NOP receives LAL's 2022 first unprotected.",
+      "confidence": "medium"
+    },
+    "MEM": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "MIA": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "BKN",
+          "HOU",
+          "MIA",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "OKC",
+            "rank": 2
+          },
+          {
+            "holder": "HOU",
+            "rank": 3
+          },
+          {
+            "holder": "BKN",
+            "rank": 4
+          }
+        ],
+        "conditions": [
+          "Ranks are only an approximation of a two-step sequential swap; apply the steps below instead of the ranks.",
+          "Step 1 (OKC/HOU swap, HOU top-4 protected): if HOU's pick is in slots 1-4, HOU keeps its own pick and OKC keeps its own and MIA's (MIA's pick is owed to OKC unprotected). If HOU's pick is 5-30, OKC takes the two most favorable of {OKC, MIA, HOU} and HOU gets the least favorable of the three.",
+          "Step 2 (HOU/BKN swap, unprotected): after step 1, HOU may exchange any first-rounder it holds (its step-1 pick, plus POR's pick if it conveys past top-14 protection, plus DET's pick if it conveys past top-16 protection) for BKN's pick; HOU therefore swaps its least favorable held pick for BKN's if BKN's is more favorable, and BKN receives the displaced pick.",
+          "The rank allocation above reproduces steps 1-2 only when HOU's pick is outside the top 4, BKN's pick is not better than OKC's two picks, and POR/DET do not enter the swap."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_jan21",
+        "HR_rocokc19"
+      ],
+      "text": "Unprotected to OKC (via PHX/PHI/LAC), but usable by OKC in its swap with HOU; if swapped HOU may then use it in its BKN swap.",
+      "confidence": "low"
+    },
+    "MIL": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            9
+          ]
+        ],
+        "else": "HOU"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_jan21"
+      ],
+      "text": "HOU holds a top-9-protected swap of MIL's first for HOU's own second-rounder (P.J. Tucker trade); from the first-round side this is MIL's first to HOU unless it lands 1-9.",
+      "confidence": "high"
+    },
+    "MIN": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            3
+          ]
+        ],
+        "else": "GSW"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Top-3 protected to GSW (Russell/Wiggins trade); if protected, 2022 unprotected.",
+      "confidence": "high"
+    },
+    "NOP": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "NYK": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "LAC",
+          "NYK"
+        ],
+        "allocation": [
+          {
+            "holder": "NYK",
+            "rank": 1
+          },
+          {
+            "holder": "LAC",
+            "rank": 2
+          }
+        ],
+        "conditions": [
+          "NYK may swap its OWN first (not DAL's) for LAC's; the swap carries 'top-four protection' per HR_morris20, which does not say which pick it protects - presumably no swap if LAC's pick lands 1-4."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_morris20"
+      ],
+      "text": "NYK holds the right to swap its own first with LAC's (Morris trade), top-4 protected.",
+      "confidence": "medium"
+    },
+    "OKC": {
+      "rule": {
+        "type": "pool",
+        "members": [
+          "BKN",
+          "HOU",
+          "MIA",
+          "OKC"
+        ],
+        "allocation": [
+          {
+            "holder": "OKC",
+            "rank": 1
+          },
+          {
+            "holder": "OKC",
+            "rank": 2
+          },
+          {
+            "holder": "HOU",
+            "rank": 3
+          },
+          {
+            "holder": "BKN",
+            "rank": 4
+          }
+        ],
+        "conditions": [
+          "Ranks are only an approximation of a two-step sequential swap; apply the steps below instead of the ranks.",
+          "Step 1 (OKC/HOU swap, HOU top-4 protected): if HOU's pick is in slots 1-4, HOU keeps its own pick and OKC keeps its own and MIA's (MIA's pick is owed to OKC unprotected). If HOU's pick is 5-30, OKC takes the two most favorable of {OKC, MIA, HOU} and HOU gets the least favorable of the three.",
+          "Step 2 (HOU/BKN swap, unprotected): after step 1, HOU may exchange any first-rounder it holds (its step-1 pick, plus POR's pick if it conveys past top-14 protection, plus DET's pick if it conveys past top-16 protection) for BKN's pick; HOU therefore swaps its least favorable held pick for BKN's if BKN's is more favorable, and BKN receives the displaced pick.",
+          "The rank allocation above reproduces steps 1-2 only when HOU's pick is outside the top 4, BKN's pick is not better than OKC's two picks, and POR/DET do not enter the swap."
+        ]
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_rocokc19"
+      ],
+      "text": "OKC keeps its own pick but may swap it (or MIA's) for HOU's if HOU's is 5-30.",
+      "confidence": "low"
+    },
+    "ORL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "PHI": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "PHX": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "POR": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "HOU"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Top-14 protected to HOU (Covington trade); if conveyed it is eligible for HOU's swap with BKN (see pool). If protected, 2022 top-14 protected.",
+      "confidence": "high"
+    },
+    "SAC": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "SAS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "TOR": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "UTA": {
+      "rule": {
+        "type": "reverse",
+        "to_if": [
+          [
+            8,
+            14
+          ]
+        ],
+        "holder": "MEM"
+      },
+      "sources": [
+        "HR_apr21",
+        "HR_feb21",
+        "HR_jan21"
+      ],
+      "text": "Protected 1-7 and 15-30; MEM gets it only at 8-14. If not conveyed, becomes 2022 first top-6 protected.",
+      "confidence": "high"
+    },
+    "WAS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    }
+  },
+  "realized": {
+    "1": {
+      "native": "DET",
+      "holder": "DET"
+    },
+    "2": {
+      "native": "HOU",
+      "holder": "HOU"
+    },
+    "3": {
+      "native": "CLE",
+      "holder": "CLE"
+    },
+    "4": {
+      "native": "TOR",
+      "holder": "TOR"
+    },
+    "5": {
+      "native": "ORL",
+      "holder": "ORL"
+    },
+    "6": {
+      "native": "OKC",
+      "holder": "OKC"
+    },
+    "7": {
+      "native": "MIN",
+      "holder": "GSW"
+    },
+    "8": {
+      "native": "CHI",
+      "holder": "ORL"
+    },
+    "9": {
+      "native": "SAC",
+      "holder": "SAC"
+    },
+    "10": {
+      "native": "NOP",
+      "holder": "NOP"
+    },
+    "11": {
+      "native": "CHA",
+      "holder": "CHA"
+    },
+    "12": {
+      "native": "SAS",
+      "holder": "SAS"
+    },
+    "13": {
+      "native": "IND",
+      "holder": "IND"
+    },
+    "14": {
+      "native": "GSW",
+      "holder": "GSW"
+    },
+    "15": {
+      "native": "WAS",
+      "holder": "WAS"
+    },
+    "16": {
+      "native": "BOS",
+      "holder": "OKC"
+    },
+    "17": {
+      "native": "MEM",
+      "holder": "MEM"
+    },
+    "18": {
+      "native": "MIA",
+      "holder": "OKC"
+    },
+    "19": {
+      "native": "NYK",
+      "holder": "NYK"
+    },
+    "20": {
+      "native": "ATL",
+      "holder": "ATL"
+    },
+    "21": {
+      "native": "DAL",
+      "holder": "NYK"
+    },
+    "22": {
+      "native": "LAL",
+      "holder": "LAL"
+    },
+    "23": {
+      "native": "POR",
+      "holder": "HOU"
+    },
+    "24": {
+      "native": "MIL",
+      "holder": "HOU"
+    },
+    "25": {
+      "native": "LAC",
+      "holder": "LAC"
+    },
+    "26": {
+      "native": "DEN",
+      "holder": "DEN"
+    },
+    "27": {
+      "native": "BKN",
+      "holder": "BKN"
+    },
+    "28": {
+      "native": "PHI",
+      "holder": "PHI"
+    },
+    "29": {
+      "native": "PHX",
+      "holder": "PHX"
+    },
+    "30": {
+      "native": "UTA",
+      "holder": "UTA"
+    }
+  },
+  "forfeited": [],
+  "open_issues": [
+    "MISMATCH (post-deadline, pre-draft trade): BOS native, slot 16. Rule at deadline is 'own' (BOS), but BOS traded the pick to OKC on 2021-06-18 (Kemba Walker/Al Horford trade), so the pre-draft holder was OKC. OKC then traded it to HOU on draft night (Sengun).",
+    "Houston/OKC/Miami/Brooklyn chain (and POR/DET eligibility for the HOU-BKN swap) is a sequential two-step swap that the pool rank grammar cannot express exactly; natives BKN/HOU/MIA/OKC share one pool object with an approximate rank allocation and the exact procedure in conditions (confidence low). Realized: HOU landed #2 (inside its top-4 protection), so HOU kept #2, OKC kept #6 and received MIA's #18; HOU held #2 and POR's #23, both better than BKN's #27, so no BKN swap - consistent with the conditions procedure, but NOT with the naive rank allocation (which would give OKC slot 2).",
+    "LAL->NOP: HR_jan21 and HR_apr21 give '8-30 protected' (NOP gets it only at 1-7, else LAL 2022 unprotected), while HR_feb21 calls the pick unprotected and the June 2019 initial report (LBS_ad19) said top-8 protected. The 8-30 version is recorded because it is the post-deadline source and matches the realized outcome (LAL kept #22; NOP got LAL's 2022 first). Whether this reflects an exercised deferral option was not confirmed.",
+    "NYK/LAC swap: the 'top-four protection' is from a single source (HR_morris20) and it is unclear which pick it protects; irrelevant at realized slots (NYK 19 better than LAC 25, no swap).",
+    "MIL->HOU is formally a swap of MIL's first for HOU's second-rounder (top-9 protected); encoded as a protected first-round rule.",
+    "Draft-night / post-draft trades ignored (pre-draft holders recorded): 10 NOP->MEM and 17 MEM->NOP (Valanciunas trade, completed after the draft), 16 OKC->HOU, 19 NYK->CHA, 21 NYK->LAC, 22 LAL->WAS->IND (Westbrook trade, completed after the draft), 25 LAC->NYK, 29 PHX->BKN, 30 UTA->MEM.",
+    "No first-round forfeitures found for 2021.",
+    "Realized-holder check: all 30 slots consistent with the rules (using the exact sequential procedure for the pool), except BOS/slot 16 (post-deadline trade, above).",
+    "LAL->NOP condition conflict (additional sources). SLAM (2019), Larry Brown Sports (2019) and Silver Screen and Roll (2024) describe it as 'top 8' and read it as NOP at 1-8; Hoops Rumors (Jan and Apr 2021, post-deadline) says '8-30 protected' (NOP only at 1-7). Kept 1-7: it is the post-deadline source and it matches the realized outcome (LAL kept #22, NOP received the 2022 pick). The two readings differ only at slot 8, which the Lakers (top-4 West at the deadline) could not reach."
+  ]
+}

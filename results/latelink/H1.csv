@@ -1,0 +1,2 @@
+n_team_games,share_neg_new,share_neg_old,diff_new_minus_old,diff_lo99,diff_hi99,n_new_reversals,crossing_share,crossing_lo99,crossing_hi99,supported
+163,0.31901840490797545,0.0,0.31901840490797545,0.10738015340364335,0.54840658151115,111,1.0,1.0,1.0,True

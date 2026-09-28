@@ -1,0 +1,552 @@
+{
+  "draft_year": 2020,
+  "season": "2019-20",
+  "state_as_of": "after the 2020-02-06 trade deadline, as of the March 2020 hiatus (lottery/draft order used records as of 2020-03-11; non-bubble teams seeded 1-8)",
+  "sources": [
+    {
+      "id": "HR_jun20",
+      "title": "Hoops Rumors: What Lottery, Draft Rules Mean For Traded 2020 First Round Picks",
+      "url": "https://www.hoopsrumors.com/2020/06/what-lottery-draft-rules-mean-for-traded-2020-first-round-picks.html",
+      "date": "2020-06-05",
+      "role": "conditions (post-deadline, post-hiatus state; lottery seeding by 2020-03-11 records)"
+    },
+    {
+      "id": "HR_jan20",
+      "title": "Hoops Rumors: Checking In On 2020's Protected First-Round Picks",
+      "url": "https://www.hoopsrumors.com/2020/01/checking-in-on-2020s-protected-first-round-picks.html",
+      "date": "2020-01-14",
+      "role": "conditions (pre-deadline; original protection terms)"
+    },
+    {
+      "id": "HR_aug19",
+      "title": "Hoops Rumors: Traded First Round Picks For 2020 NBA Draft",
+      "url": "https://www.hoopsrumors.com/2019/08/traded-first-round-picks-for-2020-nba-draft.html",
+      "date": "2019-08-19",
+      "role": "conditions (original terms, carryovers)"
+    },
+    {
+      "id": "HR_morris20",
+      "title": "Hoops Rumors: Clippers Acquire Marcus Morris In Three-Team Trade",
+      "url": "https://www.hoopsrumors.com/2020/02/clippers-knicks-finalizing-marcus-morris-trade.html",
+      "date": "2020-02-06",
+      "role": "conditions (deadline trade: LAC 2020 first to NYK)"
+    },
+    {
+      "id": "NBA_4team20",
+      "title": "NBA.com: Clint Capela, Robert Covington on move in massive 4-team deal",
+      "url": "https://www.nba.com/news/reports-four-team-trade-capela-covington",
+      "date": "2020-02-06",
+      "role": "conditions (deadline trade: HOU 2020 first to DEN; BKN 2020 first ATL->MIN)"
+    },
+    {
+      "id": "CBS_order20",
+      "title": "CBS Sports: 2020 NBA Draft order (first round with 'from' annotations)",
+      "url": "https://www.cbssports.com/nba/news/2020-nba-draft-order-knicks-move-up-bucks-get-another-pick-and-timberwolves-to-pick-no-1/",
+      "date": "2020-11-17",
+      "role": "realized holders"
+    },
+    {
+      "id": "WIKI_2020",
+      "title": "Wikipedia: 2020 NBA draft",
+      "url": "https://en.wikipedia.org/wiki/2020_NBA_draft",
+      "role": "realized holders (second source; pre-draft vs draft-day trades)"
+    }
+  ],
+  "natives": {
+    "ATL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "BKN": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "MIN"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "NBA_4team20",
+        "WIKI_2020"
+      ],
+      "text": "Top-14 protected; originally owed to ATL, moved to MIN in the Feb 2020 four-team deadline trade. If protected, would roll to 2021 (top-14 protected).",
+      "confidence": "high"
+    },
+    "BOS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "CHA": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "CHI": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "CLE": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            10
+          ]
+        ],
+        "else": "NOP"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19"
+      ],
+      "text": "Top-10 protected to NOP; if protected, NOP instead gets 2021 and 2022 second-rounders.",
+      "confidence": "high"
+    },
+    "DAL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "DEN": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            10
+          ]
+        ],
+        "else": "OKC"
+      },
+      "sources": [
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020",
+        "HR_jun20"
+      ],
+      "text": "Top-10 protected to OKC; if protected, 2021 top-10 protected. (June 2020 source describes it simply as going to OKC since protection was moot.)",
+      "confidence": "high"
+    },
+    "DET": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "GSW": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            20
+          ]
+        ],
+        "else": "BKN"
+      },
+      "sources": [
+        "HR_jan20",
+        "HR_aug19",
+        "HR_jun20"
+      ],
+      "text": "Top-20 protected to BKN (D'Angelo Russell sign-and-trade); if protected, BKN gets a 2025 second-rounder instead.",
+      "confidence": "high"
+    },
+    "HOU": {
+      "rule": {
+        "type": "to",
+        "holder": "DEN"
+      },
+      "sources": [
+        "HR_jun20",
+        "NBA_4team20",
+        "WIKI_2020"
+      ],
+      "text": "To DEN in the Feb 2020 four-team trade; described as unprotected (HR_jun20); the trade report lists no protections.",
+      "confidence": "high"
+    },
+    "IND": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "MIL"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020"
+      ],
+      "text": "Top-14 protected to MIL; if protected, 2021 top-14 protected.",
+      "confidence": "high"
+    },
+    "LAC": {
+      "rule": {
+        "type": "to",
+        "holder": "NYK"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_morris20"
+      ],
+      "text": "Unprotected to NYK (Marcus Morris trade at the Feb 2020 deadline).",
+      "confidence": "high"
+    },
+    "LAL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "MEM": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            6
+          ]
+        ],
+        "else": "BOS"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020"
+      ],
+      "text": "Top-6 protected to BOS; if protected, 2021 unprotected.",
+      "confidence": "high"
+    },
+    "MIA": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "MIL": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            7
+          ]
+        ],
+        "else": "BOS"
+      },
+      "sources": [
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020"
+      ],
+      "text": "Top-7 protected to BOS (via PHX); if protected, 2021 unprotected.",
+      "confidence": "high"
+    },
+    "MIN": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "NOP": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "NYK": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "OKC": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            20
+          ]
+        ],
+        "else": "PHI"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020"
+      ],
+      "text": "Top-20 protected to PHI (chain PHI->ORL->PHI); if protected, PHI gets 2022 and 2023 second-rounders instead.",
+      "confidence": "high"
+    },
+    "ORL": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "PHI": {
+      "rule": {
+        "type": "protected",
+        "keep": [
+          [
+            1,
+            14
+          ]
+        ],
+        "else": "BKN"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19",
+        "WIKI_2020"
+      ],
+      "text": "Top-14 (lottery) protected, to BKN (acquired from LAC at the Feb 2020 deadline). If protected, 2021 top-14 protected.",
+      "confidence": "high"
+    },
+    "PHX": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "POR": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "SAC": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "SAS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "TOR": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    },
+    "UTA": {
+      "rule": {
+        "type": "reverse",
+        "to_if": [
+          [
+            8,
+            14
+          ]
+        ],
+        "holder": "MEM"
+      },
+      "sources": [
+        "HR_jun20",
+        "HR_jan20",
+        "HR_aug19"
+      ],
+      "text": "Protected 1-7 and 15-30; MEM gets it only if it lands 8-14. Otherwise rolls to 2021 with the same protections.",
+      "confidence": "high"
+    },
+    "WAS": {
+      "rule": {
+        "type": "own"
+      },
+      "sources": [],
+      "text": "No traded first-round obligation found for this pick as of the deadline state; native keeps it.",
+      "confidence": "high"
+    }
+  },
+  "realized": {
+    "1": {
+      "native": "MIN",
+      "holder": "MIN"
+    },
+    "2": {
+      "native": "GSW",
+      "holder": "GSW"
+    },
+    "3": {
+      "native": "CHA",
+      "holder": "CHA"
+    },
+    "4": {
+      "native": "CHI",
+      "holder": "CHI"
+    },
+    "5": {
+      "native": "CLE",
+      "holder": "CLE"
+    },
+    "6": {
+      "native": "ATL",
+      "holder": "ATL"
+    },
+    "7": {
+      "native": "DET",
+      "holder": "DET"
+    },
+    "8": {
+      "native": "NYK",
+      "holder": "NYK"
+    },
+    "9": {
+      "native": "WAS",
+      "holder": "WAS"
+    },
+    "10": {
+      "native": "PHX",
+      "holder": "PHX"
+    },
+    "11": {
+      "native": "SAS",
+      "holder": "SAS"
+    },
+    "12": {
+      "native": "SAC",
+      "holder": "SAC"
+    },
+    "13": {
+      "native": "NOP",
+      "holder": "NOP"
+    },
+    "14": {
+      "native": "MEM",
+      "holder": "BOS"
+    },
+    "15": {
+      "native": "ORL",
+      "holder": "ORL"
+    },
+    "16": {
+      "native": "POR",
+      "holder": "POR"
+    },
+    "17": {
+      "native": "BKN",
+      "holder": "MIN"
+    },
+    "18": {
+      "native": "DAL",
+      "holder": "DAL"
+    },
+    "19": {
+      "native": "PHI",
+      "holder": "BKN"
+    },
+    "20": {
+      "native": "MIA",
+      "holder": "MIA"
+    },
+    "21": {
+      "native": "OKC",
+      "holder": "PHI"
+    },
+    "22": {
+      "native": "HOU",
+      "holder": "DEN"
+    },
+    "23": {
+      "native": "UTA",
+      "holder": "UTA"
+    },
+    "24": {
+      "native": "IND",
+      "holder": "MIL"
+    },
+    "25": {
+      "native": "DEN",
+      "holder": "OKC"
+    },
+    "26": {
+      "native": "BOS",
+      "holder": "BOS"
+    },
+    "27": {
+      "native": "LAC",
+      "holder": "NYK"
+    },
+    "28": {
+      "native": "LAL",
+      "holder": "LAL"
+    },
+    "29": {
+      "native": "TOR",
+      "holder": "TOR"
+    },
+    "30": {
+      "native": "MIL",
+      "holder": "BOS"
+    }
+  },
+  "forfeited": [],
+  "open_issues": [
+    "Slot 23 (UTA native) and slot 27 (LAC native, held by NYK) were exchanged UTA<->NYK on draft day (2020-11-18); recorded pre-draft holders UTA (23) and NYK (27). CBS_order20 shows the post-swap labels; WIKI_2020 classifies it as a draft-day trade.",
+    "Slot 16 (POR) went to DET via HOU and slot 24 (IND->MIL) went via NOP to DEN in trades completed after the draft (2020-11-22 and later); pre-draft holders POR and MIL recorded. Other draft-night moves (17 MIN->OKC, 19 BKN->DET, 21/25/28/30) likewise ignored.",
+    "DEN->OKC: HR_jun20 labels the pick 'unprotected' (protection was moot by then); earlier sources give top-10 protection, which is what is recorded.",
+    "No first-round forfeitures found for 2020.",
+    "Realized-holder check: applying every native's rule to its realized slot reproduces the pre-draft holder for all 30 picks (no mismatches)."
+  ]
+}

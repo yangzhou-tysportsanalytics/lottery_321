@@ -1,0 +1,17 @@
+old,new,count
+dominance_positive,dominance_positive,2529
+negligible,negligible,987
+dominance_positive,unresolved,78
+dominance_positive,reversal,489
+unresolved,unresolved,49
+unresolved,reversal,8
+reversal,reversal,134
+dominance_positive,negligible,422
+unresolved,negligible,18
+unresolved,dominance_positive,20
+negligible,dominance_positive,114
+reversal,unresolved,12
+reversal,dominance_positive,14
+reversal,negligible,11
+negligible,unresolved,5
+negligible,reversal,6

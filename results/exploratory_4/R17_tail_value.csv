@@ -1,0 +1,5 @@
+portfolio,rule,n,lose_a0,win_a0,lose_a05,win_a05,sign_changed_a05,point_sign_flipped_a05,lose_a10,win_a10,sign_changed_a10,point_sign_flipped_a10,lose_a20,win_a20,sign_changed_a20,point_sign_flipped_a20
+actual,old,4896,3288,79,3266,78,29,3,3242,79,60,7,3198,80,119,10
+actual,new,4896,2527,286,2523,279,25,1,2528,266,61,4,2526,236,143,11
+own,old,4896,4365,0,4344,0,21,0,4312,0,53,0,4257,0,108,0
+own,new,4896,3404,214,3396,205,17,0,3385,183,50,0,3359,129,130,0
