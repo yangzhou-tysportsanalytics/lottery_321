@@ -1,0 +1,7 @@
+item,rule,portfolio,reversals,with_tie,note,value,lo99,hi99,n
+(c) reversals with a tie at the minimum of the upper band,old,actual,171,48,j* = numpy.argmin(upper band) + 1 (analysis.verdict): the smallest slot among ties,,,,
+(c) reversals with a tie at the minimum of the upper band,old,own,0,0,j* = numpy.argmin(upper band) + 1 (analysis.verdict): the smallest slot among ties,,,,
+(c) reversals with a tie at the minimum of the upper band,new,actual,637,130,j* = numpy.argmin(upper band) + 1 (analysis.verdict): the smallest slot among ties,,,,
+(c) reversals with a tie at the minimum of the upper band,new,own,506,0,j* = numpy.argmin(upper band) + 1 (analysis.verdict): the smallest slot among ties,,,,
+"(d) H1, pooled over team-games (two-level bootstrap; seasons weighted by team-games)",new-old,own,,,,0.31587057010785824,0.12461609620721556,0.5171514509767816,649
+"(d) H1, seasons weighted equally (mean of the six season differences; t, 5 d.f.)",new-old,own,,,,0.30990742362098683,-0.02491626487938714,0.6447311121213608,6

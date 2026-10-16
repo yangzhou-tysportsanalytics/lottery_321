@@ -1,0 +1,17 @@
+portfolio,rule,verdict_draws4,verdict_draws32,n
+actual,old,dominance_positive,dominance_positive,44
+actual,old,negligible,negligible,33
+actual,old,reversal,reversal,6
+actual,old,unresolved,dominance_positive,4
+actual,old,unresolved,unresolved,2
+actual,new,dominance_positive,dominance_positive,26
+actual,new,negligible,negligible,43
+actual,new,reversal,reversal,12
+actual,new,unresolved,dominance_positive,1
+actual,new,unresolved,negligible,5
+actual,new,unresolved,unresolved,2
+own,old,dominance_positive,dominance_positive,83
+own,old,negligible,negligible,6
+own,new,dominance_positive,dominance_positive,56
+own,new,negligible,negligible,26
+own,new,reversal,reversal,7

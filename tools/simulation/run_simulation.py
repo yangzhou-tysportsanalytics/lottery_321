@@ -3,7 +3,10 @@
 Variants (registration + addendum A1 section 5):
     primary    the registered main run (default)
     norestr    no repeat restrictions, all days
-    dta        draw-then-adjust joint lottery procedure, subsample
+    dta        draw-then-adjust joint lottery procedure, subsample (first run)
+    dta2       the same days, states and seeds with the corrected repair (dta_corrected.py)
+    defer      exploratory: the two options to defer held at a deadline (2022 and 2024 drafts) read as
+               deferrals from slot 15, every window day of 2021-22 and 2023-24 (router_defer.py)
     latelink   win model refitted on earlier seasons' late windows, subsample
     stress     win-model slope x1.25, subsample
     alt6       2024 WAS 13-30 alternative router, the 25 registered 2023-24 days
@@ -60,6 +63,7 @@ def _init_worker():
 
 
 VARIANTS = {'primary': {}, 'norestr': {}, 'dta': {'new_procedure': 'draw_then_adjust'},
+            'dta2': {'new_procedure': 'draw_then_adjust'}, 'defer': {},
             'latelink': {'win_mode': 'prior_late_link'}, 'stress': {'win_mode': 'stress_slope_x1.25'},
             'alt6': {}, 'c3': {}, 'pool32': {}}
 SUBSAMPLE_STEP = 4                      # addendum A1 section 5: every 4th game day of each season
@@ -121,6 +125,9 @@ def _job_inner(args):
         return {'season': season, 'day': day, 'status': 'done', 'secs': round(time.time() - t0, 1),
                 'worlds': meta['n_worlds'], 'precision_met': meta['precision_met'],
                 'focal': len(meta['focal_game_ids'])}
+    if tag == 'dta2':                     # corrected draw-then-adjust repair, this process only
+        import dta_corrected
+        dta_corrected.install()
     year = H.draft_year(season)
     todays = H.window_days(games, season)[day]
     mp_new = {} if tag == 'norestr' else H.restrictions(year)
@@ -128,11 +135,19 @@ def _job_inner(args):
     if tag == 'alt6':
         import router_2024_alt6 as A6
         router = A6.Router2024Alt6
+    if tag == 'defer':
+        import router_defer as DF
+        router = DF.ROUTERS[year]
     t0 = time.time()
     res, meta = H.run_one_day(games, season, day, todays, router, mp_new, looks=looks, **VARIANTS[tag])
     meta['run_tag'] = tag; meta['ledger'] = f'ledger_{year}_draft.json'; meta['host'] = 'windows_pc'
     if tag == 'alt6':
         meta['ledger'] = 'ledger_2024_draft.json + alt reading of the WAS 13-30 branch (assumption item 6)'
+    if tag == 'dta2':
+        import dta_corrected
+        meta['dta_repair'] = dta_corrected.REPAIR_LABEL
+    if tag == 'defer':
+        meta['ledger'] += ' + deferral-option reading (router_defer, holder defers from slot 15)'
     path.parent.mkdir(parents=True, exist_ok=True)
     if len(looks) == 1 and looks[0] < 2000:          # smoke test: batches not divisible by 50
         meta['smoke'] = True
@@ -189,8 +204,10 @@ def main():
     alt6_days = _alt6_days() if tag == 'alt6' else None
     for season in H.MAIN_SEASONS:
         days = list(H.window_days(games, season))
-        if tag in ('dta', 'latelink', 'stress', 'c3'):
+        if tag in ('dta', 'dta2', 'latelink', 'stress', 'c3'):
             days = days[::SUBSAMPLE_STEP]
+        if tag == 'defer':
+            days = days if season in ('2021-22', '2023-24') else []
         if tag == 'alt6':
             days = [d for d in days if season == ALT6_SEASON and d in alt6_days]
         if tag == 'pool32':

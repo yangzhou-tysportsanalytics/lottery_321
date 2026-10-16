@@ -19,15 +19,15 @@ import argparse
 import csv
 from pathlib import Path
 
-RULE = {'old': 'old rule', 'new': '3-2-1', 'delta': 'ΔC = C_new − C_old'}
+RULE = {'old': 'old rule', 'new': '3-2-1', 'delta': 'change ΔC'}
 PF = {'actual': 'actual portfolio', 'own': 'own pick only'}
 VERD = ('dominance_positive', 'negligible', 'reversal', 'unresolved')
 VLAB = {'dominance_positive': 'dominance-positive', 'negligible': 'negligible', 'reversal': 'reversal',
         'unresolved': 'unresolved'}
 BANDS = ('1-3', '4-10', '11-16', '17-30')
 TYPES = ('both_lose', 'normal', 'no_own_stake', 'opposed', 'one_sided_win', 'both_win')
-TLAB = {'both_lose': 'both prefer to lose', 'normal': 'one-sided lose', 'no_own_stake': 'no own stake',
-        'opposed': 'opposed', 'one_sided_win': 'one-sided win', 'both_win': 'both prefer to win'}
+TLAB = {'both_lose': 'both gain draft value by losing', 'normal': 'one-sided lose', 'no_own_stake': 'no own stake',
+        'opposed': 'opposed', 'one_sided_win': 'one-sided win', 'both_win': 'both gain draft value by winning'}
 
 
 def read(path):
@@ -59,7 +59,7 @@ def pick(rows, **w):
 def table_5_1(A):
     t = read(A / 'T5_1_verdicts.csv')
     out = ['**Table 5.1. Verdict shares, all team-games (class B; %, 99% two-level bootstrap intervals).** '
-           '4,896 team-games per rule. Rows "ΔC = C_new − C_old" classify the change ΔC(j) = C_new(j) − C_old(j). '
+           '4,896 team-games per rule. Rows "change ΔC" classify the change ΔC(j) = C_new(j) − C_old(j). '
            'A share with no bootstrap variation is shown as a count. Class C, which differs from class B in '
            '2 of 19,584 verdicts, is Online Appendix Table C.13.', '',
            '| rule | portfolio | ' + ' | '.join(VLAB[v] for v in VERD) + ' |', '|---|---|' + '---|' * len(VERD)]

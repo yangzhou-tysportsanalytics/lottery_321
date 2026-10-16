@@ -1,0 +1,85 @@
+{
+ "checks": [
+  {
+   "check": "day files",
+   "got": 312,
+   "want": 312,
+   "ok": true
+  },
+  {
+   "check": "team-game rows per rule and portfolio",
+   "got": 4896,
+   "want": 4896,
+   "ok": true
+  },
+  {
+   "check": "(H-a) at rho = 0 equals the registered headline",
+   "got": 0.09517973856209151,
+   "want": 0.09517973856209151,
+   "ok": true
+  },
+  {
+   "check": "(H-a) at rho = 0.5 equals R16",
+   "got": 0.07169117647058824,
+   "want": 0.07169117647058824,
+   "ok": true
+  },
+  {
+   "check": "(H-a) at rho = 0.8 equals R16",
+   "got": 0.059640522875816976,
+   "want": 0.059640522875816976,
+   "ok": true
+  },
+  {
+   "check": "(H-b) at rho = 0 equals the registered headline",
+   "got": 0.10334967320261437,
+   "want": 0.10334967320261437,
+   "ok": true
+  },
+  {
+   "check": "(H-b) at rho = 0.5 equals R16",
+   "got": 0.10334967320261437,
+   "want": 0.10334967320261437,
+   "ok": true
+  },
+  {
+   "check": "(H-b) at rho = 0.8 equals R16",
+   "got": 0.10334967320261437,
+   "want": 0.10334967320261437,
+   "ok": true
+  },
+  {
+   "check": "H2 (a = 0) equals the registered H2",
+   "got": -3.581108315532979e-05,
+   "want": -3.581108315532979e-05,
+   "ok": true
+  },
+  {
+   "check": "H2 sample size",
+   "got": 2048,
+   "want": 2048,
+   "ok": true
+  },
+  {
+   "check": "own-pick M = 0 (max |M|)",
+   "got": 4.917383193969727e-09,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own-pick verdicts identical under every rho",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "check": "median TP, 3-2-1, linear, actual, equals T5_5",
+   "got": 0.5218580813800328,
+   "want": 0.5218580813800328,
+   "ok": true
+  }
+ ],
+ "day_pass_seconds": 115.2,
+ "workers": 16,
+ "total_seconds": 382.8
+}

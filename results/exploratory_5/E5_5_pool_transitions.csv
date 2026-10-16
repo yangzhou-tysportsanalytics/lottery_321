@@ -1,0 +1,5 @@
+portfolio,rule,verdict_draws4,verdict_draws16,n
+actual,old,dominance_positive,dominance_positive,1
+actual,new,dominance_positive,dominance_positive,1
+own,old,dominance_positive,dominance_positive,1
+own,new,dominance_positive,dominance_positive,1

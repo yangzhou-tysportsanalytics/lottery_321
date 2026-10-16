@@ -36,9 +36,10 @@ confidence grade; `realized` is the actual first round, and `open_issues` record
 read. The grammar is in `SCHEMA.md`.
 
 `router_<year>.py` compiles each ledger into a router that maps a complete draft order to the holder
-of every slot. Each router reproduces that year's realized first round, except for picks that changed hands
+of every slot. Each router reproduces that year's realized first round except for five picks: three changed hands in trades
 after the trade deadline, which are deliberately not applied and are listed in the router
-(`POST_DEADLINE_CHANGES`). Of the 67 protection and pool conditions checked against a second source, 63 are
+(`POST_DEADLINE_CHANGES`), and two were options to defer, held at the deadline, that the ledgers code as taken
+that year (`router_defer.py` gives the deferral reading). Of the 67 protection and pool conditions checked against a second source, 63 are
 confirmed and none conflict; the remaining four are recorded as `ASSUMPTIONS` in the routers, and
 `results/ledger_assumption_check.json` shows how often each could bind in a sampled state (its items 3, 6, 8 and 9 are the four assumptions, described in `src/lottery321/ledger_assumption_check.py`).
 
@@ -133,7 +134,10 @@ top five, before the first ledger, is written in `simulate.py`).
 | `norestr/`, `dta/`, `latelink/`, `stress/`, `alt6/` | Registered robustness runs: no repeat restrictions; draw-then-adjust 3-2-1 draw; late-window win-probability link; win-model slope × 1.25; alternative reading of one 2024 condition |
 | `compare_primary_*/` | Paired differences between the primary run and each robustness run |
 | `c3/` | Component decomposition of 3-2-1 (field and balls, floor, repeat restrictions, protection ban): outcomes, chain, Shapley values, H3 |
-| `exploratory_1/` to `exploratory_4/` | Exploratory analyses added after the results were opened, in four sets; none changes a registered number |
+| `exploratory_1/` to `exploratory_7/` | Exploratory analyses added after the results were opened, in seven sets; none changes a registered number |
+| `dta2/`, `compare_primary_dta2/`, `robustness_headlines_dta2.csv` | The draw-then-adjust run repeated with its repair corrected (Online Appendix I.6, amendment 18); the first run stays in `dta/` |
+| `defer/`, `compare_primary_defer/`, `robustness_headlines_defer.csv` | Exploratory: the two options to defer read as deferrals (Online Appendix H.33) |
+| `native_contributions/` | Exploratory: four team-games re-simulated with holdings kept by native pick (Online Appendix H.34) |
 | `robustness_headlines.csv` | The four headline quantities for each robustness run |
 
 `team_games.csv(.gz)` has one row per team-game, rule (`old`, `new` = 3-2-1) and portfolio (`actual` = rights

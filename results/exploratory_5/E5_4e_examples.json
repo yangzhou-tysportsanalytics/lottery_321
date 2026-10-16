@@ -1,0 +1,360 @@
+{
+ "rule": "old rule, actual portfolio, class-B reversal; own-pick verdict not a reversal; the team holds the opponent's pick (S3) or another pick conditionally (S2); no pooled right; at most three ledger entries matter, all of high confidence; largest |linear tau| first; one per season",
+ "candidates_meeting_the_first_three_conditions": 71,
+ "examples": [
+  {
+   "season": "2023-24",
+   "date": "2024-04-09",
+   "game_id": "401585774",
+   "team": "TOR",
+   "opponent": "IND",
+   "home": "TOR",
+   "away": "IND",
+   "team_rank": 6,
+   "opponent_rank": 17,
+   "ledger": [
+    {
+     "native": "IND",
+     "role": "opponent pick",
+     "held_by_team": true,
+     "rule": {
+      "type": "protected",
+      "keep": [
+       [
+        1,
+        3
+       ]
+      ],
+      "else": "TOR"
+     },
+     "text": "Top-3 protected to Toronto (Siakam trade).",
+     "sources": [
+      "HR_mar24",
+      "HR_aug23"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2024/03/checking-in-on-traded-2024-first-round-picks.html",
+      "https://www.hoopsrumors.com/2023/08/traded-first-round-picks-for-2024-nba-draft.html"
+     ]
+    },
+    {
+     "native": "TOR",
+     "role": "own pick",
+     "held_by_team": false,
+     "rule": {
+      "type": "protected",
+      "keep": [
+       [
+        1,
+        6
+       ]
+      ],
+      "else": "SAS"
+     },
+     "text": "Top-6 protected to San Antonio.",
+     "sources": [
+      "HR_mar24",
+      "HR_aug23"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2024/03/checking-in-on-traded-2024-first-round-picks.html",
+      "https://www.hoopsrumors.com/2023/08/traded-first-round-picks-for-2024-nba-draft.html"
+     ]
+    }
+   ],
+   "verdict_old_actual": "reversal",
+   "jstar_old_actual": 17,
+   "min_upper_band_old_actual": -0.37292641650358577,
+   "tau_linear_old_actual": -0.054813349035768996,
+   "M_old_actual": 0.01277459549050036,
+   "C_old_actual": {
+    "1": 0.0011757500027306377,
+    "4": 0.0032164758068574883,
+    "10": 0.009803910950740829,
+    "14": -0.037506655221495745,
+    "15": -0.13613165519169343,
+    "20": -0.16278790487411243,
+    "30": 0.01277459549050036
+   },
+   "verdict_old_own": "dominance_positive",
+   "jstar_old_own": 0,
+   "min_upper_band_old_own": 5.5109247463894264e-11,
+   "tau_linear_old_own": 0.0018439542548945118,
+   "M_old_own": -1.0719290344241017e-10,
+   "C_old_own": {
+    "1": 0.0011757500027306377,
+    "4": 0.004097270661732182,
+    "10": 2.9483590624295174e-05,
+    "14": -1.0719290344241017e-10,
+    "15": -1.0719290344241017e-10,
+    "20": -1.0719290344241017e-10,
+    "30": -1.0719290344241017e-10
+   },
+   "verdict_new_actual": "reversal",
+   "jstar_new_actual": 18,
+   "min_upper_band_new_actual": -0.34097326464124006,
+   "tau_linear_new_actual": -0.05770703579556069,
+   "M_new_actual": 0.013741451136302202,
+   "C_new_actual": {
+    "1": 0.0,
+    "4": -0.004983998406678438,
+    "10": -0.03643534442409873,
+    "14": -0.06633231691084802,
+    "15": -0.08609346845187246,
+    "20": -0.17410229911096395,
+    "30": 0.013741451136302202
+   },
+   "verdict_new_own": "negligible",
+   "jstar_new_own": 0,
+   "min_upper_band_new_own": 0.0,
+   "tau_linear_new_own": 0.0,
+   "M_new_own": 0.0,
+   "C_new_own": {
+    "1": 0.0,
+    "4": 0.0,
+    "10": 0.0,
+    "14": 0.0,
+    "15": 0.0,
+    "20": 0.0,
+    "30": 0.0
+   }
+  },
+  {
+   "season": "2020-21",
+   "date": "2021-04-29",
+   "game_id": "401307749",
+   "team": "GSW",
+   "opponent": "MIN",
+   "home": "MIN",
+   "away": "GSW",
+   "team_rank": 14,
+   "opponent_rank": 2,
+   "ledger": [
+    {
+     "native": "GSW",
+     "role": "own pick",
+     "held_by_team": false,
+     "rule": {
+      "type": "protected",
+      "keep": [
+       [
+        1,
+        20
+       ]
+      ],
+      "else": "OKC"
+     },
+     "text": "Top-20 protected to OKC; if protected, OKC gets MIN's 2021 second-rounder instead.",
+     "sources": [
+      "HR_apr21",
+      "HR_feb21",
+      "HR_jan21"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2021/04/checking-in-on-traded-2021-first-round-picks.html",
+      "https://www.hoopsrumors.com/2021/02/early-check-in-on-traded-2021-first-round-picks.html",
+      "https://www.hoopsrumors.com/2021/01/traded-first-round-picks-for-2021-nba-draft.html"
+     ]
+    },
+    {
+     "native": "MIN",
+     "role": "opponent pick",
+     "held_by_team": true,
+     "rule": {
+      "type": "protected",
+      "keep": [
+       [
+        1,
+        3
+       ]
+      ],
+      "else": "GSW"
+     },
+     "text": "Top-3 protected to GSW (Russell/Wiggins trade); if protected, 2022 unprotected.",
+     "sources": [
+      "HR_apr21",
+      "HR_feb21",
+      "HR_jan21"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2021/04/checking-in-on-traded-2021-first-round-picks.html",
+      "https://www.hoopsrumors.com/2021/02/early-check-in-on-traded-2021-first-round-picks.html",
+      "https://www.hoopsrumors.com/2021/01/traded-first-round-picks-for-2021-nba-draft.html"
+     ]
+    }
+   ],
+   "verdict_old_actual": "reversal",
+   "jstar_old_actual": 6,
+   "min_upper_band_old_actual": -0.05168743255441029,
+   "tau_linear_old_actual": 0.045849681850813805,
+   "M_old_actual": 0.032548080737033164,
+   "C_old_actual": {
+    "1": 0.001998749990016222,
+    "4": 0.00578003991235164,
+    "10": 0.035527294788189466,
+    "14": 0.10967308142062393,
+    "15": 0.1366730815808114,
+    "20": 0.032548080737033164,
+    "30": 0.032548080737033164
+   },
+   "verdict_old_own": "dominance_positive",
+   "jstar_old_own": 0,
+   "min_upper_band_old_own": 1.2583650902714533e-09,
+   "tau_linear_old_own": 0.031323180880421644,
+   "M_old_own": -3.9231963455677034e-10,
+   "C_old_own": {
+    "1": 0.001998749990016222,
+    "4": 0.009426670456305146,
+    "10": 0.01485552211117465,
+    "14": 0.089000000533415,
+    "15": 0.11600000069360249,
+    "20": 0.011874999849824234,
+    "30": -3.9231963455677034e-10
+   },
+   "verdict_new_actual": "unresolved",
+   "jstar_new_actual": 0,
+   "min_upper_band_new_actual": 0.0017539213191451065,
+   "tau_linear_new_actual": 0.02799441800472025,
+   "M_new_actual": -0.0021266272561160805,
+   "C_new_actual": {
+    "1": 0.007958092810586095,
+    "4": 0.03392577261663973,
+    "10": 0.0789911552982403,
+    "14": 0.05000219221208226,
+    "15": 0.06081470205662754,
+    "20": -0.0021266272561160805,
+    "30": -0.0021266272561160805
+   },
+   "verdict_new_own": "dominance_positive",
+   "jstar_new_own": 0,
+   "min_upper_band_new_own": -4.3470840388566805e-10,
+   "tau_linear_new_own": 0.033002343648314024,
+   "M_new_own": -1.0078656487166882e-09,
+   "C_new_own": {
+    "1": 0.007958092810586095,
+    "4": 0.028601480140350757,
+    "10": 0.06390706478618086,
+    "14": 0.0792912073797197,
+    "15": 0.0793115912101348,
+    "20": 0.010499999213789125,
+    "30": -1.0078656487166882e-09
+   }
+  },
+  {
+   "season": "2021-22",
+   "date": "2022-04-05",
+   "game_id": "401361006",
+   "team": "MEM",
+   "opponent": "UTA",
+   "home": "UTA",
+   "away": "MEM",
+   "team_rank": 29,
+   "opponent_rank": 21,
+   "ledger": [
+    {
+     "native": "MEM",
+     "role": "own pick",
+     "held_by_team": false,
+     "rule": {
+      "type": "own"
+     },
+     "text": "Own pick (not listed as traded).",
+     "sources": [
+      "HR_mar22",
+      "HR_sep21"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2022/03/checking-in-on-traded-2022-first-round-picks-2.html",
+      "https://www.hoopsrumors.com/2021/09/traded-first-round-picks-for-2022-nba-draft.html"
+     ]
+    },
+    {
+     "native": "UTA",
+     "role": "opponent pick",
+     "held_by_team": true,
+     "rule": {
+      "type": "protected",
+      "keep": [
+       [
+        1,
+        6
+       ]
+      ],
+      "else": "MEM"
+     },
+     "text": "Top-6 protected to Memphis (if kept, 2023 top-3 protected).",
+     "sources": [
+      "HR_mar22",
+      "HR_sep21"
+     ],
+     "confidence": "high",
+     "source_urls": [
+      "https://www.hoopsrumors.com/2022/03/checking-in-on-traded-2022-first-round-picks-2.html",
+      "https://www.hoopsrumors.com/2021/09/traded-first-round-picks-for-2022-nba-draft.html"
+     ]
+    }
+   ],
+   "verdict_old_actual": "reversal",
+   "jstar_old_actual": 20,
+   "min_upper_band_old_actual": -0.34139328498633814,
+   "tau_linear_old_actual": -0.041739774168305335,
+   "M_old_actual": 0.00039852832477258127,
+   "C_old_actual": {
+    "1": 0.0,
+    "4": 0.0,
+    "10": 0.0,
+    "14": -0.017163971557415118,
+    "15": -0.017195221557880776,
+    "20": -0.34882022119792466,
+    "30": 0.00039852832477258127
+   },
+   "verdict_old_own": "negligible",
+   "jstar_old_own": 0,
+   "min_upper_band_old_own": 0.0,
+   "tau_linear_old_own": 0.0,
+   "M_old_own": 0.0,
+   "C_old_own": {
+    "1": 0.0,
+    "4": 0.0,
+    "10": 0.0,
+    "14": 0.0,
+    "15": 0.0,
+    "20": 0.0,
+    "30": 0.0
+   },
+   "verdict_new_actual": "reversal",
+   "jstar_new_actual": 20,
+   "min_upper_band_new_actual": -0.3268567406919703,
+   "tau_linear_new_actual": -0.04175776937767735,
+   "M_new_actual": 0.008725571716204285,
+   "C_new_actual": {
+    "1": 0.0,
+    "4": 0.0,
+    "10": -0.007667874603066593,
+    "14": -0.018480511901434512,
+    "15": -0.02539439684478566,
+    "20": -0.3338056770293042,
+    "30": 0.008725571716204285
+   },
+   "verdict_new_own": "negligible",
+   "jstar_new_own": 0,
+   "min_upper_band_new_own": 0.0,
+   "tau_linear_new_own": 0.0,
+   "M_new_own": 0.0,
+   "C_new_own": {
+    "1": 0.0,
+    "4": 0.0,
+    "10": 0.0,
+    "14": 0.0,
+    "15": 0.0,
+    "20": 0.0,
+    "30": 0.0
+   }
+  }
+ ]
+}

@@ -57,7 +57,7 @@ def figure_5_1(rows, out, portfolios=('actual', 'own'), bands_rows=None):
     for r in src:
         data[(r['band'], r['rule'], r['portfolio'])][int(r['j'])] = (float(r['mean']), float(r[lo_k]), float(r[hi_k]))
     bands = [b for b in BANDS if any(k[0] == b for k in data)]
-    fig, axes = plt.subplots(2, 2, figsize=(7.0, 5.6))
+    fig, axes = plt.subplots(2, 2, figsize=(6.0, 4.9))
     axes = axes.ravel()
     for ax, band in zip(axes, bands):
         for rule in ('old', 'new'):
@@ -73,7 +73,7 @@ def figure_5_1(rows, out, portfolios=('actual', 'own'), bands_rows=None):
         ax.axhline(0, color='#888888', linewidth=0.9)
         ax.axvline(11.5, color='#BBBBBB', linewidth=0.8, linestyle=':')
         ax.set_xlim(1, 30); ax.set_xticks([1, 5, 9, 12, 15, 20, 25, 30])
-        _style(ax, 'slot j', 'mean C(j)', f'league rank {band} at the cutoff')
+        _style(ax, r'slot $j$', r'mean $C(j)$', 'league rank ' + band.replace('-', '\u2013') + ' at the cutoff')
     for ax in axes[len(bands):]:
         ax.set_visible(False)
     handles, labels = axes[0].get_legend_handles_labels()
@@ -218,14 +218,14 @@ def figure_3_1(out):
     K = TH.position_kernels()
     Fn = np.cumsum(K['new'], axis=1)
     diff = Fn[2] - Fn[3]
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.2))
+    fig, axes = plt.subplots(1, 2, figsize=(7.6, 3.0))
     ax = axes[0]
     colours = ['#D55E00' if d < 0 else '#0072B2' for d in diff]
     ax.bar(np.arange(1, len(diff) + 1), diff, color=colours, width=0.72, edgecolor='white', linewidth=0.5)
     ax.axhline(0, color='#888888', linewidth=1)
     ax.axvline(11.5, color='#444444', linewidth=1, linestyle=':')
     ax.annotate('pick-12 floor', xy=(11.8, min(diff) * 0.85), fontsize=8, color='#444444')
-    _style(ax, 'slot j', 'F(j | position 3) - F(j | position 4)',
+    _style(ax, r'slot $j$', r'$F_3(j) - F_4(j)$',
            'Relegation boundary under 3-2-1')
     ax = axes[1]
     for rule, K_ in (('old', K['old']), ('new', K['new'])):

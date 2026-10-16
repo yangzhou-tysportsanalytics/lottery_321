@@ -254,7 +254,7 @@ def c9(A):
         for r in ('old', 'new'):
             sel = {x['type']: x for x in ty if x['curve'] == cv and x['rule'] == r}
             body.append([CL[cv], RULE[r]] + [pct(sel[k]['share']) if k in sel else '—' for k in types])
-    out += table(['curve', 'rule', 'both prefer to lose', 'one-sided lose', 'no own stake', 'opposed', 'one-sided win', 'both prefer to win'], body)
+    out += table(['curve', 'rule', 'both gain draft value by losing', 'one-sided lose', 'no own stake', 'opposed', 'one-sided win', 'both gain draft value by winning'], body)
     out += ['*Panel B*', '']
     body = []
     for cv in CURVES:

@@ -4,8 +4,9 @@ robustness run and for the primary run restricted to the same days.
 Reads the team-game tables written by analysis for `primary` and each robustness tag, and the
 H1/H2 tables of the robustness runs. H1 for the primary run on the subsample is recomputed with the same
 rule and the same two-level bootstrap as analysis. Writes
-results/robustness_headlines.csv. Prints counts only.
+results/robustness_headlines.csv, or the file named by --out. Prints counts only.
 Usage: python robustness_headlines.py dta latelink [stress alt6]
+       python robustness_headlines.py dta2 --out robustness_headlines_dta2.csv
 """
 import csv
 import sys
@@ -35,7 +36,7 @@ def h1(tg):
                 h1_supported=bool(lo > 0 and cross > 0.5))
 
 
-def main(tags):
+def main(tags, out_name='robustness_headlines.csv'):
     prim = P.load_tg('primary')
     out = []
     for tag in tags:
@@ -55,9 +56,9 @@ def main(tags):
                            h2_supported=h2['supported'] == 'True')
             out.append(row)
     keys = sorted({k for r in out for k in r}, key=lambda k: list(out[0]).index(k) if k in out[0] else 99)
-    with open(AN / 'robustness_headlines.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(AN / out_name, 'w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=keys); w.writeheader(); w.writerows(out)
-    print('wrote', AN / 'robustness_headlines.csv', len(out), 'rows')
+    print('wrote', AN / out_name, len(out), 'rows')
 
 
 def S_read(p):
@@ -66,4 +67,8 @@ def S_read(p):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:] or ['dta', 'latelink'])
+    args = sys.argv[1:]
+    name = 'robustness_headlines.csv'
+    if '--out' in args:
+        k = args.index('--out'); name = args[k + 1]; del args[k:k + 2]
+    main(args or ['dta', 'latelink'], name)
