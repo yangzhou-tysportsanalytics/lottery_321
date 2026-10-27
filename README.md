@@ -226,8 +226,9 @@ quantities to be reported), an addendum of operational definitions with its amen
 margin, stake measures, bootstrap, robustness runs, headline quantities), a draft of the results section with
 empty cells that states the decision rules of hypotheses H1 and H2, and the decomposition registration, which
 states H3. All four are in `registration/`: the two registrations verbatim, and public copies of the addendum
-(with its amendment record, amendments 1–31) and of the draft, in which internal labels and file names are
-replaced and nothing else is changed (`registration/README.md`). None of these documents was deposited with a
+(with its amendment record, amendments 1–31) and of the draft. In the draft, and in the addendum's definitions
+and amendments 1–12, only internal labels and file names are replaced; amendments 13–31 are given as recorded in
+the paper's Online Appendix I.6 (`registration/README.md`). None of these documents was deposited with a
 third-party registry, so their dates rest on the authors' record. One condition of H3 was restated by an
 amendment written before the results were opened: `decomposition_registration.md` gives its first wording, and
 Online Appendix I.2 gives both. Later amendments, and the one analysis choice changed after the results were opened (the

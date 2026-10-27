@@ -15,6 +15,8 @@ This file is the public record of the two audit rounds described in the paper's 
 | Round 1 (ledger version 0.1) | 56 | 2 | 9 | 67 |
 | After round 2 (version 0.2) | 63 | 0 | 4 | 67 |
 
+The 67 items include four of the 2020 draft, all confirmed in round 1; no run of the paper reads the 2020 ledger. For the six drafts the paper studies (2021–2026) the counts are 52 / 2 / 9 of 63 in round 1 and 59 / 0 / 4 of 63 after round 2.
+
 Round 1 found two conflicts. The 2021 Lakers-to-New Orleans boundary (sources said "top 8"; the router conveys at 1-7) was closed in round 2 by the PST wording "protected #8-30 in 2021", which confirms the router. For the 2026 Oklahoma City/Clippers/Houston pool, round 1 led to one correction of the 2026 router (when Houston keeps its pick, Philadelphia receives the better and Dallas the worse of the Oklahoma City and Clippers picks); round 2 confirmed the corrected encoding from PST. Of the nine items round 1 could not verify, round 2 confirmed five; the other four remain assumptions: two definitional choice rules (2021 Houston, 2025 Oklahoma City) and two with consistent but not explicit support (the 2024 Washington branch at slots 13-30 and the order of Utah's 2026 swaps). The branch probabilities of all four are checked in `results/ledger_assumption_check.json`.
 
 ## Item by item
