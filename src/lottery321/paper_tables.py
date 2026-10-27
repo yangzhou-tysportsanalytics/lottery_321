@@ -95,15 +95,15 @@ def table_5_3(A):
              if float(h['crossing_lo99']) == float(h['crossing_hi99'])
              else f'{pct(h["crossing_share"])} [{pct(h["crossing_lo99"])}, {pct(h["crossing_hi99"])}]')
     out = ['**Table 5.3. H1: own-pick-only team-games at league rank 2–5 at the cutoff.** Shares (%) with a '
-           'significantly negative linear-curve τ under each rule and their difference (99% two-level bootstrap '
+           'linear-curve τ classified as negative under the sign-and-size rule, under each rule, and their difference (99% two-level bootstrap '
            f'interval); the old-rule share is 0 of {h["n_team_games"]} team-games, and the crossing share has no '
            'bootstrap variation because every reversal in the rank band is a crossing. The distribution of the reversal '
            'slot j\\* is Online Appendix Table C.19.', '',
-           '| n | significantly negative linear-curve τ, 3-2-1 | same, old rule | difference [99% CI] | '
+           '| n | linear-curve τ classified as negative, 3-2-1 | same, old rule | difference [99% CI] | '
            '3-2-1 reversals | of which crossings | H1 |', '|---|---|---|---|---|---|---|',
            f'| {h["n_team_games"]} | {pct(h["share_neg_new"])} | {pct(h["share_neg_old"])} | '
            f'{pct(h["diff_new_minus_old"])} [{pct(h["diff_lo99"])}, {pct(h["diff_hi99"])}] | '
-           f'{n_rev} | {cross} | {"supported" if h["supported"] == "True" else "not supported"} |']
+           f'{n_rev} | {cross} | {"bootstrap criterion met" if h["supported"] == "True" else "bootstrap criterion not met"} |']
     return out + ['']
 
 
@@ -290,7 +290,7 @@ def table_5_7(A, H4=None):
     h2 = pick(read(pri / 'H2.csv'), curve='linear', sample='registered')
     out = ['**Table 5.7. The four headline quantities under every robustness item.** (H-a), (H-b): reversal-share '
            'differences, 3-2-1 − old, actual portfolio and own pick (percentage points). H1: difference in the share '
-           'of own-pick team-games at ranks 2–5 whose linear-curve τ is significantly negative, with the number of '
+           'of own-pick team-games at ranks 2–5 whose linear-curve τ is classified as negative under the sign-and-size rule, with the number of '
            '3-2-1 reversals in that rank band in parentheses (all crossings in every row). H2: paired difference in the mean '
            'absolute third-party stake, linear curve, in units of $10^{-4}$ of the first pick\'s value. Intervals are 99% '
            'two-level bootstrap intervals (the 2023-24-ledger rows resample days within one season). Rows: the primary '
@@ -298,9 +298,9 @@ def table_5_7(A, H4=None):
            'level 1 − 0.01/3 (a Bonferroni adjustment over the three looks; Online Appendix H.27) and precision-matched; the run without '
            'repeat restrictions; subsets of the primary days; and the four registered robustness runs (Online Appendix '
            'Table C.12). "Verdicts changed" counts actual-portfolio class-B verdicts that differ from the primary table, '
-           '3-2-1 / old rule; a dash means a subset of the primary run. H1 is supported by the registered bootstrap '
+           '3-2-1 / old rule; a dash means a subset of the primary run. H1 meets the registered bootstrap '
            'criterion in every row (its season-level 99% t interval includes zero; Online Appendix H.12) and H2 is not '
-           'supported in every row.', '',
+           'supported in any row.', '',
            '| analysis (days; team-games per rule) | (H-a) | (H-b) | H1 difference (3-2-1 reversals) | H2 (×0.0001) | verdicts changed |',
            '|---|---|---|---|---|---|']
 
