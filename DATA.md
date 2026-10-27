@@ -33,7 +33,9 @@ has one rule from a small grammar: `own`, `to` (conveyed unconditionally), `prot
 range, otherwise conveyed), `reverse` (conveyed only in a listed range) and `pool` (several natives' picks
 handed out by rank: swaps, "best of", "worst of"). Each rule carries a short paraphrase, its sources and a
 confidence grade; `realized` is the actual first round, and `open_issues` records every ambiguity and how it was
-read. The grammar is in `SCHEMA.md`.
+read. The grammar is in `SCHEMA.md`. The source audit of 2026-09-22 (67 conditions, two rounds) is recorded item by
+item in `source_audit_2026-09-22.md`: the encoded term, the independent wording and its source, and each round's
+verdict; the four conditions that remain assumptions are listed there.
 
 `router_<year>.py` compiles each ledger into a router that maps a complete draft order to the holder
 of every slot. Each router reproduces that year's realized first round except for five picks: three changed hands in trades
@@ -134,7 +136,7 @@ top five, before the first ledger, is written in `simulate.py`).
 | `norestr/`, `dta/`, `latelink/`, `stress/`, `alt6/` | Registered robustness runs: no repeat restrictions; draw-then-adjust 3-2-1 draw; late-window win-probability link; win-model slope × 1.25; alternative reading of one 2024 condition |
 | `compare_primary_*/` | Paired differences between the primary run and each robustness run |
 | `c3/` | Component decomposition of 3-2-1 (field and balls, floor, repeat restrictions, protection ban): outcomes, chain, Shapley values, H3 |
-| `exploratory_1/` to `exploratory_7/` | Exploratory analyses added after the results were opened, in seven sets; none changes a registered number |
+| `exploratory_1/` to `exploratory_8/` | Exploratory analyses added after the results were opened, in eight sets; none changes a registered number |
 | `dta2/`, `compare_primary_dta2/`, `robustness_headlines_dta2.csv` | The draw-then-adjust run repeated with its repair corrected (Online Appendix I.6, amendment 18); the first run stays in `dta/` |
 | `defer/`, `compare_primary_defer/`, `robustness_headlines_defer.csv` | Exploratory: the two options to defer read as deferrals (Online Appendix H.33) |
 | `native_contributions/` | Exploratory: four team-games re-simulated with holdings kept by native pick (Online Appendix H.34) |

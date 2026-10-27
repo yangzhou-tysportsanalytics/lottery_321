@@ -1,4 +1,4 @@
-# Losing for Whose Pick? Traded draft rights and the NBA's 3-2-1 lottery
+# Losing for whose pick? Portfolio dominance, traded rights and the NBA's 3-2-1 lottery
 
 Data and code for a study of how traded and protected first-round picks change the draft value of losing a
 game, under the NBA's 2019–2026 lottery and under a specification of the 3-2-1 lottery adopted in 2026.
@@ -17,10 +17,10 @@ behaviour.
 | Folder | Contents |
 |---|---|
 | `data/` | `games.csv`: every regular-season game 2019-20 to 2025-26 (date, start and end time, teams, score). `lottery_rules.json`: both lottery rules as simulated, including our specification of 3-2-1 |
-| `src/lottery321/ledgers/` | The draft-rights ledgers, one per draft 2020–2026 (`ledger_<year>_draft.json`: who holds every first-round pick after the trade deadline, with protections and pools); the executable router for each draft (`router_<year>.py`); `SCHEMA.md`; router tests |
+| `src/lottery321/ledgers/` | The draft-rights ledgers, one per draft 2020–2026 (`ledger_<year>_draft.json`: who holds every first-round pick after the trade deadline, with protections and pools); the executable router for each draft (`router_<year>.py`); `SCHEMA.md`; router tests; `source_audit_2026-09-22.md`, the item-by-item record of the source audit of the ledgers |
 | `src/lottery321/` | The code: simulator, lottery rules, value curves, exact theory, analysis, tables and figures (module list below) |
 | `results/` | All analysed results, one folder per run (list below), and the outputs of the ledger checks |
-| `registration/` | The run registration and the decomposition registration, written before any incentive estimate was inspected |
+| `registration/` | The four registration documents: the run registration and the decomposition registration (verbatim), and public copies of the addendum with its amendments and of the pre-results draft of the results section (see `registration/README.md`) |
 | `tools/simulation/` | The parallel, resumable simulation runner (`run_simulation.py`) and Windows launchers |
 | `tests/lottery321/` | Unit tests |
 
@@ -63,7 +63,7 @@ Appendices B, C and H to their files.
 
 ## Reproducing the results
 
-Python 3.10 or later with the packages in `requirements.txt`. Set the module path once:
+Python 3.10 or later with the packages in `requirements.txt` (minimum versions); `requirements-lock.txt` pins one environment in which the tests and the analyses from stored results ran. Set the module path once:
 
 ```
 export PYTHONPATH=$PWD/src/lottery321:$PWD/src/lottery321/ledgers
@@ -89,8 +89,9 @@ python src/lottery321/exploratory_7.py blocks
 python src/lottery321/exploratory_7.py positive
 python src/lottery321/exploratory_8.py all
 ```
-The first command prints the seven tables of Section 5 as registered (Tables 5.1–5.7); the paper prints five of
-them in the body and two in the online appendix (see "Which file is which table").
+The first command prints the seven tables of Section 5 in the layout and numbering of the registration
+("Table 5.1" to "Table 5.7"). Its numbering is not the paper's from Table 5.4 on, and some paper tables add rows
+from other files; "Which file is which table" below gives the correspondence.
 
 **3. The exact theory numbers (seconds).** `python src/lottery321/theory_numbers.py` recomputes the lottery
 kernels and every exact number of the theory section (for example the 3-2-1 relegation boundary F3(j) − F4(j))
@@ -110,8 +111,9 @@ re-simulates its four team-games).
 `--smoke` runs a one-minute check. Other variants: `norestr`, `dta`, `dta2`, `latelink`, `stress`, `alt6`, `c3`,
 `pool32`, `defer` (`run_dta2.bat` and `run_defer.bat` start the last two with their tests). The re-runs behind Online Appendix H.29 are started with `python src/lottery321/exploratory_5_calib.py calib-run --runs 6`. Runs are resumable, and seeds are fixed by game day, so a rerun reproduces the stored day files bit
 for bit apart from the recorded runtime. The simulation outputs (about 1.1 GB of `.npz` day files, written to
-`simulations/`) are not in this repository because of their size; they are available on request, and this
-step regenerates them.
+`simulations/<run>/<season>/exposures_<day>.npz`) are not in this repository because of their size; they are
+available on request, and this step regenerates them. With the day files in `simulations/`, step 4 and the four
+tests that are otherwise skipped can be run without running the simulations.
 
 ## Where the headline numbers come from
 
@@ -130,9 +132,22 @@ step regenerates them.
 
 ## Which file is which table
 
-Code and result files keep the table numbers of the registration. The paper prints registered Tables 5.1, 5.2, 5.3,
-5.5 and 5.6 as its Tables 5.1 to 5.5; registered Table 5.4 is Online Appendix Table C.5, Panel C, and Table 5.7 is
-Online Appendix Table C.20. Paths are under `results/`.
+Result files and `paper_tables.py` keep the table numbers of the registration, which differ from the paper's
+from Table 5.4 on. The correspondence for the tables of Section 5:
+
+| Paper | Printed by `paper_tables.py` as | Rows or panels from other files |
+|---|---|---|
+| Table 5.1 | Table 5.1 | none |
+| Table 5.2 | Table 5.2 | none |
+| Table 5.3 | Table 5.3 (the registered first row) | rows 2–4 and the season-level column: `exploratory_8.py signsize` |
+| Online Appendix Table C.5, Panels B and C | Table 5.4 (Δτ) | the paper's layout is printed by `appendix_c_tables.py` |
+| Table 5.4 (Panel A typology, Panel B H2) | Table 5.5 | the note on strict signs: `exploratory_8.py typology` |
+| Table 5.5 (Panels A–C, decomposition and H3) | Table 5.6 | none |
+| Online Appendix Table C.20 | Table 5.7 | the row of the corrected draw-then-adjust run, from `robustness_headlines_dta2.csv`; the generator's "draw-then-adjust draw" row is the paper's "draw-then-adjust draw, first run" |
+
+File names follow the registration too: `T5_4_typology.csv` feeds the paper's Table 5.4, `T5_curves_and_T5_6_delta.csv`
+feeds Online Appendix Table C.5, and the decomposition files `C3_…` feed the paper's Table 5.5. Paths are under
+`results/`.
 
 | Paper | Files | Script |
 |---|---|---|
@@ -210,15 +225,12 @@ of four dated documents of the authors: the run registration (sample, rules, rig
 quantities to be reported), an addendum of operational definitions with its amendments (band, verdict rules,
 margin, stake measures, bootstrap, robustness runs, headline quantities), a draft of the results section with
 empty cells that states the decision rules of hypotheses H1 and H2, and the decomposition registration, which
-states H3. The two registrations are in `registration/`; the addendum, its amendments and the draft are
-summarised in the paper's Online Appendix I and are available from the authors. None of these documents was
-deposited with a third-party registry, so their dates rest on the authors' record. One condition of H3 was
-restated by an amendment written before the results were opened: `decomposition_registration.md` gives its first
-wording, and Online Appendix I.2 gives both. The two texts in `registration/` are reproduced verbatim, so they keep the names used when they were
-written: the simulation is "stage 5", the addendum is "A1", `stage5_registration.md` is `run_registration.md`,
-`stage5_C3_registration.md` is `decomposition_registration.md`, and code paths refer to an earlier folder
-layout (`scripts/lottery_321/p12_<name>.py` is `src/lottery321/<name>.py` here, with `p12_hist_runs.py` now
-`simulate.py`). Later amendments, and the one analysis choice changed after the results were opened (the
+states H3. All four are in `registration/`: the two registrations verbatim, and public copies of the addendum
+(with its amendment record, amendments 1–31) and of the draft, in which internal labels and file names are
+replaced and nothing else is changed (`registration/README.md`). None of these documents was deposited with a
+third-party registry, so their dates rest on the authors' record. One condition of H3 was restated by an
+amendment written before the results were opened: `decomposition_registration.md` gives its first wording, and
+Online Appendix I.2 gives both. Later amendments, and the one analysis choice changed after the results were opened (the
 simultaneous band), are listed with their dates in the paper's online appendix. Tables produced under the band
 as first run are kept in `results/primary_asrun_boott/`.
 

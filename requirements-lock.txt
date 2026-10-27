@@ -1,0 +1,19 @@
+# Pinned environment for the tests and for the analyses from stored outputs (Windows 11, Python 3.12.10).
+# requirements.txt gives minimum versions; this file records one environment in which they ran.
+# The simulation runs themselves used Python 3.13.14 and NumPy 2.4.2 on Windows 11 (recorded in each run's metadata).
+# A re-run of one game day from this repository on Linux (Python 3.13.16, NumPy 2.5.3, pandas 3.0.5)
+# reproduced the stored arrays bit for bit.
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.66.0
+kiwisolver==1.5.1
+matplotlib==3.10.8
+numpy==2.4.1
+packaging==26.3
+pandas==3.0.0
+pillow==12.3.0
+pyparsing==3.3.3
+python-dateutil==2.9.0.post0
+scipy==1.17.0
+six==1.17.0
+tzdata==2025.3

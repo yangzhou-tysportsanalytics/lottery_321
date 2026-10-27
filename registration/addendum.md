@@ -1,0 +1,284 @@
+# Addendum to the run registration: operational definitions and amendments
+
+*Public version, prepared 2026-10-27.*
+
+**What this document is.** The design of the study was fixed in four dated documents (Online Appendix I.1 of the paper): the run registration, this addendum, a pre-results draft of the results section, and the decomposition registration. The two registration texts in the replication package (`registration/`) refer to this document as "addendum A1".
+
+**How this version differs from the authors' working record.**
+
+1. Parts 1 and 2 are given in full: the operational definitions as registered on 2026-09-22, and amendments 1 to 12, of which amendments 1 to 11 were written before any result was opened and amendment 12 is the one analysis choice changed afterwards. Only references were changed. Names of scripts, tests and folders of the working repository are replaced by those of the replication package where one exists, and otherwise by a description. References to internal notes, the labels of individual review findings and the roles of the people taking decisions are removed. No definition, number, date or decision was changed.
+2. Part 3 gives amendments 13 to 31, all written after the results were opened, as they are recorded in Online Appendix I.6 of the paper. The working record's longer entries for these amendments, which also contain notes on drafts and internal files, are not reproduced.
+3. Section, table and result numbers in Parts 1 and 2 refer to the drafts current when each entry was written and can differ from the published paper. For example, "Proposition 3" in amendment 9 is Proposition 1 of the paper, and "Proposition 1(a)" in amendment 10 is Lemma 1(a).
+
+---
+
+## Part 1. Operational definitions (registered 2026-09-22, before any simulation output was inspected)
+
+Registered 2026-09-22, 11:55 ET, **before any output of the league-wide simulation was inspected.** At the time of writing, 4 of 312 primary days exist on disk and none has been opened beyond file counts and hashes. This addendum fixes the definitions that the run registration (`registration/run_registration.md`) names but does not operationalise. It changes nothing in the computation.
+
+## 1. C1 verdicts per team-game (class B: j = 1..30; class C: j = 1..29)
+
+**Bands.**
+- Ĉ(j) is computed from the 50 stored super-batch means, with batch-means standard errors se(j).
+- The simultaneous 99% band is Ĉ(j) ± c·se(j).
+- c is the 0.99 quantile of max_j |Z_j| with Z ~ N(0, R). R is the batch-means correlation matrix of Ĉ(1..J), estimated from the 50 super-batches. Coordinates with se(j) = 0 are fixed at zero and dropped.
+- R is simulated with 10,000 draws, seed 20260922. This is the sup-t band of Montiel Olea & Plagborg-Møller (2019).
+
+**Verdicts.** δ = 0.003, the precision target. Apply the rules in this order:
+1. **negligible:** |Ĉ(j)| + c·se(j) < δ for every j;
+2. **reversal:** Ĉ(j) + c·se(j) < 0 for some j. The reversal slot j\* is the argmin of Ĉ(j) + c·se(j);
+3. **dominance-positive:** Ĉ(j) − c·se(j) ≥ −δ for every j, and Ĉ(j) − c·se(j) > 0 for some j;
+4. **unresolved:** everything else.
+
+**Scope.** The same verdicts are applied to ΔC = C_new − C_old, whose bands come from the paired batch means.
+
+**Curve-specific signs.** τ on each curve is significantly positive or negative when its pointwise 99% interval, z = 2.807034, excludes 0. It is *neutral* otherwise, and also when the interval lies inside ±δ.
+
+## 2. C2 measures per game (stakes s_c = value to c of a home win)
+
+- **Third-party share.** TP = Σ_{c∉{h,a}} |ŝ_c| / Σ_c |ŝ_c|. It is left undefined when Σ_c |ŝ_c| < δ.
+- **Concentration.** HHI = Σ_c (|ŝ_c| / Σ|ŝ|)². Also report the number of teams with |ŝ_c| ≥ δ.
+- **Typology.** Built from the two sides' linear-curve τ signs (§1): both-lose, both-win, normal (one lose and one neutral), opposed (lose/win), one-sided win (one win and one neutral), no own stake (neutral/neutral).
+- **Third-party dominated.** TP > 1/2, reported as an overlay on the typology.
+- **H2 sample.** Games in which at least one participant's native first-round pick is held, fully or conditionally, by a third team under that season's ledger.
+
+## 3. Bands
+
+- **Standing band.** League rank by wins at the cutoff, worst = 1. Ties are broken by the draft-tie priority of the state's first world, which is deterministic given the seed. The bands are 1–3, 4–10, 11–16 and 17–30.
+- **H1 relegation-boundary band.** Rank 2–5 at the cutoff. The simulation does not store final league positions, so a boundary stake cannot be conditioned on directly.
+- **Seeding-stake groups.** Groups are cut on the total-variation distance of `ST` between the two branches: < 0.01, 0.01–0.05, and ≥ 0.05.
+
+## 4. Uncertainty for population shares
+
+- **Monte Carlo error.** This is already in the per-team-game verdicts.
+- **Bootstrap for shares and paired differences.** Shares across team-games are descriptive of the 312-day population. Their intervals come from a day-clustered bootstrap that resamples game days within season. It uses 9,999 replicates, seed 2026092201, and percentile 99% intervals.
+
+## 5. Robustness runs (fixed now, run after the primary and `norestr` runs)
+
+- **Subsample.** Every 4th game day of each season, in date order starting from the first day. That gives 81 days (15 + 13 + 13 + 13 + 14 + 13; the count "78" in the first version of this line was an arithmetic slip, corrected 2026-09-22 before any output was inspected).
+- **Seeds.** The same seeds as the primary run.
+- **Runs.**
+  - (a) the draw-then-adjust joint procedure, run by Monte Carlo inside the simulator (lottery sampling, 4 draws per world);
+  - (b) the late-window link (mode `prior_late_link`);
+  - (c) the slope × 1.25 stress test (mode `stress_slope_x1.25`);
+  - (d) ledger-assumption branches: only if any of the four assumption branches can bind at a window state. Whether it can is checked from the ledgers alone, not from outputs.
+- **Reporting.** Everything in §§1–4 is reported on the subsample, for the primary run and for each robustness run.
+- **Code.** (a) needs a simulator option that is not yet written. It will be written and unit-tested before any primary output is opened.
+
+## 6. Scope notes
+
+- **Native-level attribution.** The simulation stores portfolio holdings, not holdings by native pick. The Theorem 1 term-by-term attribution named in the registration is therefore limited to the identifiable parts listed in paper §5.1: the portfolio effect, the seeding-stake split and the ledger-feature split.
+- **Targeted re-run.** A re-run of reversal cases that stores holdings by native pick would be selected on outcomes. If done, it is labelled exploratory and registered with its own selection rule before it is run.
+
+---
+
+## Part 2. Amendments 1–8 (2026-09-22, afternoon; still before any simulation output was inspected)
+
+These were made while the analysis code was written and tested. The only inputs were synthetic arrays and one off-window state (2023-12-01). No primary or no-restriction output file was opened.
+
+1. **Standing rank (§3).** "League rank by wins" becomes **league rank by winning percentage at the cutoff**, where winning percentage is wins / (wins + losses) over the games known at the cutoff. Teams can differ in games played at a cutoff, and raw wins would rank a team with games in hand as worse. Ties are broken by the draft-tie priority of the first world of look 1, drawn in the simulator's order.
+2. **Draw-then-adjust run (§5a).** The implementation differs from the wording "lottery sampling, 4 draws per world" in two respects.
+   - *Simple rights.* For natives with simple rights, the run uses a draw-then-adjust slot distribution per canonical field. This is computed by Monte Carlo with 10⁶ draws and a fixed seed (20260922), with rows pooled over exchangeable members, and cached. Both forced branches and every world with the same field therefore share one distribution. It replaces sampling the lottery in every world, which would add lottery noise that the primary run does not have.
+   - *Pooled rights.* Natives in pools use the draw-then-adjust sampler on the usual 4 draws per world.
+   - *Code and tests.* The code is `league_sim.simulate(..., new_procedure='draw_then_adjust')`, tested in `tests/lottery321/test_league_sim_dta.py`. The default path is bit-identical to the code of the running primary run.
+   - *Documented property, not an assumption.* When no repeat restriction binds, the two procedures agree to within Monte Carlo error: the largest difference is 0.0007 for the standard field.
+3. **Restriction comparison (paper §5.4).** "Other teams in the same lottery field" is replaced by "all other team-games", because lottery membership differs from world to world. The groups are:
+   - the restricted natives;
+   - teams that can hold a restricted native's pick under the router;
+   - all other team-games.
+4. **Ledger features (paper §5.1).** Features are derived from the routers, not the JSON text. Each router is applied to 20,000 random complete draft orders (seed 1), which gives, for each native pick, the set of teams that can hold it. The holder is flagged `all` if it receives the pick at every slot seen and `some` otherwise. `holds_conditional_other` means the team holds another native's pick with `some`.
+5. **§5(d) decision rule.** Fixed before the check was run.
+   - For each of the four assumption items, the check computes the share of simulated worlds per window day in which the configuration the assumption decides is reached. The simulation covers standings, play-in and one sampled draft order per rule, and computes no incentive (`ledger_assumption_check.py`).
+   - A re-run under the alternative reading is done for the days with a rate ≥ 0.0015, which is half the precision target, under either rule. This applies to the two items with "consistent support" (item 6, 2024 WAS 13–30; item 9, 2026 UTA order).
+   - The two definitional items (item 3, 2021 HOU/BKN choice; item 8, 2025 OKC choice) are reported for transparency only. Their alternative readings would have the holder pick a less favourable pick.
+
+6. **Result of the §5(d) check** (run 2026-09-22, 5,000 worlds per window day; `results/ledger_assumption_check.json`):
+
+| Item | Kind | Days | Max rate, old rule | Max rate, 3-2-1 | Days ≥ 0.0015 | Re-run? |
+|---|---|---|---|---|---|---|
+| 3 (2021 HOU/BKN choice) | definitional | 57 | 0.0728 | 0.0722 | 30 | no (reported) |
+| 6 (2024 WAS 13–30 branch) | consistent support | 51 | 0.0000 | 0.0152 | 25 | **yes** |
+| 8 (2025 OKC choice) | definitional | 53 | 1.0000 | 1.0000 | 53 | no (reported) |
+| 9 (2026 UTA order) | consistent support | 52 | 0.0002 | 0.0002 | 0 | no |
+
+   The item-6 branch is reachable only under 3-2-1. It requires the WAS pick to land at 13–16, which is possible only if WAS is not one of the three worst teams. The old lottery cannot move WAS that far.
+
+   **Registered item-6 re-run.**
+   - *Alternative reading.* When the WAS pick conveys to NYK (WAS slot 13–30), MEM's swap uses the literal PST wording, "less favorable of Suns, Wizards picks". MEM swaps its own pick for the less favourable of the PHX and WAS picks if that pick is more favourable than MEM's own. The team holding the pick MEM takes (PHX, or NYK for the WAS pick) receives MEM's pick. Every other branch is unchanged.
+   - *Scope.* The re-run covers the 25 2023-24 window days listed in the JSON, under both rules. It uses the primary seeds, looks and precision rule, and a router `Router2024Alt6`, whose tests check slot conservation and that it differs from `Router2024` only in that branch.
+   - *Reporting.* We report the change in every §1–§2 quantity on those days.
+
+   Items 3 and 8 are choice rules for the holder of an option. The primary reading is the one the holder would choose. Their rates show how often the choice arises, which is almost always for item 8 because OKC's own pick was the league's last. They are reported and not re-run.
+
+7. **Robustness runner (added 2026-09-22).** The four runs of §5 and §6 are executed by `tools/simulation/run_simulation.py --variant {dta,latelink,stress,alt6}`, with the same seeds, looks and precision rule as the primary run:
+   - `dta`, `latelink`, `stress`: the 81-day subsample;
+   - `alt6`: the 25 registered 2023-24 days, with `Router2024Alt6` (`src/lottery321/ledgers/router_2024_alt6.py`, tests in `tests/lottery321/test_router_2024_alt6.py`).
+   Each output file records `run_tag`, `new_procedure`, `win_mode` and the number of games whose probabilities the win-model override changed.
+
+8. **Precision diagnostics and the decision to keep the rule (2026-09-22, decision of the authors).** After 113 of the 312 primary days, 30 (27%) had not met the target at 32,000 worlds. They are concentrated in the last third of each window (41%, against 18% and 22% in the first and middle thirds), which is where a single game moves the standings most. The misses are marginal: over the 31 flagged files then on disk the maximum linear-curve half-width had median 0.0037 against the target 0.0030, 90th percentile 0.0047 and maximum 0.0062, so a fourth look at 128,000 worlds would have brought 97% of them inside the target. Only counts and half-widths were read; no exposure value was opened.
+
+   The authors decided on 2026-09-22 to keep the registered rule unchanged: flagged days stay in every analysis and the results are reported again with them excluded (robustness item 2). The alternative, a registered fourth look, was declined because the shortfall is small, the 0.003 target is itself a choice of ours, and the exclusion check already bounds its influence. The paper reports the miss rate, its concentration in the late window, and the half-width distribution.
+
+---
+
+## Amendment 9: a check of the design and code, 2026-09-22 (before any simulation output was inspected)
+
+A check of the registration, the design and the analysis code (24 findings) was made before any result was opened. Four of its high-severity findings were reproduced independently before this amendment was written. The changes below are analysis-side: they alter no exposure file and require no re-run. Every one of them is fixed before the primary tables are produced.
+
+**Accepted and to be implemented.**
+
+1. **Sup-t coverage.** The Gaussian-multiplier band over 50 super-batch means under-covers: in an independent check with correlated coordinates the nominal 99% band covered 97.4%, while a studentised bootstrap-t over the same 50 batches covered 98.4 to 98.7% across checks. The band becomes the **studentised bootstrap-t**: resample the 50 super-batches with replacement (2,000 resamples, seed 20260922), form max_j |C*(j) − Ĉ(j)| / se*(j), and take its 99th percentile. The multiplier band is reported alongside as a diagnostic. The bootstrap-t still under-covers slightly at B = 50, by roughly half a percentage point; the residual is stated in the results, and it errs toward calling more team-games significant, not fewer.
+2. **The multi-look constant.** `z = 2.807034` is Φ⁻¹(0.9975), the two-look Bonferroni constant inherited from an earlier pilot, not the three-look constant the registration claims. Pointwise intervals use **z = 2.935199 = Φ⁻¹(1 − 0.01/6)** from now on. The stopping rule that the runs already applied used 2.807034; that is recorded as a deviation, and its only effect is that some days stopped marginally earlier than the stated rule would have allowed.
+3. **The δ asymmetry.** "Reversal" required no equivalence margin while "dominance-positive" allowed one, so a dip of a fraction of δ was called a reversal while its mirror image was called dominance-positive. The reversal test becomes **Ĉ(j) + c·se(j) < −δ**. This also puts the old-rule tie effects of §3.5 (minimum C = −0.0014) on the correct side of the line.
+4. **Upward bias in TP and in H2.** TP is a ratio of sums of absolute values of noisy estimates, so pure noise inflates it, and the registered guard (undefined when Σ|ŝ| < δ) never fires. TP and the other stake measures are computed on **materially staked teams only**, |ŝ_c| ≥ δ, with the unrestricted version reported as a diagnostic. H2 is tested on the same materiality-restricted measure, and the report states the Monte Carlo noise of each rule so a noise-driven difference is visible.
+5. **The bootstrap cluster.** Resampling days within season holds the season weights fixed and therefore excludes the season-level variance component, which with six seasons and a ledger that changes wholesale between them is the dominant one. The primary interval becomes a **two-level bootstrap: resample seasons with replacement, then days within each resampled season**, 9,999 replicates, seed 2026092201. The within-season interval is reported as the narrower diagnostic.
+6. **Precision and verdicts.** A team-game's verdict depends on its day's world count through the band width. Every verdict table is therefore reported twice: as registered, and **precision-matched**, applying a common band floor equal to the widest band among the days compared. A verdict × stopping-look cross-tabulation is added to the diagnostics.
+7. **Conservation, curves and the precision diagnostic.** The registered per-slot conservation check is implemented as registered and reported at Monte Carlo order; TP, HHI, the typology and the zero-sum check are reported on all four curves; the precision diagnostic includes Δτ, as the stopping rule does.
+8. **The decomposition (C3).** The primary C3 attribution becomes the **precedence-constrained value with F preceding R** (the restriction analogue exists only when the 3-2-1 field does), with the unconstrained Shapley value reported alongside; Y3 is computed on a common set of games across all configurations; H3 criterion (ii) is restated as "the reversal share in configuration 5 is positive and lies strictly between zero and the configuration-4 share".
+9. **Three measurement points.** Reported as measurement notes: `DB_own` carries no lottery noise, so the portfolio contrast is also reported precision-matched; `j*` is the argmin of the upper band and its distribution is reported with the argmin of Ĉ alongside; `claims()` is restricted to slot ranges the native can actually reach in that season's window before it is used as a selection variable.
+
+**Accepted as a limitation, not fixed (decision of the authors, 2026-09-22).**
+
+- **Seed overlap.** Seeds are `YYYYMMDD` and look *i* uses `seed + i`, so a day's second and third blocks reuse the streams that neighbouring days use for their first block. Fixing it would require re-running everything, which the authors declined. The states differ between days, so the same uniforms produce different worlds; what remains is a correlation between days' Monte Carlo errors, which is second order next to the between-day variation in the estimand and is now covered by the season-level bootstrap. Recorded in the paper's limitations, and the seed rule for any future run is `YYYYMMDD × 4 + look`.
+
+Everything in this amendment is dated before the first primary table was produced, and the findings are archived with the authors' record.
+
+**Implemented 2026-09-22, with tests, before any primary table was produced:** items 1 to 5 and the C3 parts of item 8 (`analysis.band_stats`, `verdict`, `Boot`, the materiality-restricted stake measures; `c3_analysis.shapley_constrained`, the common-support Y3 and the restated H3 criterion). Items 6, 7 and 9 follow below, implemented 2026-09-23.
+
+### Amendment 9, items 6, 7 and 9: the definitions used
+
+Written 2026-09-23, before any primary table was produced. Only the primary run's exposure files exist; none has been opened beyond the counts, runtimes and precision flags of the run's file manifest. These are the operational definitions of the three items the amendment left to implementation, fixed here so that they are registered rather than chosen against a result.
+
+**Precision matching (item 6).** A day's band width is set by the number of worlds it ran, so a day that ran 32,000 worlds is more likely to be called resolved than one that stopped at 2,000, and the own-pick portfolio, which carries no lottery sampling noise at all, is measured more finely than the actual one. Monte Carlo standard errors scale as 1/√n, so every team-game is restated at the widest band among the days compared: with n the day's world count and n★ the smallest world count in the comparison,
+
+se★(j) = se(j) · √(n / n★),   Ĉ(j) unchanged,   c unchanged.
+
+The verdict rules of §1 are then re-applied to (Ĉ, se★). n★ is the minimum over the days in the table (for a two-run comparison, over both runs). The precision-matched verdicts are reported as extra value classes `B_pm` and `C_pm` beside the registered `B` and `C`; the registered verdicts remain the primary ones, and the precision-matched ones are the robustness reading. The critical value c is not rescaled, because it is calibrated on the correlation structure of the batch means, which the scaling leaves unchanged. Reported alongside: the distribution of c·max_j se(j)/δ by rule and portfolio (`T5_0d`), which makes the precision gap visible, and the verdict × stopping-look cross-tabulation (`T5_0c`).
+
+**Per-slot conservation and its scale (item 7).** The registered check Σ_c q(k) = 1 is reported as `max |Σ_c q(k) − 1|` over games, branches, rules and slots. Under the hybrid estimator it holds only in expectation: simple rights contribute exact marginals and pooled rights sampled indicators from 4 draft orders per world. It is therefore a **noise diagnostic, not an identity check**, and it is read against the reference scale 1/√(draws × worlds), reported beside it. The same applies to the zero-sum check Σ_c s_c = 0, which is now reported for every curve.
+
+**All four curves (item 7).** The stake block is computed for each of the four value curves: TP (materiality-restricted and raw), HHI, the number of materially staked teams, mean |third-party stake|, the largest third party, and the zero-sum deviation. The typology's registered definition stays the linear curve (§2); the other three curves are reported beside it. H2 is registered on the linear curve and on the registered sample; the other curves and the state-conditional sample are reported beside it. Figure 5.2's network is the linear curve, as the figure is defined.
+
+**Both j\* definitions (item 9).** The registered j\* stays argmin_j [Ĉ(j) + c·se(j)]. Table 5.3 now also counts argmin_j Ĉ(j), which is the quantity Proposition 3 makes a prediction about, and the precision-matched j\*.
+
+**Reachable slots for the state-conditional features (item 9).** A slot k is *reachable* for team t in a season under a rule if t occupies slot k in at least one of 20,000 worlds simulated from the **first game day of that season's window** (`reachable_slots.py`, seeds 907..912, output `results/reachable_slots.json`). The support of the final standings shrinks as games are decided, so the first window day gives the widest set and hence the weakest restriction consistent with the window. The router is then applied to the same 20,000 uniform draft orders as the registered feature, but for each native only the orders that place it at a reachable slot are counted; "all" means the holder receives the pick at every reachable slot, "some" at only part of them, and a holder that receives it at no reachable slot drops out. The registered features are unchanged; the state-conditional ones carry the suffix `_state` and are reported as a split of the ledger-feature attribution table and of H2. No simulation output is read by this code.
+
+**Implemented 2026-09-23, with tests, before any primary table was produced:** items 6, 7 and 9 (`analysis.add_precision_matched`, `state_conditional`, `slot_claims`/`claims`, the per-curve C2 block, the `T5_0b`–`T5_0d` diagnostics, the two j\* counts; `reachable_slots`). Tests: `tests/lottery321/test_analysis.py` and `tests/lottery321/test_reachable_slots.py`.
+
+## Amendment 10: a registered rollover valuation for the mass channel
+
+Written 2026-09-23, before any table of the simulation was produced and before any exposure value was inspected. It follows a review of the manuscript. It adds a reported sensitivity, changes no primary quantity, and requires no re-run.
+
+**The issue.** The paper values the outcome "c receives no pick" at zero. That is the convention that only current-year rights are priced. In practice a protected pick that fails to convey usually rolls over to a later draft, so for the holder the outcome is worth a discounted future pick rather than nothing, and the mass channel M = C(30) is closer to a shift in timing than to an outright gain or loss.
+
+**What is added.** For every team-game and every curve, alongside the registered τ we report
+
+> τ_ρ = τ − ρ · v̄ · M,  where v̄ = (1/30) Σ_k v(k) and M = C(30),
+
+for **ρ ∈ {0, 0.5, 0.8}**. The reading is that a right which fails to convey is worth ρ of an average first-round pick in a later draft. ρ = 0 is the registered primary and is unchanged. The curve-specific values of v̄, fixed here, are **linear 0.5000, concave 0.6599, convex 0.3391, top-3 0.1000**.
+
+**Three things this is not.**
+1. *It is not a new verdict class.* The verdicts of §1 are statements about C(j) and are untouched. The registered classes already bracket the channel: 𝒱_C sets v(30) = 0 and removes the mass term, 𝒱_B admits it in full.
+2. *It is not a member of 𝒱_B.* At ρ > 0 the no-pick outcome is worth ρv̄ > 0 while all four registered curves have v(30) = 0, so no-pick outranks the thirtieth slot and the class's ordering assumption fails. τ_ρ is therefore reported as a magnitude under an explicitly different valuation, not as the τ of any curve in the registered class. This is stated wherever τ_ρ appears.
+3. *It is not a re-run.* M = C(30) is the last coordinate of the cumulative profile that the analysis already forms from the stored batch means, so τ_ρ is a post-hoc transformation of quantities that exist.
+
+**Why it matters more than it looks.** All four registered curves have v(30) = 0, so at ρ = 0 the mass term contributes **nothing** to any reported τ; by Proposition 1(a), τ = Σ_{j≤29}[v(j) − v(j+1)]C(j). The sensitivity is what puts M into the magnitudes at all. The direction of the correction is the sign of −M: where a loss leaves the team holding more current-year picks, ρ > 0 nets part of that back out, because in the win branch the unconveyed rights survive into a later draft.
+
+**Implementation.** `analysis.py` writes `M` and `tau_<curve>_rho50`, `tau_<curve>_rho80` per team-game and a distribution table by rule, portfolio and band. Tests in `tests/lottery321/test_analysis.py`.
+
+
+## Amendment 11: which tables the results section reports in the body, and its headline quantities
+
+Written 2026-09-23, 20:17 UTC (16:17 ET), **before any table of the simulation was opened**. It follows a request, in the review of the manuscript, that §5 become a results section with at most six body tables. It moves nothing out of the report: every table of §5 and of amendments 9 and 10 is still produced and published, and this amendment only fixes, before the results are seen, which of them the body carries and which quantities the abstract and introduction quote. Choosing either after seeing the results would be a selection the registration forbids.
+
+**Blind end-to-end check (done immediately before this amendment).** The registered analysis was run once over all 312 primary files with only structural output printed: 312 days (57, 49, 50, 51, 53, 52 by season), 29,376 team-game rows and 19,584 game rows as expected, no non-finite τ, every verdict value in the registered set, 3/20/140 days stopped at 2,000/8,000/32,000 worlds and 149 flagged, as in the run record. Slot and own-slot conservation deviations are exactly zero; the per-slot noise diagnostic is 0.0116 against the reference scale 0.0112. The first pass saw 310 files because two 2021-22 files had not been copied to the analysis machine; they were copied and the check repeated. No share, τ, verdict count or table cell was printed.
+
+**Body tables (six).** Primary specification throughout: linear curve for curve-specific quantities, class B for verdicts, actual portfolio unless the row says otherwise, registered (not precision-matched) verdicts, two-level bootstrap 99% intervals.
+
+1. **Table 5.1: verdict shares (C1).** `T5_1_verdicts`: rule (old, 3-2-1, Δ) × portfolio (actual, own-pick-only); columns the four verdicts for class B and for class C.
+2. **Table 5.2: verdict shares by standing band.** `T5_2_verdicts_by_band`, class B only: band (1–3, 4–10, 11–16, 17–30) × rule × portfolio.
+3. **Table 5.3: H1 and where reversals occur.** The `H1` row (share significantly negative under each rule in ranks 2–5, own-pick-only, their difference, crossing share, verdict), and `T5_3_reversal_slot` collapsed into slot ranges 1–11, 12–15, 16–30, reported for the registered j\*, argmin Ĉ, and precision-matched j\*, by rule and portfolio.
+4. **Table 5.4: how the reform moves each team's incentive.** Δτ(linear) by band and portfolio from `T5_curves_and_T5_6_delta` (mean, quartiles, share significantly positive and negative), with the Δ-class verdict shares and the old → 3-2-1 reversal row of `T5_6_transitions` (created, removed, preserved).
+5. **Table 5.5: the draft-stakes network (C2).** Linear curve: typology shares by rule with the third-party-dominated share within each type (`T5_4_typology`); TP and HHI over materially staked teams, mean and quartiles by rule and the paired difference (`T5_5_stakes_distribution`); and the `H2` row on the registered sample.
+6. **Table 5.6: component decomposition (C3).** From the C3 run: verdict-share and mean-τ contributions of the four components, precedence-constrained (F before R) with the unconstrained Shapley value beside it, and the H3 verdict.
+
+**Body figures (two).** Figure 5.1 (mean C(j) profiles, `F5_1_profiles`) and Figure 5.2 (stakes network, linear curve).
+
+**Robustness in the body.** §5.6 carries one paragraph per robustness item and quotes, for each, the same four headline quantities below; the full comparison is Appendix Table C.1. No robustness result is promoted into a body table.
+
+**Appendix (everything else, all produced).** Diagnostics `T5_0`–`T5_0d`; the precision-matched classes `B_pm`/`C_pm` of every verdict table; the three other curves for every curve-specific and C2 quantity; class C by band; `T5_attr_portfolio_effect`, `T5_attr_seeding`, `T5_attr_ledger_features` (registered and state-conditional); the full `T5_6_transitions`; `T5_7_rollover`; the within-season bootstrap intervals; the precise-only repeat; `norestr`, `dta`, `latelink`, `stress` and `alt6` comparisons; the old-rule tie-effect share.
+
+**Headline quantities (fixed now; the abstract and introduction quote exactly these, whatever their sign or significance).**
+- (H-a) the 3-2-1 and old-rule reversal shares, actual portfolio, class B, and their difference with interval;
+- (H-b) the same for the own-pick-only portfolio, so that the portfolio effect is quoted as the gap between (H-a) and (H-b);
+- (H-c) the H1 difference and crossing share, and the H1 verdict;
+- (H-d) the H2 difference and verdict, and the H3 verdict when C3 is available.
+A result that is null, reversed or unsupported is quoted in the same place and the same words as one that is not.
+
+## Amendment 12: a post-opening deviation — the simultaneous band reverts to the multiplier band
+
+Written 2026-09-23, ~21:00 UTC, **after** the primary tables were produced (opened 20:18 UTC). It is a
+deviation, recorded as such, and every table is published both ways.
+
+**What was found.** The registered diagnostic `T5_0d` (c · max_j se(j) / δ) had an upper quartile of 10⁴–10⁵ and
+a maximum of 10¹⁰. The cause is the studentised bootstrap-t of amendment 9, item 1, not the data: for a slot
+j at which a team's pick is almost surely at or before j, C(j) is zero up to float32 storage noise (~10⁻⁹) in
+most super-batches and a rare event (~10⁻³) in a few. Every resample that omits the few has se*(j) ~ 10⁻¹⁰
+against |C*(j) − Ĉ(j)| ~ Ĉ(j), so the studentised statistic is ~10⁵; when more than 1% of resamples omit
+them, the 99% critical value explodes. 29% of primary team-games had c > 10 (maximum 2.8 × 10¹⁵), and 8,342
+of the 8,835 "unresolved" verdicts were such cases. The tests had used exact zeros, where the code's
+convention (se* = 0 ⇒ T = 0) hides the same degeneracy; with storage noise it does not.
+
+**How the replacement was chosen.** A criterion was written before any comparison was run
+(kept in the authors' record): a synthetic coverage study with
+rare-event coordinates, no simulation output used, candidates (M) the Gaussian-multiplier band of the original
+registration, (F) a bootstrap band studentised by the full-sample se, (G) the bootstrap-t with se* floored at
+se; choose the highest minimum coverage, ties within 0.3 points to the narrower band. The first design put
+rare events on the increments and did not reproduce the defect; it was corrected to put them on C(j), as in
+the data, before any candidate was chosen, and both runs are logged. Result: M 0.4255, F 0.4280, G 0.4200 —
+a tie between M and F, broken for M (narrower in every design). The low minima come from rare coordinates
+with no observed event, which no band can cover and whose values (≤ 1.5 × 10⁻⁴) are far below δ.
+
+**What changes.** The primary band is the multiplier band for every team-game (`band_stats` 'B'/'C'); the
+bootstrap-t is kept as the diagnostic `crit_B_boott`. On well-behaved Gaussian coordinates the multiplier
+band covers 98.2% for a nominal 99%, the residual that amendment 9 set out to remove; this is stated with
+the results. Nothing else changes: estimands, δ, the δ margin on reversal, z, the two-level bootstrap,
+precision matching and all other definitions stand.
+
+**Effect, stated in full.** Class B, actual portfolio: dominance-positive 48.5% → 71.9% (old) and 39.0% →
+54.7% (3-2-1); reversal 2.7% → 3.5% and 11.7% → 13.0%; unresolved 26.9% → 1.9% and 21.2% → 2.9%. Own-pick
+portfolio: dominance-positive 59.6% → 97.7% and 44.5% → 74.5%; reversal 0.0% → 0.0% and 10.1% → 10.3%.
+Headline (H-a), 3-2-1 minus old reversal share: +9.0 points [4.6, 12.7] as run, +9.5 [4.8, 13.4] corrected.
+H1 is unaffected (it uses the pointwise τ interval): supported under both. H2 and C2 are unaffected (no
+simultaneous band). Every direction and every significance statement is the same under both bands; the
+magnitudes of dominance-positive and unresolved shares are not.
+
+**Where.** As-run tables: `results/primary_asrun_boott/`. Corrected: `results/primary/`. Test:
+`RareEventDegeneracy` in `tests/lottery321/test_analysis.py`.
+
+---
+
+## Part 3. Amendments 13–29 (written after the results were opened)
+
+As recorded in Online Appendix I.6 of the paper. Section, table and appendix numbers refer to the paper.
+
+- **Amendment 13 (revision of 2026-09-24).** Corrections of the text against the tables, and the exploratory analyses of Online Appendix H.1–H.10, computed from stored outputs without new simulation.
+- **Amendment 14 (second revision of 2026-09-24).** Further corrections, the registered slope-stress run’s analysis, and Online Appendix H.11–H.15 (including Table H.7b), computed from stored outputs. Its item (a) records the decision that the abstract quotes (H-a) to (H-d) and one magnitude statement.
+- **Amendment 15 (2026-09-25).** The analyses of the alternative-ledger run and of the decomposition, as registered.
+- **Amendment 16 (revisions of 2026-09-25 to 2026-09-27).** The exploratory analyses of Online Appendix H.16–H.21 (verdict changes under the as-run band and precision matching, the H1 rank band by season, the set identities behind the counts of 134, the protection ban’s treatment group, a horizon-matched win-model check, and bootstrap bands on the profile figure), with the season-level H1 and H2 rows added to H.12 and the four headline quantities under every robustness item printed as a body table (Table 5.7), which amendment 17 moved to Online Appendix Table C.20; the presentation changes to the body tables and figures recorded as departure (vi); the additional Online Appendix C tables C.13–C.19 and Table C.5 Panel B; and the abstract’s omission of the H1 and H2 differences recorded as departure (iv). Its addenda of 2026-09-26 and 2026-09-27 add Online Appendix H.22– H.28. Of these, H.22, H.23, H.24, H.26 and H.27 are computed from stored outputs; H.25 resamples stored batches; and H.28 is a new simulation, the re-run of twelve days with 32 joint draws, on days fixed by rule before it ran (2026-09-26 and 2026-09-27; 43.8 core-hours).
+- **Amendment 17 (revision of 2026-10-05).** Records two analyses computed on 2026-09-26 and 2026-09-27 that the trail had not yet listed: Table H.24b, from stored outputs, and Online Appendix H.29, a new simulation of 72 day-runs on twelve days fixed in advance (60.5 core-hours). One further day (2021-03-21) was run with 16 joint draws to measure the cost of a larger convergence check, which was then not carried out (0.6 core-hours; not used). Adds the counts of Online Appendix H.30 and the season and team-season counts of H.15, from the stored team-game table, and Online Appendix H.31, the holdings profile behind the example of Section 1, from the stored day file; the example now quotes the minimum of the profile (−0.38 at slot 17; an earlier round had quoted −0.16 at slot 20 without a record), and its selection rule is stated. Text and disclosure: the abstract, Section 1 and Section 6.1 now separate reversals that own picks show from reversals that appear only with the rights held; Section 4 and I.1 disclose the pilot and the test and timing runs and state which of the four registration documents fixes what, including that the decision rules of H1 and H2 are stated in the pre-results draft of Section 5; Sections 4.5 and 5.5, F.1 and I.2 give both wordings of H3’s condition (ii); the account of the protection ban in Section 6.1 and F.1 is corrected (within the scope of Theorem 1 the term is confined to the relegation boundary, and it vanishes under the top-16 reading); the channel of Kazachkov and Vardi (2020) is described as a change of the field and no longer as source S3 (Online Appendix G and Section D.5); and the network figure of the last season returns to the body as Figure 5.2. The body table of headline quantities under every robustness item (Table 5.7 of amendment 16) moves to Online Appendix Table C.20 and the registered table of Δτ by rank band to Table C.5, Panel C, so that registered Tables 5.5 and 5.6 print as Tables 5.4 and 5.5. Figure 3.1 is redrawn at a larger size from the same numbers. No registered number changes.
+- **Amendment 18 (2026-10-09, a defect in the draw-then-adjust run).** The draw-then-adjust reading (Online Appendix E.3) draws an unconstrained order and then moves a team drawn before its earliest allowed slot down to that slot and a relegated team drawn after the 12th slot up to the latest allowed slot, every other team keeping its drawn order. The repair used in the run as first made, on 2026-09-24, instead held every constrained team in its drawn slot while another was being moved: a team with a repeat restriction was never pushed back by a relegated team moving ahead of it, and a relegated team never moved up when a restricted team moved down past it. If teams U, X and B are drawn 11th, 12th and 13th, where X may not pick first and B is relegated, the reading gives U, B, X and the first run gave B, X, U. With the floor alone the two repairs give the same slot distributions, so the comparison with the printed official marginals (Online Appendix E.3) and the agreement stated in amendment 2 are unaffected; with a repeat restriction in the field, which every sample season has, single slot probabilities differed by up to about 0.1. The primary run and every other run use the sequential-feasible procedure and are unaffected. The run was repeated on 2026-10-10 on the same 81 days, states and seeds with the repair corrected (code checked against the reading’s stated properties, not against the earlier repair). It changes 23 of 1,252 actual-portfolio verdicts under 3-2-1 against the primary run (30 in the first run); against the first run the four headline quantities move by less than one point (the most, H1, from +33.1 to +32.5), and the verdicts on H1 and H2 do not change (Online Appendix Tables C.12 and C.20, where both runs are printed). Recorded as departure (vii).
+- **Amendment 19 (revisions of 2026-10-11 and 2026-10-12).** Text: Section 1 states that the reform was approved in May 2026 and applies from the 2027 draft; Section 4.5 states what δ measures on the cumulative profile and that resampling days treats neighbouring days as independent; Section 5.1 states that the split of reversals by the own-pick benchmark is operational; Table 5.3 reports that the registered bootstrap criterion is met, not that H1 is supported, with the season-level interval in its note; Section 5.5 leads with what the ban changes and calls its counterfactual a fully compliant ledger; Section 6.1 states that the incentives at ranks 17–30 are draft values only; Section 6.3 states the limits of the rollover valuation and lists the departures briefly, referring here for the full list; minor condensations in Sections 5.6 and 6 to keep the main text at 30 pages and updated cross-references in Online Appendices C and H. Exploratory: Online Appendix H.32, the stored primary run re-read at margins of 0.001 and 0.005 and the two-level bootstrap with weeks or two-week blocks in place of days, from stored outputs without new simulation; Sections 5.3 and 5.6 quote it. No registered number changes.
+- **Amendment 20 (revision of 2026-10-12).** Text only, no new computation beyond checks of stored numbers. Online Appendix E.2 now says that three of the five realized picks the ledgers do not reproduce changed hands in trades made in June and two were options to defer, held at the deadline and exercised in June, which the ledgers code as the holder taking the pick that year; it names the team-games involved and adds that opposite directions among the five need not cancel in their effect on incentives; Section E.6 no longer says that the season-level bootstrap covers the correlation from overlapping seeds. Section 3.2 and Online Appendix H say that M = 0 holds for own-pick-only portfolios. Sections 1, 5.1 and 5.6 and Table C.20 say that H1 meets the registered bootstrap criterion. Section 4.5 states what the counts and the bootstrap intervals each describe, and Section 1 states the registration’s status in one sentence. Table 5.1 sets the rows for the change ΔC apart; Tables 5.4 and C.9, Section 6.2 and Section F.2 label the typology by draft value (“both gain draft value by losing”). The proof of Proposition 1 gives the dynamic program and its numerical tolerances. No registered number changes.
+- **Amendment 21 (revisions of 2026-10-12 and 2026-10-13).** Three additions, all exploratory. Online Appendix H.33: a re-run of every window day of 2021-22 and 2023-24 (100 days, registered states and seeds; 2026-10-13, about six hours on the authors’ computer) with the two options to defer read as deferrals from slot 15; Section 5.6 and Online Appendix E.2 quote it and Online Appendix F.3 refers to it; Online Appendices E.2 and H.33 also describe how the Lakers’ 2021 entry, possibly a third option, was recorded. Online Appendix H.34: four team-games, chosen by a rule fixed before any contribution was computed, re-simulated with holdings kept native by native (32,000 worlds each); Section 5.1 and Online Appendix F.3 point to it. Online Appendix H.22: two contracts from the ledgers that show what a common rollover value can and cannot represent. The introduction to Online Appendix H lists the new sections and exceptions. To keep the main text at 30 pages the last-pick passage of Section 5.6 was condensed. No registered number changes.
+- **Amendment 22 (revision of 2026-10-15).** Online Appendix H.35, from stored outputs: the mean positive part of τ, its 90th percentile and the share of team-games with τ > δ, by rank band; Section 5.1 quotes it in place of a pointer to Online Appendix F.1. Text: the abstract speaks of current-year firstround rights; Section 4.5 says that the bootstrap resamples verdicts as classified, so that shares are shares of detected reversals; Section 5.4 states the effect of the repeat restrictions as an observation (the re- stricted teams’ mean incentive falls and the others’ rises) rather than as a transfer. The introduction to Online Appendix H lists the new section. No registered number changes.
+- **Amendment 23 (revision of 2026-10-15).** Online Appendix H.35, from stored outputs: the paired change in the mean positive part and in the share above δ, team-game by team-game, with two-level bootstrap intervals; the notation ̂ τ for the estimated incentive; the share whose lower interval limit exceeds δ; and the plug-in size of the upward bias of a mean positive part. Sections 5.1 and 6.1 and the abstract state that fewer team-games gain draft value by losing while the mean gain barely changes; to keep the abstract’s length, its first sentence was shortened. Section 6.3 states as open limits that overlapping seeds are checked but not removed, that source attribution is limited and the four native-level cases do not give frequencies, and that the rollover adjustment is a limited check; to keep the main text at 30 pages the prospective study moved into its first paragraph, the list of departures was shortened, two sentences of Section 6.1 were condensed, and the note to Table 5.3 refers to the text for the season-level interval. The H1 paragraph of Section 5.1 states the season-level interval in its opening sentence and is set before its table and figure, so that the interval is no longer separated from its sentence by floats; departure (iv) in I.7 adds Online Appendix H.35. No registered number changes.
+- **Amendment 24 (revision of 2026-10-15).** Text only, from stored outputs. The abstract and Sections 5.1 and 6.1 no longer say that the mean positive part of the incentive barely changes or that the upper tail does not shrink: they say that its point estimate falls slightly, that the interval for the paired change includes zero, that the point estimate of the 90th percentile rises, and that the share concerned is the share whose estimated incentive exceeds δ on the linear curve. Online Appendix H.35 says that the direction of the change in the mean is not established; recomputes the share whose lower interval limit exceeds δ with the three-look constant used for every reported interval (65.4% and 50.1%; amendment 23 had used the stopping constant, 65.4% and 50.2%); gives the formula of the normal-approximation bias diagnostic and its treatment of zero standard errors; and notes that changes are computed from unrounded values. To keep the abstract near the journal’s length two of its sentences were shortened. No registered number changes.
+- **Amendment 25 (revision of 2026-10-15).** Text only, from stored outputs and code. Section 4.5 and Table C.14 give the formula of H2’s mean absolute third-party stake as computed (stakes below δ set to zero, divided by the 28 teams not playing, zero in a game with no materially staked third party), and say that the cutoff rank is fixed by a preset tie rule rather than observed. Section 4.2 says that of the five realized picks the routers do not reproduce, three changed hands after the deadline and two were options to defer coded as taken; Section 5.6 reports the absolute reversal shares under the deferral reading (old rule 3.5% to 4.4%, 3-2-1 13.0% to 14.0%). Section 5.5, Section 6.1 and Table C.15 define F as the field, the ball counts and the draw of all sixteen lottery picks, which the decomposition does not separate; Online Appendix G states the first gap without the over-broad claim. Section 5.1 quotes the H1 share under the stricter sign rule (27.9%) and the precision-matched difference (+35.6). Section 3.4 and Online Appendix F.1 call the expected own-pick value, not the incentive, a step function of position. Section 2 and Online Appendix G no longer say that every earlier formal model gives a team only its own pick. Section 6 and Online Appendix F limit the cash-settlement remark to the routing channel, describe the repeat restrictions’ effect as a change in group means, and state that the opposed and third-partydominated categories describe stake structures without evidence of greater risk. Online Appendix F.3 calls the portfolio effect the overall effect of the ledger, not the joint contribution of S2 to S4; Online Appendix A states that the relegated-only branch of the dynamic program applies only while relegated teams remain; Online Appendix E.1 no longer infers a direction for the 2020-21 window’s incentives; Online Appendix E.3 no longer gives an impossible example of the league-wide reading. The opening of Section 4 and the statement of the hypotheses were shortened, leaving the registration history to this appendix. No registered number changes.
+- **Amendment 26 (revision of 2026-10-16).** Exploratory, from the stored primary day files without new simulation: Online Appendix H.23 extends the last-pick value a from 0.2 to 0.4, 0.6 and 0.8, the range of the published curves of Online Appendix G.2, for signs, rank-band means and the stake results (new Table H.23c); the rows for a ≤ 0.2 reproduce the earlier ones exactly; Section 5.6 quotes it. Text: Sections 1 and 5.1 state that the old-rule share of 3.5% is under the baseline ledger coding, with 4.4% under the deferral reading; Section 1 states that the reform applies to the 2027, 2028 and 2029 drafts; Table H.11 and Online Appendix H.11 say that the H1 bootstrap criterion is met rather than that H1 is supported; Online Appendix H.16 now says that most precision-matched changes are to “unresolved”; Online Appendix G states the gap in terms of expected slot-wise holdings. To keep the main text at 30 pages the flagged-days sentence of Section 5.6 and two sentences of Section 6.3 that repeated Section 5.6 were shortened or removed. No registered number changes.
+- **Amendment 27 (revision of 2026-10-16).** Text only. Section 5.6 and Online Appendix H.23 add that a positive last-pick value leaves the direction and the rank-band pattern of the incentive stable but not its negative classification (with δ fixed, the 3-2-1 own-pick team-games classed “win” fall from 214 at a = 0 to none at a = 0.8), and say that the qualitative pattern of third-party stakes, not the share itself, persists. Section 5.6 and Online Appendix H.27 call the look-adjusted critical value a nominal Bonferroni adjustment, which bounds the probability of non-coverage at some look by 1% only if the band at each look is correctly calibrated, and does not repair the multiplier approximation. Table 5.5 is placed after the paragraph that discusses it. To keep the main text at 30 pages, the sentence on rankband means under rollover in Section 5.6 (Online Appendix Table C.7) and the win-model sentence of Section 6.3, which repeated Section 5.6, were removed. No registered number changes.
+- **Amendment 28 (2026-10-16, literature).** Text and references only. Section 2 and Online Appendix G add the original Gold Plan, evidence from the WNBA, the match-importance literature that the stake of Section 5.3 generalizes, recent probabilistic match classification, a recent review that lists an asset-based treatment for 3-2-1 as open, and related work on tournament manipulation, pick valuation and stochastic dominance; Sections 1 and 4 cite the league’s release for the rules and standard references for the win model, the sequential stopping rule, the simultaneous band, the equivalence margin, the bootstrap and pre-analysis plans. To keep the main text at 30 pages, Section 6.1 condenses its account of the protection ban and of H3 (details in Online Appendices F.1 and H.19), Section 6.3 merges the list of departures into its paragraph on inference, and Sections 5.3 and 5.6 drop three details that the online appendix gives. The abstract was shortened to the journal’s length of about 200 words, without changing what it quotes from the registration. On 2026-10-19 Sections 1 to 6 were edited for style only (long sentences split, redundant contrasts removed), without changing any statement, number or reference. No number changes.
+- **Amendment 29 (revisions of 2026-10-27).** Exploratory, from the stored team-game estimates and the registered bootstrap, without new simulation. Table 5.3 and Online Appendix H.16 separate the two judgements in the registered sign rule (an upper bound below zero, and an interval outside ±δ) and add season-level t intervals; the registered H1 share and verdict are unchanged. Online Appendix H.16 reports the game typology with signs that require the interval to lie beyond ±δ. Text: Section 6.1 and Online Appendix F.1 state the protection term G(j) in full and restrict the boundary statement to its tail value; Online Appendix F.1 points to the last-pick analysis of Online Appendix H.23; Section 5.6 and Online Appendix H.29 describe the re-run calibration as a limited check. Results classified by the registered sign rule are called “classified as negative under the sign-and-size rule” throughout, and “significantly negative” is kept for an upper bound below zero. The last sentence of the abstract now states that the analysis plan was fixed before simulation results were examined, that the simultaneousband method was revised afterwards and that other departures are recorded; the abstract stays at 200 words and its numbers are unchanged. No registered number changes.
+
+- **Amendment 30 (second revision of 2026-10-27).** Text, with checks of code and stored outputs and no new simulation of the sample. The last sentence of the abstract is revised again: the plan's date rests on the authors' record, not on a registry deposit. Section 5.5 and Online Appendix I.2 state the H3 condition as first written and as amended. Section 5.0 compares the multiplier and as-run bands for the headline quantities, from stored outputs. Online Appendix E.7 lists what the replication package holds and does not hold, dates the manifest that records the game-table hash after opening, and reports a re-run of one day from the package. Online Appendix E.3 states what the 64 printed marginals cover and that a reject-and-redraw procedure does not fit them (computed exactly on the attachment's field); Online Appendix E.6 describes how the band treats coordinates of zero or near-zero variance, with a check on that day; Online Appendix D.6 states how the random instances fill the 30-team field. Qualifications are added to (A2), Corollary 2 (h ≡ 1), the source labels, Online Appendix D.3 (M = 0), the win-model note of Section 4.3, the slot reading of 29τ (Section 5.1), the overlap of the reversal features (Online Appendix H.15), the three flagged-day shares (Online Appendix I.3), the H1 entry of Table C.11, Panel B, and the captions of Tables C.15 and H.20. Section 6 is shortened. Section 6.1 and Online Appendix F.1 no longer say that a smoothly rising conveyance probability keeps the sign of the protection term: at the 3|4 boundary it can reverse it. Section 5.6 keeps the qualitative stake pattern and the H2 verdict, not the stake values, unchanged under a last-pick value; Section 5.0 says what of H1 is unchanged under the as-run band; the abstract's exploratory sentence is restricted to actual portfolios on the linear curve. No registered number changes.
+- **Amendment 31 (third revision of 2026-10-27).** Text and replication package only, no new computation beyond checks of stored records. The package now holds public copies of the addendum with all its amendments and of the pre-results draft, the item-by-item record of the source audit (Online Appendix E.2) and a pinned environment; Online Appendix E.7 and the opening of Online Appendix I say so. Section 2 and Online Appendix G state the class of mechanisms of Zytnick's Theorem 1, and Section 2 no longer cites a review to support the gap. The abstract speaks of detected reversals and of the bootstrap interval; the note to Table 5.1 says what the share intervals do and do not measure. Section 6.1 restricts cash settlement to a payment that does not depend on the slot, and Section 6.2 no longer recommends targeting monitoring by stakes. Table H.0 guides the exploratory appendix. No registered number changes.
