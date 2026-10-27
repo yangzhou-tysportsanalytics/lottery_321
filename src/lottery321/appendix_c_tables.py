@@ -1,4 +1,4 @@
-"""Appendix C of the paper: every registered table that the body does not carry (A1 amendment 11).
+"""Appendix C of the paper: every registered table that the body does not carry (amendment 11).
 
 Formats the CSVs written by analysis (primary, primary_asrun_boott, primary_precise_only, norestr
 and the primary-norestr comparison) as markdown tables. Nothing is recomputed; a table whose input is
@@ -155,7 +155,7 @@ def c3(A):
 def c4(A):
     return verdict_block(read(A / 'primary_asrun_boott' / 'T5_1_verdicts.csv'), ('B',),
                          '**Table C.4. Verdict shares with the studentised bootstrap-t band as run (%, class B).** The band '
-                         'of A1 amendment 9, before amendment 12 returned to the multiplier band. It degenerates on '
+                         'of amendment 9, before amendment 12 returned to the multiplier band. It degenerates on '
                          'coordinates that are zero in most super-batches, which inflates the unresolved share. The reversal '
                          'shares, (H-a) and (H-b) keep their sign and significance under both bands, with '
                          'different values; the H1 difference and H2 do not use the band and are unchanged (Table 5.7, '
@@ -216,7 +216,7 @@ def c6(A):
 
 def c7(A):
     t = read(A / 'primary' / 'T5_7_rollover.csv')
-    out = ['**Table C.7. The mass channel under the rollover valuation (A1 amendment 10), linear curve.** Mean τ_ρ = '
+    out = ['**Table C.7. The mass channel under the rollover valuation (amendment 10), linear curve.** Mean τ_ρ = '
            'τ − ρv̄M and the share of team-games whose sign differs from ρ = 0. At ρ > 0 the valuation lies outside '
            'the registered class 𝒱_B (Section 3.2); the numbers are magnitudes, not verdicts.', '']
     body = []
@@ -279,7 +279,7 @@ def c10(A):
     d = A / 'compare_primary_norestr'
     out = ['**Table C.10. Repeat restrictions: primary run minus the run without repeat restrictions, on the same states and seeds.** '
            'Panel A: paired differences by rule and portfolio (linear curve) and the class-B reversal share in each run. '
-           'Panel B: 3-2-1 only, by group (A1 amendment 3).', '', '*Panel A*', '']
+           'Panel B: 3-2-1 only, by group (amendment 3).', '', '*Panel A*', '']
     c = read(d / 'C_1_paired_differences.csv')
     out += table(['rule', 'portfolio', 'n', 'mean Δτ', 'max \\|Δτ\\|', '% \\|Δτ\\| ≥ δ', 'reversal, with', 'reversal, without',
                   'difference [99% CI]', 'verdicts changed'],
@@ -351,7 +351,7 @@ def c14(A):
     sd = read(A / 'primary' / 'T5_5_stakes_distribution.csv')
     out = ['**Table C.14. Third-party share, concentration and the number of materially staked teams, linear curve.** '
            'TP and HHI are computed over materially staked teams ($|\\hat{s}_c| ≥ δ$); the "raw" rows are the unrestricted '
-           'diagnostic of A1 amendment 9, item 4, in which pure Monte Carlo noise inflates the share. The paired '
+           'diagnostic of amendment 9, item 4, in which pure Monte Carlo noise inflates the share. The paired '
            'differences are over the games in which the measure is defined under both rules, so they need not equal '
            'the difference of the rule means. The identity of the largest third party is computed per game and not '
            'tabulated.', '']

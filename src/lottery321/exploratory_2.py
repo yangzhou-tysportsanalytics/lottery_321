@@ -1,5 +1,5 @@
 """Exploratory analyses, second set. Not registered; computed from the
-stored primary and `norestr` team-game tables and run metadata without new simulation (addendum A1,
+stored primary and `norestr` team-game tables and run metadata without new simulation (addendum,
 amendment 14). Nothing here changes a registered table or headline quantity.
 
   R1  mean tau by league-rank band on all four registered curves, old rule and 3-2-1, own pick and actual

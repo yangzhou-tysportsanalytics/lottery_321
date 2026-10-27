@@ -1,11 +1,11 @@
 """Post-hoc analyses, fourth set, from stored outputs only.
 
-Every analysis here is exploratory (addendum A1, amendment 16): nothing is registered, no new
+Every analysis here is exploratory (addendum, amendment 16): nothing is registered, no new
 simulation is run, and no registered table or headline quantity changes. Inputs are the stored primary
 day files (50 super-batch means per team-game), the analysed team-game table and the C3 team-game table.
 
   R16  rollover-adjusted dominance. Under the registered rollover valuation tau_rho = tau - rho*vbar*M
-       (A1 amendment 10), summation by parts gives tau_rho(v) = sum_j a_j [C(j) - rho*(j/30)*M] with
+       (amendment 10), summation by parts gives tau_rho(v) = sum_j a_j [C(j) - rho*(j/30)*M] with
        a_j = v(j) - v(j+1) >= 0, so "tau_rho >= 0 for every v in V_B" is equivalent to
        C_rho(j) = C(j) - rho*(j/30)*C(30) >= 0 for every j. The class-B
        verdict rules are re-applied to C_rho with its own multiplier band from the same 50 batches.

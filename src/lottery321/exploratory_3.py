@@ -1,6 +1,6 @@
 """Exploratory analyses, third set. Not registered; computed from the
 stored primary, `norestr` and C3 team-game tables, the stored primary exposures (game-level stakes only) and
-the game table, without new simulation (addendum A1, amendment 16). Nothing here changes a registered table
+the game table, without new simulation (addendum, amendment 16). Nothing here changes a registered table
 or headline quantity.
 
   R7   season-level inference for H1 and H2 (t with 5 d.f., 95% and 99%; sign test), beside H-a and H-b

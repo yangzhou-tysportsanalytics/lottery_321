@@ -1,4 +1,4 @@
-"""Tests for the reachable-slot support of the state-conditional router features (A1 amendment 9 item 9). Uses the real 2023-24 window state but only a few hundred worlds; reads no simulation output."""
+"""Tests for the reachable-slot support of the state-conditional router features (amendment 9 item 9). Uses the real 2023-24 window state but only a few hundred worlds; reads no simulation output."""
 import json, sys, tempfile, unittest
 from pathlib import Path
 import numpy as np

@@ -104,7 +104,7 @@ def _per_day(rows, boot, num_fn, den_fn=lambda r: 1.0):
 
 
 def common_tp_games(games):
-    """Games whose third-party share is defined under every configuration (A1 amendment 9)."""
+    """Games whose third-party share is defined under every configuration (amendment 9)."""
     by = defaultdict(list)
     for r in games:
         by[(r['season'], r['day'], r['game'])].append(r['tp_share'])
@@ -127,7 +127,7 @@ def outcome_arrays(tg, games, boot, variant, band=None):
         out[sub] = {
             'Y1_reversal_share': _per_day(sel_tg, boot, lambda r: r['verdict_B'] == 'reversal'),
             'Y2_mean_tau_linear': _per_day(sel_tg, boot, lambda r: r['tau_linear']),
-            # A1 amendment 9: Y3 is averaged over the games where TP is defined in EVERY
+            # amendment 9: Y3 is averaged over the games where TP is defined in EVERY
             # configuration, so its increments compare levels rather than changing game sets.
             'Y3_mean_tp_share': _per_day([r for r in sel_g if (r['season'], r['day'], r['game']) in common],
                                          boot, lambda r: r['tp_share']),
@@ -148,7 +148,7 @@ def ci(reps):
     return float(np.nanquantile(reps, a)), float(np.nanquantile(reps, 1 - a))
 
 
-PRECEDENCE = (('F', 'R'),)      # A1 amendment 9: "R with F off" is an invented analogue, so the
+PRECEDENCE = (('F', 'R'),)      # amendment 9: "R with F off" is an invented analogue, so the
                                 # primary attribution only averages orderings in which F precedes R.
 
 
@@ -243,10 +243,10 @@ def tables(tg, games, boot, diags):
         h3.append({'variant': variant, 'n_team_games': int(d5.sum()), 'share_config5': p5, 'lo99': lo5,
                    'hi99': hi5, 'share_config4': p4, 'change': p5 - p4, 'change_lo99': lod,
                    'change_hi99': hid,
-                   # A1 amendment 9: (ii) is "the ban leaves some reversals, and fewer than without it":
+                   # amendment 9: (ii) is "the ban leaves some reversals, and fewer than without it":
                    # the STRICT inequality 0 < share(config 5) < share(config 4). The original C3 registration
                    # asked only that the change be smaller in absolute value than the config-4 share; with equal
-                   # shares that wording would hold and this one does not (A1 amendment 15).
+                   # shares that wording would hold and this one does not (amendment 15).
                    'supported': bool(lo5 > 0 and 0 < p5 < p4)})
     T['C3_4_H3'] = h3
     return T

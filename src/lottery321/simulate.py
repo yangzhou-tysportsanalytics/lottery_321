@@ -81,7 +81,7 @@ def window_days(games, season):
 
 def run_one_day(games, season, day, todays, router, min_pick_new, looks=(2000, 8000, 32000),
                 new_procedure='sequential_feasible', win_mode=None):
-    """One registered state. `new_procedure` and `win_mode` are the robustness switches of addendum A1
+    """One registered state. `new_procedure` and `win_mode` are the robustness switches of addendum
     section 5: 'draw_then_adjust' for the alternative joint lottery procedure, and a cutoff_state.late_override
     mode ('prior_late_link' or 'stress_slope_x1.25') for the win model. Defaults reproduce the primary run."""
     cutoff = min(g['start'] for g in todays) - timedelta(hours=6)

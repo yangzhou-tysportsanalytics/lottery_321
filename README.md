@@ -37,7 +37,7 @@ behaviour.
 | `analysis.py` | The registered analysis: verdicts, reversal shares, stakes, hypotheses H1 and H2, bootstrap intervals |
 | `c3_rules.py`, `c3_sim.py`, `c3_runs.py`, `c3_analysis.py` | The component decomposition of 3-2-1 (field and balls, floor, repeat restrictions, protection ban) and hypothesis H3 |
 | `robustness_headlines.py` | The headline quantities for each robustness run |
-| `exploratory_1.py` … `exploratory_7.py`, `exploratory_4_calib.py`, `exploratory_5_calib.py`, `pool_convergence.py`, `native_contributions.py` | Exploratory analyses added after the results were opened |
+| `exploratory_1.py` … `exploratory_8.py`, `exploratory_4_calib.py`, `exploratory_5_calib.py`, `pool_convergence.py`, `native_contributions.py` | Exploratory analyses added after the results were opened |
 | `dta_corrected.py` | The corrected repair of the draw-then-adjust reading, used by the `dta2` run |
 | `theory.py`, `theory_numbers.py` | Exact computations behind the theory section |
 | `paper_tables.py`, `appendix_c_tables.py`, `figures.py` | The paper's tables and figures |
@@ -53,11 +53,11 @@ behaviour.
 | `norestr/`, `dta/`, `latelink/`, `stress/`, `alt6/` | Robustness runs: no repeat restrictions; draw-then-adjust 3-2-1 draw; late-window win-probability link; win-model slope × 1.25; alternative reading of one 2024 ledger condition |
 | `compare_primary_<run>/` | Paired differences between the main run and each robustness run |
 | `c3/` | The component decomposition of 3-2-1 |
-| `exploratory_1/` … `exploratory_7/`, `defer/`, `native_contributions/` | Exploratory analyses; none changes a registered number |
+| `exploratory_1/` … `exploratory_8/`, `defer/`, `native_contributions/` | Exploratory analyses; none changes a registered number |
 | `dta2/` | The draw-then-adjust robustness run with its repair corrected |
 
 Table files are named after the tables as registered: `T5_1_…` is registered Table 5.1, `H1.csv` and `H2.csv` are
-the hypothesis tests, `F5_…` hold the data behind the figures, and `A…`/`B…`/`C…`/`R…`/`E5_…`/`E6_…` are exploratory tables cited
+the hypothesis tests, `F5_…` hold the data behind the figures, and `A…`/`B…`/`C…`/`R…`/`E5_…`/`E6_…`/`E7_…`/`E8_…` are exploratory tables cited
 in the online appendix. The section "Which file is which table" below maps the tables of Sections 3 and 5 and of Online
 Appendices B, C and H to their files.
 
@@ -87,6 +87,7 @@ python src/lottery321/robustness_headlines.py dta2 --out robustness_headlines_dt
 python src/lottery321/robustness_headlines.py defer --out robustness_headlines_defer.csv
 python src/lottery321/exploratory_7.py blocks
 python src/lottery321/exploratory_7.py positive
+python src/lottery321/exploratory_8.py all
 ```
 The first command prints the seven tables of Section 5 as registered (Tables 5.1–5.7); the paper prints five of
 them in the body and two in the online appendix (see "Which file is which table").
@@ -98,7 +99,7 @@ and writes `results/theory_numbers.md`; it fails if any number differs from the 
 **4. The analysis from simulation outputs (about 20 minutes per run).** `python src/lottery321/analysis.py primary`
 reads `simulations/primary/<season>/exposures_<day>.npz` and rewrites `results/primary/`. The analysis is
 deterministic: the bootstrap and the multiplier band use fixed seeds (2026092201, 20260922). The decomposition
-is `c3_analysis.py`; the exploratory sets are `exploratory_1.py` to `exploratory_7.py`,
+is `c3_analysis.py`; the exploratory sets are `exploratory_1.py` to `exploratory_8.py`,
 `exploratory_4_calib.py`, `exploratory_5_calib.py calib-analyse`, `pool_convergence.py analyse` and
 `native_contributions.py` (`exploratory_5.py`, `exploratory_5_calib.py`, the profile of `exploratory_6.py`,
 `exploratory_7.py margin` and `exploratory_7.py lastpick` read the simulation day files; `native_contributions.py`
@@ -138,8 +139,8 @@ Online Appendix Table C.20. Paths are under `results/`.
 | Table 3.1, Figure 3.1, Online Appendix Table B.1 | exact computations, no stored input | `theory_numbers.py`, `figures.py` |
 | Table 5.1 | `primary/T5_1_verdicts.csv` | `analysis.py`, `paper_tables.py` |
 | Table 5.2 | `primary/T5_2_verdicts_by_band.csv` | same |
-| Table 5.3 | `primary/H1.csv` | same |
-| Table 5.4 | `primary/T5_4_typology.csv`, `primary/H2.csv` | same |
+| Table 5.3 | `primary/H1.csv` (first row); `exploratory_8/E8_1_sign_and_size.csv` (rows 2–4 and the season-level column) | same; `exploratory_8.py signsize` |
+| Table 5.4 | `primary/T5_4_typology.csv`, `primary/H2.csv`; the note on strict signs: `exploratory_8/E8_2_typology_strict.csv` | same; `exploratory_8.py typology` |
 | Table 5.5 | `c3/C3_1_outcomes.csv`, `c3/C3_3_shapley.csv`, `c3/C3_4_H3.csv` | `c3_analysis.py`, `paper_tables.py` |
 | Figure 5.1 | `primary/F5_1_profiles.csv`, `exploratory_3/R14_profiles_band.csv` | `figures.py` |
 | Figure 5.2, Figures H.1–H.5 | `primary/F5_2_network_edges.csv` | `figures.py` |
@@ -173,7 +174,7 @@ Online Appendix Table C.20. Paths are under `results/`.
 | H.13 | `exploratory_2/R4_flag_rates.csv` | same |
 | H.14 | `exploratory_2/R1_tau_by_band_curves.csv` | same |
 | H.15 (counts) | `exploratory_2/R6_misc.csv`, `exploratory_3/R10_sets.csv`, `exploratory_6/E6_concentration.csv` | `exploratory_2.py`, `exploratory_3.py`, `exploratory_6.py` |
-| H.16 | `exploratory_3/R15_verdict_changes.csv`, `R8_four_quantities.csv` | `exploratory_3.py` |
+| H.16 | `exploratory_3/R15_verdict_changes.csv`, `R8_four_quantities.csv`; `exploratory_8/E8_1_sign_and_size.csv`, `E8_2_typology_strict.csv` | `exploratory_3.py`; `exploratory_8.py` |
 | H.17 | `exploratory_3/R9_h1_band_by_season.csv` | same |
 | H.18 (counts) | `exploratory_3/R10_sets.csv` | same |
 | H.19 | `exploratory_3/R11_ban_treatment.csv` | same |
@@ -214,7 +215,7 @@ summarised in the paper's Online Appendix I and are available from the authors. 
 deposited with a third-party registry, so their dates rest on the authors' record. One condition of H3 was
 restated by an amendment written before the results were opened: `decomposition_registration.md` gives its first
 wording, and Online Appendix I.2 gives both. The two texts in `registration/` are reproduced verbatim, so they keep the names used when they were
-written: the simulation is "stage 5", `stage5_registration.md` is `run_registration.md`,
+written: the simulation is "stage 5", the addendum is "A1", `stage5_registration.md` is `run_registration.md`,
 `stage5_C3_registration.md` is `decomposition_registration.md`, and code paths refer to an earlier folder
 layout (`scripts/lottery_321/p12_<name>.py` is `src/lottery321/<name>.py` here, with `p12_hist_runs.py` now
 `simulate.py`). Later amendments, and the one analysis choice changed after the results were opened (the

@@ -1,11 +1,11 @@
 """Body tables of paper Section 5, rendered as markdown from the registered analysis tables.
 
-The six body tables were fixed before the primary run was opened (addendum A1, amendment 11). This script
+The six body tables were fixed before the primary run was opened (addendum, amendment 11). This script
 only formats: every number comes from a CSV written by analysis.run() or c3_analysis, or from
 the stored post-hoc tables of Online Appendix H; nothing is recomputed, and a table whose inputs are missing
 is emitted as a marked placeholder rather than skipped.
 
-Addendum A1, amendment 16, changed the presentation of the body tables without changing any
+Addendum, amendment 16, changed the presentation of the body tables without changing any
 registered number: Table 5.1 prints class B only (class C is Online Appendix Table C.13); Table 5.2 prints the
 reversal share by rank band only (Online Appendix Table C.18 has the full split); Table 5.3 prints H1 only (the
 reversal-slot counts are Online Appendix Table C.19); Table 5.4 drops the
@@ -187,7 +187,7 @@ def _t(x):
 
 
 def table_5_6(C3):
-    """C3 registration §4-5 and A1 amendment 11: outcomes along the registered chain, the component
+    """C3 registration §4-5 and amendment 11: outcomes along the registered chain, the component
     attribution (F before R, with the unconstrained Shapley value beside it) and H3, under both ban readings."""
     C3 = Path(C3) if C3 else None
     if C3 is None or not (C3 / 'C3_3_shapley.csv').exists():

@@ -2,7 +2,7 @@
 
 None of these is registered. They are computed after the primary tables were opened, on the stored primary
 exposure files and team-game table, without any new simulation, and are reported as exploratory
-(addendum A1, amendment 13). Nothing here changes a registered table or headline quantity.
+(addendum, amendment 13). Nothing here changes a registered table or headline quantity.
 
 Part A (team-game table only):
   A1  reversal shares by season (rule x portfolio), and H-a by season (point estimates)

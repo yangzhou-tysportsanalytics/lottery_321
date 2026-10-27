@@ -1,4 +1,4 @@
-"""2024 draft: alternative reading of the WAS 13-30 branch (registration addendum A1, sections 5(d) and 6).
+"""2024 draft: alternative reading of the WAS 13-30 branch (registration addendum, sections 5(d) and 6).
 
 Assumption item 6 (ledger_assumption_check.py): when the Washington pick conveys to New York (slot 13-30), the sources do not state whether
 Memphis' swap right still reaches that pick. The primary router (`router_2024`) reads the Hoops

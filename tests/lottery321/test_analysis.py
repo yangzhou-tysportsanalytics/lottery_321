@@ -29,7 +29,7 @@ class Verdicts(unittest.TestCase):
         self.assertEqual(A.verdict(m, se, c['B'], 30)[0], 'dominance_positive')
 
     def test_a_dip_smaller_than_delta_is_not_a_reversal(self):
-        """A1 amendment 9: reversal now needs the upper band below -delta, as dominance needs -delta."""
+        """amendment 9: reversal now needs the upper band below -delta, as dominance needs -delta."""
         d = np.zeros(30); d[0] = -0.0008                     # a quarter of delta, resolved precisely
         m, se, c = A.band_stats(cum_from(self.noisy(d, 0.00002)))
         self.assertNotEqual(A.verdict(m, se, c['B'], 30)[0], 'reversal')
@@ -67,7 +67,7 @@ class Verdicts(unittest.TestCase):
         self.assertLess(c2['B'], 3.4)
 
     def test_bootstrap_t_covers_better_than_the_multiplier_band(self):
-        """A1 amendment 9: on well-behaved Gaussian coordinates the multiplier band under-covers slightly and the
+        """amendment 9: on well-behaved Gaussian coordinates the multiplier band under-covers slightly and the
         bootstrap-t is closer; the multiplier band is nevertheless primary because the bootstrap-t degenerates
         on rare-event coordinates (RareEventDegeneracy)."""
         rng = np.random.default_rng(3); J, R = 30, 300
@@ -107,7 +107,7 @@ class Bootstrap(unittest.TestCase):
             self.assertTrue(np.all(b.W.sum(1) == 40))
 
     def test_two_level_carries_the_season_component(self):
-        """A1 amendment 9: a difference that lives entirely between seasons must widen the interval."""
+        """amendment 9: a difference that lives entirely between seasons must widen the interval."""
         num = np.r_[np.ones(20), np.zeros(20)]; den = np.ones(40)      # season s1 is all ones
         within = A.Boot(self.DAYS, [s for s, _ in self.DAYS], two_level=False)
         two = A.Boot(self.DAYS, [s for s, _ in self.DAYS], two_level=True)
@@ -204,7 +204,7 @@ class EndToEndSimulated(unittest.TestCase):
             H.save(p / f'exposures_{day}.npz', res, meta)
             tg, gm, pr, dg = A.collect('x', root=Path(t))
         self.assertEqual(len(tg), 2 * 2 * 2 * 3)        # games x sides x portfolios x (old, new, delta)
-        self.assertEqual(len(gm), 2 * 2 * len(A.CURVES))   # A1 amendment 9 item 7: all four curves
+        self.assertEqual(len(gm), 2 * 2 * len(A.CURVES))   # amendment 9 item 7: all four curves
         self.assertEqual({x['curve'] for x in gm}, set(A.CURVES))
         self.assertLess(dg[0]['q_total_dev'], 1e-9)
         self.assertLess(dg[0]['own_slot_dev'], 1e-5)    # float32 storage
@@ -220,7 +220,7 @@ class EndToEndSimulated(unittest.TestCase):
 
 
 class RolloverValuation(unittest.TestCase):
-    """A1 amendment 10: tau_rho = tau - rho * vbar * M, reported beside the registered tau."""
+    """amendment 10: tau_rho = tau - rho * vbar * M, reported beside the registered tau."""
 
     def setUp(self):
         self.rng = np.random.default_rng(5)
@@ -278,7 +278,7 @@ class RolloverValuation(unittest.TestCase):
 
 
 class PrecisionMatched(unittest.TestCase):
-    """A1 amendment 9 item 6 and item 9: verdicts restated at a common band width."""
+    """amendment 9 item 6 and item 9: verdicts restated at a common band width."""
 
     def rows(self, worlds, sd):
         rng = np.random.default_rng(4)
@@ -338,7 +338,7 @@ class LedgerClaims(unittest.TestCase):
         self.assertTrue(f['holds_opponent_pick']); self.assertTrue(f['holds_conditional_other'])
 
     def test_state_conditional_claims_drop_unreachable_slots(self):
-        """A1 amendment 9 item 9: a protection that can only bite at slots the native cannot reach
+        """amendment 9 item 9: a protection that can only bite at slots the native cannot reach
         is no longer scored as conditionally held."""
         cl, _ = A.claims(2026)
         self.assertEqual(cl['PHI'].get('OKC'), 'some')       # top-4 protected: conveyed at 5..30 only
@@ -412,7 +412,7 @@ class CompareRuns(unittest.TestCase):
 
 
 class HeadlineReversal(unittest.TestCase):
-    """A1 amendment 11: the headline reversal-share differences."""
+    """amendment 11: the headline reversal-share differences."""
     def test_shares_and_difference(self):
         days = [('2020-21', f'd{i}') for i in range(6)] + [('2021-22', f'd{i}') for i in range(6)]
         tg = []

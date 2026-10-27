@@ -28,7 +28,7 @@ class ShapleyAlgebra(unittest.TestCase):
             self.assertAlmostEqual(phi[k], v, places=12)
 
     def test_constrained_value_is_efficient_and_additive(self):
-        """A1 amendment 9: F before R, still summing to the grand difference."""
+        """amendment 9: F before R, still summing to the grand difference."""
         rng = np.random.default_rng(5)
         vals = {C.subset_key(''.join(s)): float(rng.normal())
                 for k in range(5) for s in __import__('itertools').combinations(C.COMPONENTS, k)}

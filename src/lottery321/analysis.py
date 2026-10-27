@@ -1,11 +1,11 @@
 """simulation: registered analysis of the league-wide exposure files (paper Section 5).
 
-Implements registration/run_registration.md and addendum A1 exactly; nothing here is tuned on outputs.
-  * C1: per team-game verdicts from the curve-free bounds (sup-t simultaneous 99% band over j, A1 s.1),
+Implements registration/run_registration.md and its addendum exactly; nothing here is tuned on outputs.
+  * C1: per team-game verdicts from the curve-free bounds (sup-t simultaneous 99% band over j, addendum s.1),
         reversal slot j*, crossing flag, tau on the four curves, portfolio effect, attribution splits.
   * C2: per game stakes of all 30 teams, third-party share, HHI, typology, H2 sample, on all four curves.
-  * Delta tau, H1 and H2 tests, day-clustered bootstrap intervals (A1 s.4), restriction comparison (s.5.4).
-  * A1 amendment 9: bootstrap-t bands, the three-look constant, the delta margin on reversals,
+  * Delta tau, H1 and H2 tests, day-clustered bootstrap intervals (addendum s.4), restriction comparison (s.5.4).
+  * amendment 9: bootstrap-t bands, the three-look constant, the delta margin on reversals,
     materiality-restricted stakes, the two-level bootstrap, precision-matched verdicts and the
     verdict x stopping-look table, the per-slot conservation diagnostic, all four curves,
     delta tau in the precision diagnostic, and both j* definitions and the state-conditional
@@ -40,14 +40,14 @@ ROOT = HERE.parents[1]
 SIMULATIONS = ROOT / 'simulations'
 OUT = ROOT / 'results'
 
-# ---------------------------------------------------------------- constants fixed by the registration / A1
+# ---------------------------------------------------------------- constants fixed by the registration / addendum
 Z = 2.935199                 # Phi^-1(1 - 0.01/6): two-sided 99%, Bonferroni over the three looks.
-                             # A1 amendment 9: the runs' stopping rule used the two-look constant
+                             # amendment 9: the runs' stopping rule used the two-look constant
                              # 2.807034; the difference is disclosed with the results.
 DELTA = 0.003                # equivalence margin = precision target
 SUPT_DRAWS = 10_000          # Gaussian multipliers, kept as the reported diagnostic band
 SUPT_SEED = 20260922
-BOOTT_REPS = 2_000           # A1 amendment 9: studentised bootstrap-t over the stored super-batches
+BOOTT_REPS = 2_000           # amendment 9: studentised bootstrap-t over the stored super-batches
 BOOTT_SEED = 20260922
 BOOT_REPS = 9_999
 BOOT_SEED = 2026092201
@@ -59,7 +59,7 @@ RULES = ('old', 'new')
 PORTFOLIOS = ('actual', 'own')
 VERDICTS = ('dominance_positive', 'reversal', 'negligible', 'unresolved')
 TYPES = ('both_lose', 'both_win', 'normal', 'opposed', 'one_sided_win', 'no_own_stake')
-# A1 amendment 10: rollover valuation of the mass channel. A right that fails to convey is worth rho of an
+# amendment 10: rollover valuation of the mass channel. A right that fails to convey is worth rho of an
 # average first-round pick in a later draft, so tau_rho = tau - rho * vbar * M with vbar = mean_k v(k) and
 # M = C(30). rho = 0 is the registered primary. Reported as a magnitude under an explicitly different
 # valuation, not as the tau of any curve in the registered class: at rho > 0 the no-pick outcome outranks
@@ -93,12 +93,12 @@ def band_stats(Cb):
 
     'B' and 'C' are the Gaussian-multiplier sup-t values (Montiel Olea & Plagborg-Moller 2019), the band of
     the original registration, used everywhere. 'B_boott' and 'C_boott' are the studentised bootstrap-t
-    values that A1 amendment 9 made primary; they are kept as a diagnostic only. After the primary
+    values that amendment 9 made primary; they are kept as a diagnostic only. After the primary
     tables were produced, the registered diagnostic T5_0d showed that the bootstrap-t degenerates on
     rare-event coordinates: where C(j) is zero (float32 noise, ~1e-9) in most batches and nonzero in a few,
     every resample that omits the few has se*(j) ~ 1e-10 against |C*(j) - C_hat(j)| ~ C_hat(j), and the 99%
     quantile explodes (to 1e15 in the data; 29% of team-games had c > 10). The band was re-chosen by a
-    criterion fixed before the comparison (addendum A1, amendment 12):
+    criterion fixed before the comparison (addendum, amendment 12):
     the multiplier band. It under-covers slightly (98.2% for a nominal 99% in the Gaussian design), which is
     stated with the results. Coordinates with zero batch variance are excluded from the maximum.
     """
@@ -129,7 +129,7 @@ def band_stats(Cb):
 
 
 def verdict(m, se, c, J):
-    """A1 s.1 with amendment 9: negligible, reversal, dominance_positive, unresolved, in that order.
+    """addendum s.1 with amendment 9: negligible, reversal, dominance_positive, unresolved, in that order.
     Reversal now carries the same equivalence margin as dominance: the upper band must fall below -delta,
     so a dip smaller than delta is not called a reversal while its mirror image is called dominance."""
     m, se = m[:J], se[:J]
@@ -171,7 +171,7 @@ def tau_stats(db):
 
 
 def tau_rho(db, rho):
-    """A1 amendment 10: tau under the rollover valuation, per curve, from the same batch means.
+    """amendment 10: tau under the rollover valuation, per curve, from the same batch means.
 
     tau_rho = tau - rho * vbar * M with M = C(30) = sum_k d(k). Computed batch by batch so that the
     standard error is the batch-means standard error of the adjusted quantity, not of tau alone."""
@@ -200,7 +200,7 @@ _CLAIM_SUM = {}
 
 
 def slot_claims(year, n_perm=20000, seed=1):
-    """Registered reading (A1 amendment 4): apply the router to 20,000 uniform complete draft orders, seed 1.
+    """Registered reading (amendment 4): apply the router to 20,000 uniform complete draft orders, seed 1.
 
     Returns (seen, tot, pooled) with seen[native][holder][k] = the number of sampled orders in which the
     native sits at slot k+1 and the holder receives its pick, and tot[native][k] = orders with the native
@@ -232,7 +232,7 @@ def claims(year, reach=None, reach_key=None):
 
     With `reach` — a (30, 30) boolean mask of the slots each native can actually reach in that season's
     window (`reachable_slots`) — only reachable slots are counted. That is the state-conditional
-    version registered as a robustness split in A1 amendment 9 item 9: under uniform permutations a
+    version registered as a robustness split in amendment 9 item 9: under uniform permutations a
     playoff team's top-14 protection is scored conditional even though its pick can never fall inside
     the protected range, which dilutes the H2 and H3 samples."""
     ck = (year, reach_key if reach is None else (reach_key or id(reach)))
@@ -277,7 +277,7 @@ _GAMES = None
 
 
 def cutoff_ranks(meta):
-    """League rank by winning percentage at the cutoff (worst = 1; A1 amendment 1); ties by the draft-tie priority of the first world of
+    """League rank by winning percentage at the cutoff (worst = 1; amendment 1); ties by the draft-tie priority of the first world of
     look 1 (rng = default_rng(seed); draws ug, us, up, ud in league_sim order). Returns (rank array, n_remaining)."""
     global _GAMES
     import elo as E
@@ -341,7 +341,7 @@ def analyse_day(d, ranks=None):
                            'rule': r, 'portfolio': pf, 'verdict_B': vB, 'jstar_B': jB, 'verdict_C': vC,
                            'jstar_C': jC, 'crossing': crossing(m, se, crit['B']), 'crit_B': crit['B'],
                            'crit_C': crit['C'], 'crit_B_boott': crit['B_boott'],
-                           # A1 amendment 9 item 9: the registered j* is the argmin of the upper band;
+                           # amendment 9 item 9: the registered j* is the argmin of the upper band;
                            # the argmin of C_hat itself, which is what the exact kernel difference F3 - F4 predicts, is reported beside it
                            'jstar_hat_B': int(np.argmin(m)) + 1, 'jstar_hat_C': int(np.argmin(m[:29])) + 1,
                            'seeding_tv': tv, 'seed_group': seed_group(tv), 'n_worlds': nw,
@@ -350,7 +350,7 @@ def analyse_day(d, ranks=None):
                     for name, (tm, tse, tsg) in ts.items():
                         row[f'tau_{name}'] = tm; row[f'se_{name}'] = tse; row[f'sign_{name}'] = tsg
                     row['M'] = float(m[29])                      # C(30), the mass channel
-                    for rho in RHOS:                             # A1 amendment 10
+                    for rho in RHOS:                             # amendment 10
                         tag = f'rho{int(rho * 100)}'
                         for name, (tm, tse) in tau_rho(db, rho).items():
                             row[f'tau_{name}_{tag}'] = tm; row[f'se_{name}_{tag}'] = tse
@@ -361,13 +361,13 @@ def analyse_day(d, ranks=None):
                     if pf == 'actual' and r in RULES:
                         for cvn, (_, _, tsg) in ts.items():
                             side_sign[(side, r, cvn)] = tsg
-        # ---- C2: stakes of all 30 teams. A1 amendment 9 item 7: on all four curves, not the linear one only.
+        # ---- C2: stakes of all 30 teams. amendment 9 item 7: on all four curves, not the linear one only.
         for ri, r in enumerate(RULES):
             for cv, v in CURVES.items():
                 s_b = -(DB[:, g, ri] @ v)                      # (B, 30): value to each team of a home win
                 s = s_b.mean(0)
                 third = [x for x in range(30) if x not in (h, a)]
-                # A1 amendment 9: |s| of a noisy estimate is biased upward, so the stake measures are
+                # amendment 9: |s| of a noisy estimate is biased upward, so the stake measures are
                 # computed on materially staked teams only. The unrestricted versions are kept as diagnostics.
                 mat = np.abs(s) >= DELTA
                 tot_m = float(np.abs(s[mat]).sum()); tot = float(np.abs(s).sum())
@@ -394,13 +394,13 @@ def analyse_day(d, ranks=None):
     diag = {'season': season, 'day': day, 'precision_met': bool(meta['precision_met']),
             'n_worlds': nw, 'looks': meta['looks'],
             'q_total_dev': float(np.abs(d['Q'].sum(axis=(3, 4)) - 30.0).max()),
-            # A1 amendment 9 item 7: the registered check is per slot, sum_c q(k) = 1. Under the hybrid
+            # amendment 9 item 7: the registered check is per slot, sum_c q(k) = 1. Under the hybrid
             # estimator it holds only in expectation (pooled natives are sampled, simple ones are exact), so
             # this is a noise diagnostic: the reference scale is one pooled sampling standard error.
             'per_slot_dev': float(np.abs(d['Q'].sum(axis=3) - 1.0).max()),
             'per_slot_expected': 1.0 / math.sqrt(max(draws * nw, 1)),
             'own_slot_dev': float(np.abs(DBo.sum(axis=3)).max()),
-            # A1 amendment 9 item 7: the stopping rule includes delta tau, so the diagnostic does too
+            # amendment 9 item 7: the stopping rule includes delta tau, so the diagnostic does too
             'max_hw_linear': hw(lambda r: True),
             'max_hw_linear_rules_only': hw(lambda r: r['rule'] in RULES),
             'max_hw_delta_linear': hw(lambda r: r['rule'] == 'delta')}
@@ -408,7 +408,7 @@ def analyse_day(d, ranks=None):
 
 
 def add_precision_matched(rows, n_match=None):
-    """A1 amendment 9 item 6 and item 9: restate every verdict at a common band width.
+    """amendment 9 item 6 and item 9: restate every verdict at a common band width.
 
     A day's band width is set by its world count, so a day that ran 32,000 worlds is more likely to be
     called resolved than one that stopped at 2,000, and the own-pick portfolio (which carries no lottery
@@ -432,7 +432,7 @@ def add_precision_matched(rows, n_match=None):
 
 
 def state_conditional(tg, games, reach=None):
-    """A1 amendment 9 item 9: the state-conditional version of the router features, as a split.
+    """amendment 9 item 9: the state-conditional version of the router features, as a split.
 
     The registered features stay as they are; these carry the suffix `_state` and are None when the
     reachable-slot file has not been produced."""
@@ -476,9 +476,9 @@ def typology(sh, sa):
     return 'no_own_stake'
 
 
-# ---------------------------------------------------------------- day-clustered bootstrap (A1 s.4)
+# ---------------------------------------------------------------- day-clustered bootstrap (addendum s.4)
 class Boot:
-    """Cluster bootstrap over the run's days (A1 s.4 with amendment 9).
+    """Cluster bootstrap over the run's days (addendum s.4 with amendment 9).
 
     Primary (`two_level=True`): resample seasons with replacement, then the days within each resampled
     season. Holding the season weights fixed, as the first registration did, excludes the season-level
@@ -556,7 +556,7 @@ VERDICT_FIELDS = (('B', 'verdict_B'), ('C', 'verdict_C'), ('B_pm', 'verdict_B_pm
 def share_table(rows, boot, groups, verdict_field_list=VERDICT_FIELDS):
     """groups: list of (label dict, filter). One row per group x class x verdict with share and 99% CI.
 
-    A1 amendment 9 item 6: the `_pm` classes are the precision-matched restatement of the same verdicts
+    amendment 9 item 6: the `_pm` classes are the precision-matched restatement of the same verdicts
     (`add_precision_matched`); they are skipped when that pass has not been run."""
     out = []
     have = set(rows[0]) if rows else set()
@@ -585,7 +585,7 @@ def quantiles(x):
 
 
 def headline_reversal(tg, boot):
-    """A1 amendment 11, headline quantities (H-a) and (H-b): the reversal share under 3-2-1 and under the
+    """amendment 11, headline quantities (H-a) and (H-b): the reversal share under 3-2-1 and under the
     old rule, and their paired difference with a two-level bootstrap 99% interval, for each portfolio and
     for the registered and precision-matched class-B verdicts; plus the portfolio gap (actual minus own)
     under each rule."""
@@ -643,7 +643,7 @@ def build_tables(tg, games, profs, diags, boot):
                                                                          if g['curve'] == cv and g['rule'] == r])),
                                      'n_games': sum(1 for g in games if g['curve'] == cv and g['rule'] == r)}
                                     for cv in CURVES for r in RULES]
-    # A1 amendment 9 item 6: verdicts against the look a day stopped at, and item 9: the band
+    # amendment 9 item 6: verdicts against the look a day stopped at, and item 9: the band
     # width each portfolio is measured at, so the portfolio contrast can be read against its precision gap.
     look = lambda x: str(x['n_worlds']) if x['precision_met'] else 'missed'
     ct = defaultdict(int)
@@ -668,7 +668,7 @@ def build_tables(tg, games, profs, diags, boot):
         for pf in PORTFOLIOS:
             sel = [x for x in tg if rp(x, r, pf) and x['verdict_B'] == 'reversal']
             js = [x['jstar_B'] for x in sel]
-            jh = [x['jstar_hat_B'] for x in sel]           # A1 amendment 9 item 9
+            jh = [x['jstar_hat_B'] for x in sel]           # amendment 9 item 9
             spm = [x for x in tg if rp(x, r, pf) and x.get('verdict_B_pm') == 'reversal']
             jpm = [x['jstar_B_pm'] for x in spm]
             for j in range(1, 31):
@@ -726,7 +726,7 @@ def build_tables(tg, games, profs, diags, boot):
     T['T5_attr_portfolio_effect'] = rows
     groups = [({'rule': r, 'portfolio': pf, 'seed_group': sg}, lambda x, r=r, pf=pf, sg=sg: rp(x, r, pf) and x['seed_group'] == sg)
               for r in RULES for pf in PORTFOLIOS for sg in ('<0.01', '0.01-0.05', '>=0.05')]
-    # A1 amendment 10: the mass channel under the rollover valuation. Reported as magnitudes under an
+    # amendment 10: the mass channel under the rollover valuation. Reported as magnitudes under an
     # explicitly different valuation of the "no pick" outcome, not as the tau of any registered curve.
     rows = []
     for r in RULES + ('delta',):
@@ -772,9 +772,9 @@ def build_tables(tg, games, profs, diags, boot):
         if x['rule'] == 'old':
             trans[(x['portfolio'], x['verdict_B'], newv[(key(x), x['portfolio'])])] += 1
     T['T5_6_transitions'] = [dict(portfolio=p, old=o, new=n, count=c) for (p, o, n), c in sorted(trans.items())]
-    T['T5_headline_reversal_diff'] = headline_reversal(tg, boot)   # A1 amendment 11, (H-a) and (H-b)
-    # C2. A1 amendment 9 item 7: every stake measure is reported on all four curves. The typology's
-    # registered definition (A1 s.2) is the linear curve; the other three are reported beside it.
+    T['T5_headline_reversal_diff'] = headline_reversal(tg, boot)   # amendment 11, (H-a) and (H-b)
+    # C2. amendment 9 item 7: every stake measure is reported on all four curves. The typology's
+    # registered definition (addendum s.2) is the linear curve; the other three are reported beside it.
     rows = []
     for r in RULES:
         for cv in CURVES:
@@ -851,8 +851,8 @@ def collect(tag, exclude_imprecise=False, root=SIMULATIONS, ranks_fn=None, n_mat
         ranks = ranks_fn(d['meta']) if ranks_fn else None
         a, b, c, dg = analyse_day(d, ranks)
         tg += a; games += b; profs += c; diags.append(dg)
-    add_precision_matched(tg, n_match)                 # A1 amendment 9 items 6 and 9
-    state_conditional(tg, games, reach)                # A1 amendment 9 item 9
+    add_precision_matched(tg, n_match)                 # amendment 9 items 6 and 9
+    state_conditional(tg, games, reach)                # amendment 9 item 9
     return tg, games, profs, diags
 
 
@@ -995,7 +995,7 @@ if __name__ == '__main__':
     if a.compare:
         ta, tb = a.compare
         tga = collect(ta)[0]; tgb = collect(tb)[0]
-        # A1 amendment 9 item 6: a comparison of two runs is made at the widest band of the two
+        # amendment 9 item 6: a comparison of two runs is made at the widest band of the two
         nm = min(min(x['n_worlds'] for x in tga), min(x['n_worlds'] for x in tgb))
         add_precision_matched(tga, nm); add_precision_matched(tgb, nm)
         out = Path(a.out) if a.out else OUT / f'compare_{ta}_{tb}'

@@ -1,11 +1,11 @@
-"""Registration addendum A1, section 5(d): can any of the four remaining ledger assumptions bind at a window state?
+"""Registration addendum, section 5(d): can any of the four remaining ledger assumptions bind at a window state?
 
 Uses ONLY the ledgers' routing conditions, the window states (known results at each cutoff) and the win
 model. It simulates final standings, play-in and ONE sampled draft order per rule and world, and records
 how often the configuration that an assumption decides is reached. It reads no simulation output and computes
 no incentive, stake or holding.
 
-Remaining assumptions (the ASSUMPTIONS of the routers, numbered as in addendum A1, section 5(d)):
+Remaining assumptions (the ASSUMPTIONS of the routers, numbered as in addendum, section 5(d)):
   item 3 (2021) HOU/BKN swap choice rule            definitional: HOU gives up its least favorable eligible pick
   item 6 (2024) WAS 13-30 branch of WAS/PHX/MEM      consistent support, not explicit
   item 8 (2025) OKC choice between LAC and HOU swaps definitional: OKC takes the more favorable eligible pick

@@ -1,9 +1,9 @@
-"""Reachable draft slots per season and rule (registration addendum A1, amendment 9 item 9).
+"""Reachable draft slots per season and rule (registration addendum, amendment 9 item 9).
 
 `claims()` in the registered analysis applies each router to uniform random permutations of 1..30, so a
 protection is scored as conditional ('some') even when the native can never reach the slots at which the
 condition bites. `holds_conditional_other` and `third_party_claim` are selection variables for H3 and H2,
-so that dilutes both samples. A1 amendment 9 keeps the registered feature and adds a state-conditional
+so that dilutes both samples. amendment 9 keeps the registered feature and adds a state-conditional
 version as a reported robustness split; this module supplies the slot sets it needs.
 
 Definition (fixed here, before any simulation output was opened): a slot k is *reachable* for team t in a

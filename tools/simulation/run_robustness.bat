@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 rem ======================================================================
-rem  Simulation robustness runs (addendum A1 section 5). Four short runs, one
+rem  Simulation robustness runs (addendum section 5). Four short runs, one
 rem  after another:
 rem    dta       draw-then-adjust lottery procedure   (81 game days)
 rem    latelink  win model fitted on earlier late windows (81 days)

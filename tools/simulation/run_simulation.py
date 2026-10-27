@@ -1,6 +1,6 @@
 """Simulation runner for a Windows PC (parallel, resumable, keeps the PC awake).
 
-Variants (registration + addendum A1 section 5):
+Variants (registration + addendum section 5):
     primary    the registered main run (default)
     norestr    no repeat restrictions, all days
     dta        draw-then-adjust joint lottery procedure, subsample (first run)
@@ -66,12 +66,12 @@ VARIANTS = {'primary': {}, 'norestr': {}, 'dta': {'new_procedure': 'draw_then_ad
             'dta2': {'new_procedure': 'draw_then_adjust'}, 'defer': {},
             'latelink': {'win_mode': 'prior_late_link'}, 'stress': {'win_mode': 'stress_slope_x1.25'},
             'alt6': {}, 'c3': {}, 'pool32': {}}
-SUBSAMPLE_STEP = 4                      # addendum A1 section 5: every 4th game day of each season
+SUBSAMPLE_STEP = 4                      # addendum section 5: every 4th game day of each season
 ALT6_SEASON = '2023-24'
 
 
 def _alt6_days():
-    """The window days listed for the item-6 re-run (addendum A1 section 6)."""
+    """The window days listed for the item-6 re-run (addendum section 6)."""
     f = ROOT / 'results/ledger_assumption_check.json'
     d = json.loads(f.read_text(encoding='utf-8'))
     return set(d['summary']['item6']['days_at_or_above_threshold'])

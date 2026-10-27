@@ -1,4 +1,4 @@
-"""Registered robustness reporting (addendum A1 §5 and amendment 11): the four headline quantities for each
+"""Registered robustness reporting (addendum §5 and amendment 11): the four headline quantities for each
 robustness run and for the primary run restricted to the same days.
 
 Reads the team-game tables written by analysis for `primary` and each robustness tag, and the

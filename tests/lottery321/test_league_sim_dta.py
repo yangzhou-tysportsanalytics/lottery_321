@@ -1,4 +1,4 @@
-"""Tests for the draw-then-adjust sensitivity option of league_sim (registration addendum A1, section 5(a))."""
+"""Tests for the draw-then-adjust sensitivity option of league_sim (registration addendum, section 5(a))."""
 import sys, unittest
 from datetime import datetime, timezone
 from pathlib import Path
