@@ -111,9 +111,10 @@ def figure_5_2(rows, out, season=None, top=12):
         ax.set_yticks(range(len(keep)), keep, fontsize=fs)
         _style(ax, 'stake holder', 'team playing' if rule == 'old' else '', LABEL[rule] + (f', {season}' if season else ''))
         ax.xaxis.label.set_fontsize(fs); ax.yaxis.label.set_fontsize(fs); ax.title.set_fontsize(fs + 1)
+        ax.tick_params(labelsize=fs)                                # _style sets 8; keep the team labels at fs
         ax.grid(False)
     cb = fig.colorbar(im, ax=axes, fraction=0.025, pad=0.03)
-    cb.set_label('summed |stake| over the window', fontsize=fs - 1)
+    cb.set_label('summed |stake| over the window (first pick = 1)', fontsize=fs - 1)
     cb.ax.tick_params(labelsize=fs)
     return save(fig, out, 'figure_5_2_network' + (f'_{season}' if season else ''))
 
