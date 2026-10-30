@@ -56,7 +56,7 @@ behaviour.
 | `exploratory_1/` … `exploratory_8/`, `defer/`, `native_contributions/` | Exploratory analyses; none changes a registered number |
 | `dta2/` | The draw-then-adjust robustness run with its repair corrected |
 
-Table files are named after the tables as registered: `T5_1_…` is registered Table 5.1, `H1.csv` and `H2.csv` are
+The verdict the paper calls approximate dominance is `dominance_positive` in the code and result files. Table files are named after the tables as registered: `T5_1_…` is registered Table 5.1, `H1.csv` and `H2.csv` are
 the hypothesis tests, `F5_…` hold the data behind the figures, and `A…`/`B…`/`C…`/`R…`/`E5_…`/`E6_…`/`E7_…`/`E8_…` are exploratory tables cited
 in the online appendix. The section "Which file is which table" below maps the tables of Sections 3 and 5 and of Online
 Appendices B, C and H to their files.
@@ -226,8 +226,8 @@ quantities to be reported), an addendum of operational definitions with its amen
 margin, stake measures, bootstrap, robustness runs, headline quantities), a draft of the results section with
 empty cells that states the decision rules of hypotheses H1 and H2, and the decomposition registration, which
 states H3. All four are in `registration/`: the two registrations verbatim, and public copies of the addendum
-(with its amendment record, amendments 1–31) and of the draft. In the draft, and in the addendum's definitions
-and amendments 1–12, only internal labels and file names are replaced; amendments 13–31 are given as recorded in
+(with its amendment record) and of the draft. In the draft, and in the addendum's definitions
+and amendments 1–12, only internal labels and file names are replaced; later amendments are given as recorded in
 the paper's Online Appendix I.6 (`registration/README.md`). None of these documents was deposited with a
 third-party registry, so their dates rest on the authors' record. One condition of H3 was restated by an
 amendment written before the results were opened: `decomposition_registration.md` gives its first wording, and
