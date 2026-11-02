@@ -4,7 +4,7 @@ Figure 3 is the repository's own figure function, unchanged (Figure 3.1 of the l
 the repository's two-panel summary figure (figures.figure_reversal_by_rank) with the panel titles reworded: the
 left panel counts reversals, team-games in which at least one admissible draft-value chart values the loss below
 the win, so it says "losing can cost" rather than "losing hurts"; data, layout and colours are unchanged.
-Figures 1, 2, 3 and 5, Figures A2 and A3 and Table A3 are displays made for this paper from stored results (Figure 3
+Figures 1, 2, 3 and 5, Figures A2 and D1 and Table D2 are displays made for this paper from stored results (Figure 3
 from the exact lottery kernels); Figure A1 is the repository's Figure 3.1.
 
 Usage: python3 make_figures.py <repository root> [output folder]
