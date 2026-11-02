@@ -4,7 +4,8 @@ Figure 3 is the repository's own figure function, unchanged (Figure 3.1 of the l
 the repository's two-panel summary figure (figures.figure_reversal_by_rank) with the panel titles reworded: the
 left panel counts reversals, team-games in which at least one admissible draft-value chart values the loss below
 the win, so it says "losing can cost" rather than "losing hurts"; data, layout and colours are unchanged.
-Figures 1, 2 and 5 and Table 3 are descriptive displays made for this paper from stored results.
+Figures 1, 2, 3 and 5, Figures A2 and A3 and Table A3 are displays made for this paper from stored results (Figure 3
+from the exact lottery kernels); Figure A1 is the repository's Figure 3.1.
 
 Usage: python3 make_figures.py <repository root> [output folder]
 Writes the figures to <output folder>/figures and the derived tables to <output folder>/derived; the default
@@ -44,7 +45,7 @@ def figure_2(rows, tau_rows, out):
     ax.set_xticks(x, list(F.BANDS), fontsize=8)
     F._style(ax, '', '')
     ax.set_xlabel('league rank at cutoff (1 = worst)', fontsize=8, color='#444444')
-    ax.set_title('Games where losing can cost draft value\n(picks actually held)', fontsize=9, color='#222222')
+    ax.set_title('How often: games where losing can cost\ndraft value (picks actually held)', fontsize=9, color='#222222')
     ax.set_ylabel('share of team-games', fontsize=8, color='#444444')
     ax.set_ylim(0, 0.9)
     ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
@@ -63,8 +64,9 @@ def figure_2(rows, tau_rows, out):
     ax.set_xticks(x, list(F.BANDS), fontsize=8)
     F._style(ax, '', '')
     ax.set_xlabel('league rank at cutoff (1 = worst)', fontsize=8, color='#444444')
-    ax.set_title('Average draft value of losing one game\n(own pick, linear chart)', fontsize=9, color='#222222')
-    ax.set_ylabel("share of a No. 1 pick's value", fontsize=8, color='#444444')
+    ax.set_title('How much: average draft value of losing\none game (own pick, linear chart)', fontsize=9, color='#222222')
+    ax.set_ylabel("% of a No. 1 pick's value", fontsize=8, color='#444444')
+    ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
     fig.tight_layout()
     return F.save(fig, out, 'ssac_figure_2_by_rank')
 
@@ -100,17 +102,18 @@ def team_games():
 
 
 def figure_1_example(out):
+    """Figure 1: how the loss costs Toronto, and its draft value read through the own pick alone and through every
+    pick held (linear chart)."""
     plt = F.plt
-    TOR_C, TT = toronto_example()
+    _, TT = toronto_example()
     TOR_TAU = {k: v['linear'] for k, v in TT.items()}
-    fig = plt.figure(figsize=(7.2, 2.7))
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.25, 0.85, 1.15], wspace=0.62)
-    # (a) the chain
+    fig = plt.figure(figsize=(7.0, 2.5))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.3, 1.0], wspace=0.35)
     ax = fig.add_subplot(gs[0]); ax.axis('off')
     steps = ['Toronto (6th-worst) loses\nat home to Indiana (17th-worst)',
              "Indiana's record improves",
              "Indiana's pick, which Toronto holds\n(top-3 protected), moves later",
-             "Toronto's picks lose value:\n5.5% of a No. 1 pick"]
+             "Toronto's picks lose value:\n5.5% of a No. 1 pick (linear chart)"]
     ys = [0.9, 0.64, 0.38, 0.1]
     for i, (t, y) in enumerate(zip(steps, ys)):
         ax.text(0.5, y, t, ha='center', va='center', fontsize=7.5, color='#222222',
@@ -120,23 +123,32 @@ def figure_1_example(out):
             ax.annotate('', xy=(0.5, ys[i + 1] + 0.1), xytext=(0.5, y - 0.1),
                         arrowprops=dict(arrowstyle='->', color='#555555', lw=0.9))
     ax.set_title('(a) How the loss costs Toronto', fontsize=8.5, color='#222222')
-    # (b) the two views
     ax = fig.add_subplot(gs[1])
     x = np.arange(2); w = 0.36
     for k, rule in enumerate(('old', 'new')):
         v = [TOR_TAU[(rule, 'own')], TOR_TAU[(rule, 'actual')]]
-        ax.bar(x + (k - 0.5) * w, v, w, color=F.RULE_COLOUR[rule], label='old lottery' if rule == 'old' else '3-2-1',
-               edgecolor='white', linewidth=0.5)
+        bars = ax.bar(x + (k - 0.5) * w, v, w, color=F.RULE_COLOUR[rule],
+                      label='old lottery' if rule == 'old' else '3-2-1', edgecolor='white', linewidth=0.5)
+        for bx, bv in zip(x + (k - 0.5) * w, v):
+            ax.annotate(f'{bv:+.1%}' if abs(bv) >= 0.0005 else '0.0%', xy=(bx, bv), xytext=(0, 3 if bv >= 0 else -9),
+                        textcoords='offset points', ha='center', fontsize=6.8, color='#333333')
     ax.axhline(0, color='#888888', linewidth=0.6)
-    ax.set_xticks(x, ['own pick\nonly', 'picks\nheld'], fontsize=7.5)
+    ax.set_xticks(x, ['own pick read alone', 'every pick held'], fontsize=7.5)
     F._style(ax, '', '')
-    ax.set_ylabel("share of a No. 1 pick", fontsize=7.5, color='#444444')
+    ax.set_ylabel("% of a No. 1 pick's value", fontsize=7.5, color='#444444')
+    ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
     ax.tick_params(labelsize=7)
-    ax.set_ylim(-0.07, 0.03)
+    ax.set_ylim(-0.075, 0.03)
     ax.legend(fontsize=7, frameon=False, loc='upper right')
-    ax.set_title('(b) Two views of one game', fontsize=8.5, color='#222222')
-    # (c) cumulative holdings change
-    ax = fig.add_subplot(gs[2])
+    ax.set_title('(b) Draft value of losing, linear chart', fontsize=8.5, color='#222222')
+    return F.save(fig, out, 'ssac_figure_1_example')
+
+
+def figure_toronto_cj(out):
+    """Appendix figure: C(j) for the Toronto game at the six stored slots (points, not a curve)."""
+    plt = F.plt
+    TOR_C, _ = toronto_example()
+    fig, ax = plt.subplots(figsize=(4.2, 2.6))
     for k, (rule, port, mk) in enumerate((('old', 'actual', 'o'), ('new', 'actual', 'D'), ('old', 'own', 's'))):
         xs = np.array(TOR_SLOTS) + (k - 1) * 0.35
         ax.plot(xs, TOR_C[(rule, port)], linestyle='none', marker=mk, markersize=4.2,
@@ -150,8 +162,61 @@ def figure_1_example(out):
     ax.annotate(f'minimum: {mo:.3f} at slot {so} (old)\n{mn:.3f} at slot {sn} (3-2-1)', xy=(17, mo), xytext=(19.0, -0.30),
                 fontsize=6.5, color='#444444', arrowprops=dict(arrowstyle='-', color='#888888', lw=0.6))
     ax.legend(fontsize=6.3, frameon=False, loc='lower left')
-    ax.set_title('(c) C(j) at the stored slots', fontsize=8.5, color='#222222')
-    return F.save(fig, out, 'ssac_figure_1_example')
+    fig.tight_layout()
+    return F.save(fig, out, 'ssac_figure_A2_toronto_cj')
+
+
+def figure_expected_slot(out):
+    """Figure 3: expected slot by lottery position under both rules, exact, before repeat restrictions."""
+    import theory as TH
+    plt = F.plt
+    K = TH.position_kernels()
+    fig, ax = plt.subplots(figsize=(5.4, 2.7))
+    exp = {}
+    for rule in ('old', 'new'):
+        K_ = K[rule]
+        exp[rule] = (K_ * np.arange(1, K_.shape[1] + 1)).sum(axis=1)
+        ax.plot(np.arange(1, len(exp[rule]) + 1), exp[rule], '-o', color=F.RULE_COLOUR[rule], linewidth=2, markersize=4,
+                label='old lottery' if rule == 'old' else '3-2-1')
+    ax.axvspan(0.5, 3.5, color='#D55E00', alpha=0.08, linewidth=0)
+    ax.annotate(f'worst record:\n{exp["old"][0]:.1f} \u2192 {exp["new"][0]:.1f}', xy=(1, exp['new'][0]), xytext=(2.2, 11.5),
+                fontsize=7.5, color='#333333', arrowprops=dict(arrowstyle='-', color='#888888', lw=0.6))
+    ax.annotate(f'positions 4\u201310: {exp["new"][4]:.1f}', xy=(7, exp['new'][6]), xytext=(6.2, 5.2), fontsize=7.5,
+                color='#333333', arrowprops=dict(arrowstyle='-', color='#888888', lw=0.6))
+    ax.annotate('three worst\n(2 balls, floor 12)', xy=(2, 13.3), ha='center', fontsize=6.8, color='#444444')
+    F._style(ax, 'lottery position (worst = 1)', 'expected slot (earlier is higher)', None)
+    ax.xaxis.label.set_fontsize(8); ax.yaxis.label.set_fontsize(8); ax.tick_params(labelsize=7)
+    ax.invert_yaxis()
+    ax.legend(fontsize=7.5, frameon=False, loc='upper right')
+    fig.tight_layout()
+    return F.save(fig, out, 'ssac_figure_3_expected_slot')
+
+
+def figure_tp_share(out):
+    """Figure 5: share of games whose material draft stake is held mostly by teams not playing, with own picks only
+    and with the picks actually held, under both lotteries (results/exploratory_4/R21_network_contrast.csv)."""
+    plt = F.plt
+    rows = {r['rule']: r for r in F.read(RES / 'exploratory_4' / 'R21_network_contrast.csv')}
+    fig, ax = plt.subplots(figsize=(5.4, 2.5))
+    x = np.arange(2); w = 0.36
+    for k, rule in enumerate(('old', 'new')):
+        r = rows[rule]
+        v = [float(r['own_third_dominated_share']), float(r['actual_third_dominated_share'])]
+        n = [int(r['own_tp_defined']), int(r['actual_tp_defined'])]
+        p = x + (k - 0.5) * w
+        ax.bar(p, v, w, color=F.RULE_COLOUR[rule], label='old lottery' if rule == 'old' else '3-2-1',
+               edgecolor='white', linewidth=0.5)
+        for bx, bv, bn in zip(p, v, n):
+            ax.annotate(f'{bv:.1%}\n(n = {bn:,})', xy=(bx, bv), xytext=(0, 3), textcoords='offset points',
+                        ha='center', va='bottom', fontsize=6.8, color='#333333')
+    ax.set_xticks(x, ['own picks only\n(no trades)', 'picks actually held'], fontsize=8)
+    F._style(ax, '', 'share of games', None)
+    ax.yaxis.label.set_fontsize(8); ax.tick_params(labelsize=7)
+    ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
+    ax.set_ylim(0, 0.72)
+    ax.legend(fontsize=7.5, frameon=False, loc='upper left')
+    fig.tight_layout()
+    return F.save(fig, out, 'ssac_figure_5_tp_share')
 
 
 def figure_season_view(rows, out, season='2023-24', team='TOR'):
@@ -242,7 +307,7 @@ def figure_stakes_bars(rows, out, season='2025-26', top=8):
         wr = _csv.writer(f); wr.writerow(['game_team', 'holder', 'old', 'new'])
         for p in pairs:
             wr.writerow([p[0], p[1], round(w[p]['old'], 4), round(w[p]['new'], 4)])
-    return F.save(fig, out, 'ssac_figure_5_stakes')
+    return F.save(fig, out, 'ssac_figure_A3_stakes')
 
 
 def main():
@@ -251,6 +316,9 @@ def main():
     made += figure_2(F.read(RES / 'primary' / 'T5_2_verdicts_by_band.csv'),
                      F.read(RES / 'exploratory_2' / 'R1_tau_by_band_curves.csv'), OUT)
     made += figure_1_example(OUT)
+    made += figure_toronto_cj(OUT)
+    made += figure_expected_slot(OUT)
+    made += figure_tp_share(OUT)
     tg = team_games()
     made += figure_season_view(tg, OUT)
     made += exposure_table(tg, DERIVED)
