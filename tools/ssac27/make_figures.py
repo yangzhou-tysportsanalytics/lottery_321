@@ -242,11 +242,12 @@ def figure_season_view(rows, out, season='2023-24', team='TOR'):
                             textcoords='offset points', ha='right' if left else 'left', va='center',
                             fontsize=6.5, color='#444444')
         ax.axhline(0, color='#888888', linewidth=0.6)
-        F._style(ax, '', "draft value of losing\n(share of a No. 1 pick)" if rule == 'old' else '',
+        F._style(ax, '', "draft value of losing\n(% of a No. 1 pick's value)" if rule == 'old' else '',
                  ('old lottery' if rule == 'old' else '3-2-1') + f', Toronto {season}')
         ax.xaxis.set_major_formatter(F.matplotlib.ticker.FuncFormatter(
             lambda x, _: (lambda d: f'{d:%b} {d.day}')(F.matplotlib.dates.num2date(x))))  # portable: no %-d
         ax.tick_params(labelsize=7); ax.yaxis.label.set_fontsize(7.5); ax.title.set_fontsize(8.5)
+        ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
         ax.legend(fontsize=7, frameon=False, loc='lower left')
     axes[0].set_ylim(-0.085, 0.045)
     fig.tight_layout()
