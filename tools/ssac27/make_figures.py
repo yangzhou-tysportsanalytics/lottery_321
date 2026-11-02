@@ -173,13 +173,14 @@ def figure_season_view(rows, out, season='2023-24', team='TOR'):
                 y = data[k][(rule, 'actual')][0]
                 ax.plot([dte], [y], 'o', markersize=6, markerfacecolor='none', markeredgecolor='#222222', markeredgewidth=0.9)
                 left = dte.month == 4
-                ax.annotate(f'vs {k[1]}, {dte:%b %-d}', xy=(dte, y), xytext=(-10 if left else 10, -2),
+                ax.annotate(f'vs {k[1]}, {dte:%b} {dte.day}', xy=(dte, y), xytext=(-10 if left else 10, -2),
                             textcoords='offset points', ha='right' if left else 'left', va='center',
                             fontsize=6.5, color='#444444')
         ax.axhline(0, color='#888888', linewidth=0.6)
         F._style(ax, '', "draft value of losing\n(share of a No. 1 pick)" if rule == 'old' else '',
                  ('old lottery' if rule == 'old' else '3-2-1') + f', Toronto {season}')
-        ax.xaxis.set_major_formatter(F.matplotlib.dates.DateFormatter('%b %-d'))
+        ax.xaxis.set_major_formatter(F.matplotlib.ticker.FuncFormatter(
+            lambda x, _: (lambda d: f'{d:%b} {d.day}')(F.matplotlib.dates.num2date(x))))  # portable: no %-d
         ax.tick_params(labelsize=7); ax.yaxis.label.set_fontsize(7.5); ax.title.set_fontsize(8.5)
         ax.legend(fontsize=7, frameon=False, loc='lower left')
     axes[0].set_ylim(-0.085, 0.045)
