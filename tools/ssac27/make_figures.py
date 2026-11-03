@@ -273,6 +273,35 @@ def exposure_table(rows, out):
     return [out / 'exposure_by_team_season.csv']
 
 
+def reversal_sign_table(rows, out):
+    """Table D3: reversals (picks held) and the sign of the draft value of losing on the four pre-specified charts.
+    Point estimate: tau_<chart> < 0. Beyond band and margin: sign_<chart> == 'win' (the pre-specified per-chart rule)."""
+    charts = ['linear', 'concave', 'convex', 'top3_stress']
+    cnt = {rule: _dd(int) for rule in ('old', 'new')}
+    for r in rows:
+        if r['portfolio'] != 'actual' or r['rule'] not in ('old', 'new'):
+            continue
+        c = cnt[r['rule']]; c['team_games'] += 1
+        if r['verdict_B'] != 'reversal':
+            continue
+        neg = [float(r['tau_' + k]) < 0 for k in charts]
+        win = [r['sign_' + k] == 'win' for k in charts]
+        c['reversals'] += 1
+        c['linear_negative_point'] += neg[0]
+        c['all_four_negative_point'] += all(neg)
+        c['none_negative_point'] += not any(neg)
+        c['linear_negative_beyond_band'] += win[0]
+        c['all_four_negative_beyond_band'] += all(win)
+    keys = ['reversals', 'linear_negative_point', 'all_four_negative_point', 'linear_negative_beyond_band',
+            'all_four_negative_beyond_band', 'none_negative_point', 'team_games']
+    out.mkdir(parents=True, exist_ok=True)
+    with open(out / 'reversal_signs_by_chart.csv', 'w', newline='') as f:
+        w = _csv.writer(f); w.writerow(['quantity', 'old', '321'])
+        for k in keys:
+            w.writerow([k, cnt['old'][k], cnt['new'][k]])
+    return [out / 'reversal_signs_by_chart.csv']
+
+
 # Holder and original team for the largest third-party stakes, 2025-26; wording from the 2026 ledger's text fields.
 STAKE_LABEL = {
     ('ATL', 'SAS'): 'SAS in ATL games: chained swap, SAS takes the better of SAS/ATL',
@@ -323,6 +352,7 @@ def main():
     tg = team_games()
     made += figure_season_view(tg, OUT)
     made += exposure_table(tg, DERIVED)
+    made += reversal_sign_table(tg, DERIVED)
     made += figure_stakes_bars(F.read(RES / 'primary' / 'F5_2_network_edges.csv'), OUT)
     print('\n'.join(str(p) for p in made))
 
