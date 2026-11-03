@@ -112,8 +112,8 @@ def figure_1_example(out):
     ax = fig.add_subplot(gs[0]); ax.axis('off')
     steps = ['Toronto (6th-worst) loses\nat home to Indiana (17th-worst)',
              "Indiana's record improves",
-             "Indiana's pick, which Toronto holds\n(top-3 protected), moves later",
-             "Toronto's picks lose value:\n5.5% of a No. 1 pick (linear chart)"]
+             "Indiana's pick, which Toronto holds\n(top-3 protected), can move later",
+             "That pick is worth less to Toronto;\nnet effect of all its picks: (b)"]
     ys = [0.9, 0.64, 0.38, 0.1]
     for i, (t, y) in enumerate(zip(steps, ys)):
         ax.text(0.5, y, t, ha='center', va='center', fontsize=7.5, color='#222222',
@@ -122,7 +122,7 @@ def figure_1_example(out):
         if i < 3:
             ax.annotate('', xy=(0.5, ys[i + 1] + 0.1), xytext=(0.5, y - 0.1),
                         arrowprops=dict(arrowstyle='->', color='#555555', lw=0.9))
-    ax.set_title('(a) How the loss costs Toronto', fontsize=8.5, color='#222222')
+    ax.set_title("(a) How Indiana's pick enters Toronto's incentive", fontsize=8.5, color='#222222')
     ax = fig.add_subplot(gs[1])
     x = np.arange(2); w = 0.36
     for k, rule in enumerate(('old', 'new')):
@@ -133,7 +133,7 @@ def figure_1_example(out):
             ax.annotate(f'{bv:+.1%}' if abs(bv) >= 0.0005 else '0.0%', xy=(bx, bv), xytext=(0, 3 if bv >= 0 else -9),
                         textcoords='offset points', ha='center', fontsize=6.8, color='#333333')
     ax.axhline(0, color='#888888', linewidth=0.6)
-    ax.set_xticks(x, ['own pick read alone', 'every pick held'], fontsize=7.5)
+    ax.set_xticks(x, ['own pick alone\n(hypothetical: unprotected)', 'every pick held'], fontsize=7.5)
     F._style(ax, '', '')
     ax.set_ylabel("% of a No. 1 pick's value", fontsize=7.5, color='#444444')
     ax.yaxis.set_major_formatter(F.matplotlib.ticker.PercentFormatter(1.0, decimals=0))
@@ -275,7 +275,8 @@ def exposure_table(rows, out):
 
 def reversal_sign_table(rows, out):
     """Table D3: reversals (picks held) and the sign of the draft value of losing on the four pre-specified charts.
-    Point estimate: tau_<chart> < 0. Beyond band and margin: sign_<chart> == 'win' (the pre-specified per-chart rule)."""
+    Point estimate: tau_<chart> < 0. Classified negative: sign_<chart> == 'win', the pre-specified per-chart rule (99% interval,
+    Bonferroni over three looks, entirely below zero and not entirely inside [-delta, +delta]); it does not require a loss beyond delta."""
     charts = ['linear', 'concave', 'convex', 'top3_stress']
     cnt = {rule: _dd(int) for rule in ('old', 'new')}
     for r in rows:
@@ -290,10 +291,10 @@ def reversal_sign_table(rows, out):
         c['linear_negative_point'] += neg[0]
         c['all_four_negative_point'] += all(neg)
         c['none_negative_point'] += not any(neg)
-        c['linear_negative_beyond_band'] += win[0]
-        c['all_four_negative_beyond_band'] += all(win)
-    keys = ['reversals', 'linear_negative_point', 'all_four_negative_point', 'linear_negative_beyond_band',
-            'all_four_negative_beyond_band', 'none_negative_point', 'team_games']
+        c['linear_classified_negative'] += win[0]
+        c['all_four_classified_negative'] += all(win)
+    keys = ['reversals', 'linear_negative_point', 'all_four_negative_point', 'linear_classified_negative',
+            'all_four_classified_negative', 'none_negative_point', 'team_games']
     out.mkdir(parents=True, exist_ok=True)
     with open(out / 'reversal_signs_by_chart.csv', 'w', newline='') as f:
         w = _csv.writer(f); w.writerow(['quantity', 'old', '321'])
